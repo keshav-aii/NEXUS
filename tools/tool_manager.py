@@ -1,31 +1,45 @@
 from tools.app_tools import run as run_app
-from tools.browser_tools import (
-    open_website,
-    search_youtube,
-    search_google,
-)
+
+ALIASES = {
+    "git hub": "github",
+    "github.com": "github",
+    "you tube": "youtube",
+    "linked in": "linkedin",
+    "chat gpt": "chatgpt",
+}
+
 
 def choose_tool(command):
 
-    command = command.lower()
+    command = command.lower().strip()
 
- 
     if command.startswith("search youtube for "):
         query = command.replace("search youtube for ", "")
-        return search_youtube(query)
+
+        return {
+            "type": "youtube",
+            "query": query,
+            "message": f"Searching YouTube for {query}."
+        }
 
     if command.startswith("search google for "):
         query = command.replace("search google for ", "")
-        return search_google(query)
+
+        return {
+            "type": "google",
+            "query": query,
+            "message": f"Searching Google for {query}."
+        }
 
     if command.startswith("open "):
-        name = command.replace("open ", "")
 
-        result = open_website(name)
+        name = command.replace("open ", "").strip()
+        name = ALIASES.get(name, name)
 
-        if result:
-            return result
-
-        return run_app(name)
+        return {
+            "type": "website",
+            "name": name,
+            "message": f"Opening {name.title()}."
+        }
 
     return None
