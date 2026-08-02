@@ -1,19 +1,18 @@
 from brain.brain import ask_nexa
 from tools.tool_manager import choose_tool
-from tools.browser_tools import search_google, search_youtube
+from actions import execute
 from voice.listener import listen
 from voice.speaker import speak
-from actions import execute
-import time
 
 
 def is_wake_word(text):
-
     wake_words = [
         "hey nexus",
         "nexus",
         "hey nexa",
         "nexa",
+        "hey next us",
+        "next us"
     ]
 
     return any(word in text for word in wake_words)
@@ -28,6 +27,7 @@ print("===================================")
 
 while True:
 
+    # ---------- Sleep Mode ----------
     text = listen()
 
     if not text:
@@ -44,35 +44,44 @@ while True:
 
     speak("Yes?")
 
-    command = listen()
+    # ---------- Conversation Mode ----------
+    while True:
 
-    if not command:
-        speak("I didn't hear anything.")
-        continue
+        command = listen()
 
-    print("You:", command)
+        if not command:
+            speak("I didn't hear anything.")
+            continue
 
-    if command == "exit":
-        speak("Goodbye!")
-        break
+        print("You:", command)
 
-    action = choose_tool(command)
+        if command in [
+            "exit",
+            "bye",
+            "goodbye",
+            "sleep",
+            "go to sleep",
+            "no",
+            "nothing",
+            "that's all",
+        ]:
+            speak("Okay. Going back to sleep.")
+            break
 
-    if action:
+        action = choose_tool(command)
 
-       print("DEBUG: Action =", action)
+        if action:
 
-       print("DEBUG: Before speak")
-       speak(action["message"])
-       print("DEBUG: After speak")
+            speak(action["message"])
 
-       import time
-       time.sleep(2)
+            execute(action)
 
-       execute(action)
+            speak("Anything else?")
 
-       continue
+            continue
 
-    reply = ask_nexa(command)
+        reply = ask_nexa(command)
 
-    speak(reply)
+        speak(reply)
+
+        speak("Anything else?")
