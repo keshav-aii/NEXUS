@@ -80,6 +80,31 @@ while True:
 
         continue
 
+
+
+    if result["type"] == "system":
+
+        speak(result["message"])
+
+        continue
+
+
+
+    if result["type"] == "confirmation":
+
+        speak(result["message"])
+
+        continue
+
+    # ==========================
+    # CONFIRMATION
+    # ==========================
+
+    if result["type"] == "confirmation":
+
+        speak(result["message"])
+
+        continue
    
    
   

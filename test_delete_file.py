@@ -26,4 +26,3 @@ for plugin in plugins:
     if result:
         print(result)
         break
-    
