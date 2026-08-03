@@ -31,12 +31,9 @@ def remove_wake_word(text):
 
     for word in wake_words:
 
-
         if text.startswith(word):
 
-
             return text[len(word):].strip()
-
 
 
     return None
@@ -47,17 +44,13 @@ def remove_wake_word(text):
 
 def speak_result(result):
 
-
     if not result:
-
         return
-
 
 
     if isinstance(result, str):
 
         speak(result)
-
         return
 
 
@@ -65,7 +58,6 @@ def speak_result(result):
     if not isinstance(result, dict):
 
         speak(str(result))
-
         return
 
 
@@ -74,16 +66,12 @@ def speak_result(result):
 
 
 
-    # plugin response
-
     if result_type == "plugin":
-
 
         data = result.get("data")
 
 
         if isinstance(data, dict):
-
 
             if data.get("message"):
 
@@ -107,18 +95,13 @@ def speak_result(result):
 
 
 
-    # tool response
 
     elif result_type == "tool":
 
-
-        action = result.get(
-            "action"
-        )
+        action = result.get("action")
 
 
         if action:
-
 
             speak(
                 action.get(
@@ -134,11 +117,8 @@ def speak_result(result):
 
 
 
-    # ai
-
     elif result_type == "ai":
 
-
         speak(
             result.get(
                 "message",
@@ -148,29 +128,11 @@ def speak_result(result):
 
 
 
-    # memory
-
-    elif result_type == "memory":
-
+    elif result.get("message"):
 
         speak(
-            result.get(
-                "message",
-                ""
-            )
+            result["message"]
         )
-
-
-
-    else:
-
-
-        if result.get("message"):
-
-            speak(
-                result["message"]
-            )
-
 
 
 
@@ -187,10 +149,13 @@ print("===================================")
 
 awake_mode = False
 
+# NEW
+conversation_mode = False
+
+
 waiting_confirmation = False
 
 pending_command = None
-
 
 
 
@@ -221,6 +186,7 @@ while True:
 
 
 
+
     # EXIT
 
     if text == "exit":
@@ -238,12 +204,12 @@ while True:
 
 
 
-    # =====================
-    # WAKE WORD
-    # =====================
+    # =========================
+    # WAKE SYSTEM
+    # =========================
 
 
-    if not awake_mode:
+    if not conversation_mode:
 
 
         command_text = remove_wake_word(
@@ -251,16 +217,13 @@ while True:
         )
 
 
-
         if command_text is None:
-
 
             continue
 
 
 
-        awake_mode = True
-
+        conversation_mode = True
 
 
         speak(
@@ -271,13 +234,10 @@ while True:
 
         if command_text:
 
-
             text = command_text
 
 
-
         else:
-
 
             continue
 
@@ -286,16 +246,16 @@ while True:
 
 
 
-    # =====================
+
+    # =========================
     # CONFIRMATION
-    # =====================
+    # =========================
 
 
     if waiting_confirmation:
 
 
-        if text in [
-
+        yes_words = [
 
             "yes",
             "yeah",
@@ -306,48 +266,64 @@ while True:
             "okay",
             "haan",
             "ha",
-             "kar do",
+            "kar do",
             "delete it",
             "do it",
             "go ahead",
             "proceed",
             "sure"
-        ]:
+
+        ]
+
+
+
+        no_words = [
+
+            "no",
+            "cancel",
+            "stop",
+            "nahi"
+
+        ]
+
+
+
+
+        if text in yes_words:
 
 
             waiting_confirmation = False
 
 
 
-        if pending_command:
+            if pending_command:
 
 
-            pending_command.context["confirmed"] = True
-
-
-            result = process(
-            pending_command
-            )
-
-
-            print(
-                "CONFIRM RESULT:",
-                result
-            )
+                pending_command.context[
+                    "confirmed"
+                ] = True
 
 
 
-            speak_result(
-                result
-            )
+                result = process(
+                    pending_command
+                )
+
+
+                print(
+                    "CONFIRM RESULT:",
+                    result
+                )
 
 
 
-            pending_command = None
+                speak_result(
+                    result
+                )
 
 
+                pending_command = None
 
-            awake_mode = False
 
 
             continue
@@ -356,19 +332,11 @@ while True:
 
 
 
-
-        elif text in [
-
-
-            "no",
-            "cancel",
-            "stop",
-            "nahi"
-
-        ]:
+        elif text in no_words:
 
 
             waiting_confirmation = False
+
 
             pending_command = None
 
@@ -378,12 +346,7 @@ while True:
             )
 
 
-            awake_mode = False
-
-
             continue
-
-
 
 
 
@@ -404,11 +367,19 @@ while True:
 
 
 
-    # =====================
-    # PROCESS COMMAND
-    # =====================
 
-    print("FINAL TEXT BEFORE COMMAND:", repr(text))
+    # =========================
+    # COMMAND PROCESS
+    # =========================
+
+
+
+    print(
+        "FINAL TEXT:",
+        repr(text)
+    )
+
+
 
     cmd = Command(
         text
@@ -429,10 +400,8 @@ while True:
 
 
 
+
     if not result:
-
-
-        awake_mode = False
 
         continue
 
@@ -440,9 +409,10 @@ while True:
 
 
 
-    # =====================
-    # CONFIRMATION REQUEST
-    # =====================
+
+    # =========================
+    # DELETE CONFIRM
+    # =========================
 
 
     if result.get("type") == "confirmation":
@@ -471,12 +441,12 @@ while True:
 
 
 
-    # NORMAL RESPONSE
+
+    # =========================
+    # NORMAL
+    # =========================
 
 
     speak_result(
         result
     )
-
-
-    awake_mode = False

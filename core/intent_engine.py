@@ -71,6 +71,18 @@ INTENT_KEYWORDS = {
 
     ],
 
+        "memory": [
+
+         "remember",
+        "what do you remember",
+        "what is my",
+        "what's my",
+        "whats my",
+        "recall",
+        "forget",
+
+    ],
+
 }
 
 
@@ -108,6 +120,12 @@ KEYWORD_WEIGHTS = {
     "delete": 5,
     "remove": 4,
 
+    "remember": 10,
+    "what do you remember": 10,
+    "what is my": 8,
+    "recall": 8,
+    "forget": 5,
+
 }
 
 
@@ -115,6 +133,11 @@ KEYWORD_WEIGHTS = {
 def detect_intent(command: Command) -> Command:
 
     text = command.normalized.lower()
+
+    text = text.replace(
+        "what's",
+        "what is"
+    )
 
 
 
@@ -146,6 +169,24 @@ def detect_intent(command: Command) -> Command:
 
     scores = {}
 
+        # Memory priority
+
+  # Memory priority
+
+    if (
+        "remember" in text
+        or "what do you remember" in text
+        or "what is my" in text
+        or "what's my" in text
+        or "whats my" in text
+        or "recall" in text
+    ):
+
+        command.intent = "memory"
+
+        command.confidence = 1.0
+
+        return command
 
 
     for intent, keywords in INTENT_KEYWORDS.items():

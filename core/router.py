@@ -78,11 +78,24 @@ def process(command):
         command.context.get("confirmed")
     )
 
+    print(
+        "LOADED PLUGINS:",
+        [
+            p["info"].get("name")
+            for p in PLUGINS
+        ]
+    )
+
     # ======================
     # PLUGINS
     # ======================
 
     for plugin in PLUGINS:
+
+        print(
+            "TRY PLUGIN:",
+            plugin["info"].get("name")
+        )
 
 
         handler = plugin["handler"]
