@@ -1,6 +1,6 @@
 from voice.listener import listen
 from voice.speaker import speak
-
+from core.command import Command
 from core.router import process
 from actions import execute
 
@@ -39,7 +39,7 @@ while True:
     print(f"You: {text}")
 
     if text == "exit":
-        speak("Goodbye!")
+        speak("Radhe Radhe")
         break
 
     if not is_wake_word(text):
@@ -63,7 +63,9 @@ while True:
         break
 
     # Process command
-    result = process(command)
+    cmd = Command(command)
+
+    result = process(cmd)
 
     if not result:
         continue
