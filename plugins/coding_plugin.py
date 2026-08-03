@@ -7,10 +7,10 @@ from config.user_config import (
     PROJECTS,
     GITHUB_REPO,
     USE_CHATGPT,
+    VS_CODE_PATH,
 )
 
-VS_CODE = r"C:\Users\keshv\AppData\Local\Programs\Microsoft VS Code\Code.exe"
-
+VS_CODE_PATH = r"C:\Users\keshv\AppData\Local\Programs\Microsoft VS Code\Code.exe"
 
 def handle(command):
 
@@ -25,7 +25,7 @@ def handle(command):
         return None
 
     # Open VS Code
-    subprocess.Popen([VS_CODE])
+    subprocess.Popen([VS_CODE_PATH])
 
     # Open Project
     project = PROJECTS.get("nexus")
@@ -42,16 +42,18 @@ def handle(command):
 
     # Open Windows Terminal and run git status
     if project and os.path.exists(project):
-         subprocess.Popen([
-             "wt",
-            "-d",
-             project,
-             "powershell",
-              "-NoExit",
-             "-Command",
-             "git status"
-        ])
-        
+        try:
+            subprocess.Popen([
+                 "wt",
+                 "-d",
+                 project,
+                 "powershell",
+                 "-NoExit",
+                 "-Command",
+                 "git status"
+            ])
+        except FileNotFoundError:
+            print("Windows Terminal not found.") 
 
     # Check Ollama
     try:
