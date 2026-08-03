@@ -21,8 +21,8 @@ def normalize(command: Command) -> Command:
 
     text = command.raw.lower()
 
-    # Remove punctuation
-    text = re.sub(r"[^\w\s]", "", text)
+    # Remove punctuation but preserve dots for file extensions
+    text = re.sub(r"[^\w\s.]", "", text)
 
     # Remove filler words
     for word in FILLER_WORDS:

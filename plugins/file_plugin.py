@@ -60,23 +60,43 @@ def handle(command: Command):
         name = command.entities.get("name")
 
 
-        if entity_type == "folder" and name:
-
-            path = os.path.join(
-                os.path.expanduser("~/Desktop"),
-                name
-            )
+    if not name:
+        return None
 
 
-            os.makedirs(
-                path,
-                exist_ok=True
-            )
+    if entity_type == "folder":
+
+        path = os.path.join(
+            os.path.expanduser("~/Desktop"),
+            name
+        )
+
+        os.makedirs(
+            path,
+            exist_ok=True
+        )
 
 
-            return {
-                "message": f"Created folder {name}."
-            }
+        return {
+            "message": f"Created folder {name}."
+        }
 
 
-    return None
+
+    if entity_type == "file":
+
+        path = os.path.join(
+            os.path.expanduser("~/Desktop"),
+            name
+        )
+
+
+        with open(path, "w") as f:
+            f.write("")
+
+
+        return {
+            "message": f"Created file {name}."
+        }  
+    
+        return None
