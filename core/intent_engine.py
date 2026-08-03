@@ -8,6 +8,8 @@ INTENT_KEYWORDS = {
         "coding",
         "code",
         "developer",
+        "workspace",
+        "development",
     ],
 
     "open": [
@@ -36,32 +38,89 @@ INTENT_KEYWORDS = {
 }
 
 
+KEYWORD_WEIGHTS = {
+
+    "start coding": 10,
+    "coding": 8,
+    "developer": 6,
+    "development": 5,
+    "workspace": 5,
+
+    "open": 5,
+    "launch": 5,
+    "show": 3,
+    "go to": 3,
+
+    "create": 5,
+    "make": 3,
+    "new": 2,
+
+    "delete": 5,
+    "remove": 4,
+
+    "search": 5,
+    "find": 4,
+    "look for": 4,
+}
+
+
+
 def detect_intent(command: Command) -> Command:
     """
-    Detects user intention.
-    Does not execute anything.
+    Intent detection using keyword scoring.
     """
 
     text = command.normalized
 
-    best_intent = None
-    confidence = 0.0
+
+    scores = {}
+
 
     for intent, keywords in INTENT_KEYWORDS.items():
+
+        score = 0
+
 
         for keyword in keywords:
 
             if keyword in text:
 
-                best_intent = intent
-                confidence = 0.9
+                score += KEYWORD_WEIGHTS.get(
+                    keyword,
+                    1
+                )
 
-                break
 
-        if best_intent:
-            break
+        if score > 0:
 
-    command.intent = best_intent
-    command.confidence = confidence
+            scores[intent] = score
+
+
+
+    if scores:
+
+        best_intent = max(
+            scores,
+            key=scores.get
+        )
+
+        best_score = scores[best_intent]
+
+
+        command.intent = best_intent
+
+        command.confidence = min(
+            best_score / 10,
+            1.0
+        )
+
+
+    else:
+
+        command.intent = None
+
+        command.confidence = 0.0
+
+
 
     return command

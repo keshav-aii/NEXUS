@@ -6,7 +6,8 @@ from core.command import Command
 PLUGIN_INFO = {
     "name": "file",
     "intents": [
-        "open"
+        "open",
+        "create"
     ]
 }
 
@@ -26,38 +27,56 @@ FOLDER_MAP = {
 
 
 def handle(command: Command):
-   
-
-    # Only handle open intent
-
-    if command.intent != "open":
-        return None
 
 
-    target = command.entities.get("target")
+    if command.intent == "open":
+
+        target = command.entities.get("target")
 
 
-    if not target:
-        return None
+        if not target:
+            return None
 
 
-    folder_path = FOLDER_MAP.get(target)
+        folder_path = FOLDER_MAP.get(target)
 
 
-    if not folder_path:
-        return None
+        if not folder_path:
+            return None
 
 
-    if os.path.exists(folder_path):
-      
-        
-        os.startfile(folder_path)
-        
-        return {
-            "message": f"Opening {target.title()}."
-        }
+        if os.path.exists(folder_path):
+
+            os.startfile(folder_path)
+
+            return {
+                "message": f"Opening {target.title()}."
+            }
 
 
-    return {
-        "message": f"{target.title()} folder not found."
-    }
+    if command.intent == "create":
+
+        entity_type = command.entities.get("type")
+        name = command.entities.get("name")
+
+
+        if entity_type == "folder" and name:
+
+            path = os.path.join(
+                os.path.expanduser("~/Desktop"),
+                name
+            )
+
+
+            os.makedirs(
+                path,
+                exist_ok=True
+            )
+
+
+            return {
+                "message": f"Created folder {name}."
+            }
+
+
+    return None
