@@ -59,9 +59,9 @@ def extract_entities(command: Command) -> Command:
 
 
 
-    # Create folder/file names
+    # Create/Delete folder/file names
 
-    if command.intent == "create":
+    if command.intent in ["create", "delete"]:
 
         match = re.search(
             r"(folder|file)\s+(.+)",
@@ -76,8 +76,7 @@ def extract_entities(command: Command) -> Command:
             entities["name"] = (
                 match.group(2)
                 .strip()
-            )
-
+        )
 
     command.entities = entities
 
