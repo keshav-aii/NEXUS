@@ -1,18 +1,24 @@
 from brain.brain import ask_nexa
+from brain.memory_manager import handle_memory
+
 from tools.tool_manager import choose_tool
 from actions import execute
+
 from voice.listener import listen
 from voice.speaker import speak
 
+import time
+
 
 def is_wake_word(text):
+
     wake_words = [
         "hey nexus",
         "nexus",
         "hey nexa",
         "nexa",
-        "hey next us",
-        "next us"
+        "hey nexta",
+        "nexta"
     ]
 
     return any(word in text for word in wake_words)
@@ -27,13 +33,14 @@ print("===================================")
 
 while True:
 
-    # ---------- Sleep Mode ----------
+    # -------- Wake Mode --------
+
     text = listen()
 
     if not text:
         continue
 
-    print("You:", text)
+    print(f"You: {text}")
 
     if text == "exit":
         speak("Goodbye!")
@@ -44,44 +51,50 @@ while True:
 
     speak("Yes?")
 
-    # ---------- Conversation Mode ----------
-    while True:
+    time.sleep(0.3)
 
-        command = listen()
+    # -------- Command Mode --------
 
-        if not command:
-            speak("I didn't hear anything.")
-            continue
+    command = listen()
 
-        print("You:", command)
+    if not command:
+        speak("I didn't hear anything.")
+        continue
 
-        if command in [
-            "exit",
-            "bye",
-            "goodbye",
-            "sleep",
-            "go to sleep",
-            "no",
-            "nothing",
-            "that's all",
-        ]:
-            speak("Okay. Going back to sleep.")
-            break
+    print(f"You: {command}")
 
-        action = choose_tool(command)
+    if command == "exit":
+        speak("Goodbye!")
+        break
 
-        if action:
+    # -------- Memory --------
 
-            speak(action["message"])
+    memory_reply = handle_memory(command)
 
-            execute(action)
+    if memory_reply:
+        speak(memory_reply)
+        continue
 
-            speak("Anything else?")
+    # -------- Tools --------
 
-            continue
+    action = choose_tool(command)
 
-        reply = ask_nexa(command)
+    if action:
 
-        speak(reply)
+        print("DEBUG:", action)
+
+        speak(action["message"])
+
+        execute(action)
 
         speak("Anything else?")
+
+        continue
+
+    # -------- AI --------
+
+    reply = ask_nexa(command)
+
+    speak(reply)
+
+    speak("Anything else?")
