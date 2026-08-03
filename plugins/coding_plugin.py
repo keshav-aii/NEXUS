@@ -10,7 +10,6 @@ from config.user_config import (
     VS_CODE_PATH,
 )
 
-VS_CODE_PATH = r"C:\Users\keshv\AppData\Local\Programs\Microsoft VS Code\Code.exe"
 
 def handle(command):
 
@@ -24,14 +23,15 @@ def handle(command):
     ]:
         return None
 
-    # Open VS Code
-    subprocess.Popen([VS_CODE_PATH])
-
     # Open Project
     project = PROJECTS.get("nexus")
 
+    # Open VS Code
+    subprocess.Popen([VS_CODE_PATH])
+
+    # Open Project in VS Code
     if project and os.path.exists(project):
-        subprocess.Popen([VS_CODE, project])
+          subprocess.Popen([VS_CODE_PATH, project])
 
     # Open GitHub
     webbrowser.open(GITHUB_REPO)
