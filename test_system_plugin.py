@@ -1,28 +1,41 @@
 from core.command import Command
 from core.normalizer import normalize
 from core.intent_engine import detect_intent
-from core.entity_extractor import extract_entities
 from core.plugin_loader import load_plugins
 
 
 plugins = load_plugins()
 
 
-cmd = Command("delete file notes.txt")
+cmd = Command(
+    "lock computer"
+)
 
+
+# Pipeline
 
 cmd = normalize(cmd)
+
 cmd = detect_intent(cmd)
-cmd = extract_entities(cmd)
 
 
 print(cmd)
 
 
+# Plugin execute
+
 for plugin in plugins:
 
-    result = plugin["handler"](cmd)
+    intents = plugin["info"].get(
+        "intents",
+        []
+    )
 
-    if result:
+
+    if cmd.intent in intents:
+
+        result = plugin["handler"](cmd)
+
         print(result)
+
         break

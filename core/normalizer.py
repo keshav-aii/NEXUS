@@ -13,24 +13,72 @@ FILLER_WORDS = [
 ]
 
 
+VOICE_FIXES = {
+
+    "hu r u": "who are you",
+    "who r u": "who are you",
+    "h r u": "how are you",
+    "what is ur name": "what is your name",
+    "whats your name": "what is your name",
+
+}
+
+
+
 def normalize(command: Command) -> Command:
     """
     Cleans user command text.
     Does not detect intent or entities.
     """
 
+
+    # Original text
+
     text = command.raw.lower()
 
-    # Remove punctuation but preserve dots for file extensions
-    text = re.sub(r"[^\w\s.]", "", text)
+
+
+    # Voice corrections
+
+    for wrong, correct in VOICE_FIXES.items():
+
+        text = text.replace(
+            wrong,
+            correct
+        )
+
+
+
+    # Remove punctuation
+
+    text = re.sub(
+        r"[^\w\s]",
+        "",
+        text
+    )
+
+
 
     # Remove filler words
-    for word in FILLER_WORDS:
-        text = text.replace(word, "")
 
-    # Remove extra spaces
-    text = " ".join(text.split())
+    for word in FILLER_WORDS:
+
+        text = text.replace(
+            word,
+            ""
+        )
+
+
+
+    # Extra spaces
+
+    text = " ".join(
+        text.split()
+    )
+
+
 
     command.normalized = text
+
 
     return command

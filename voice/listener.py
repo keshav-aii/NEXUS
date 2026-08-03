@@ -1,36 +1,94 @@
 import speech_recognition as sr
+import time
+
+
 
 recognizer = sr.Recognizer()
-recognizer.energy_threshold = 300
+
+
+
+recognizer.pause_threshold = 0.8
+recognizer.non_speaking_duration = 0.3
 recognizer.dynamic_energy_threshold = True
+
+
+
+microphone = sr.Microphone()
+
+
+
+with microphone as source:
+
+    print("Calibrating microphone...")
+
+    recognizer.adjust_for_ambient_noise(
+        source,
+        duration=1
+    )
+
 
 
 def listen():
 
-    with sr.Microphone() as source:
-
-        print("🎤 Listening...")
-
-        audio = recognizer.listen(
-            source,
-            timeout=5,
-            phrase_time_limit=8
-        )
 
     try:
 
+
+        with microphone as source:
+
+
+            print("🎤 Listening...")
+
+
+            audio = recognizer.listen(
+
+                source,
+
+                timeout=8,
+
+                phrase_time_limit=5
+
+            )
+
+
+
         text = recognizer.recognize_google(
-            audio,
-            language="en-IN"
+            audio
         )
 
-        print("Recognized:", text)
 
-        return text.lower()
 
-    except sr.UnknownValueError:
+        print(
+            f"Recognized: {text}"
+        )
+
+
+
+        return text.lower().strip()
+
+
+
+    except sr.WaitTimeoutError:
+
+
         return ""
 
+
+
+    except sr.UnknownValueError:
+
+
+        return ""
+
+
+
     except Exception as e:
-        print(e)
+
+
+        print(
+            "Voice error:",
+            e
+        )
+
+
         return ""

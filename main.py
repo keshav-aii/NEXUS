@@ -1,24 +1,34 @@
 from voice.listener import listen
 from voice.speaker import speak
+import time
 from core.command import Command
 from core.router import process
+
 from actions import execute
 
-import time
 
 
 def is_wake_word(text):
 
     wake_words = [
+
         "hey nexus",
         "nexus",
+
         "hey nexa",
         "nexa",
+
         "hey nexta",
         "nexta"
+
     ]
 
-    return any(word in text for word in wake_words)
+
+    return any(
+        word in text.lower()
+        for word in wake_words
+    )
+
 
 
 print("===================================")
@@ -28,122 +38,234 @@ print(" Say 'Exit' to quit")
 print("===================================")
 
 
+
+awake_mode = False
+
+
+
 while True:
 
-    # Wake Mode
+
     text = listen()
 
+
+
     if not text:
+
         continue
 
-    print(f"You: {text}")
+
+
+    text = text.lower().strip()
+
+
+
+    print(
+        f"You: {text}"
+    )
+
+
+
+    # ==========================
+    # EXIT
+    # ==========================
 
     if text == "exit":
-        speak("Radhe Radhe")
+
+
+        speak(
+            "Radhe Radhe"
+        )
+
+
         break
 
-    if not is_wake_word(text):
+
+
+
+    # ==========================
+    # WAKE WORD
+    # ==========================
+
+
+    if not awake_mode:
+
+
+        if is_wake_word(text):
+
+
+            awake_mode = True
+
+
+            speak(
+                "Yes?"
+            )
+
+
         continue
 
-    speak("Yes?")
 
-    time.sleep(0.3)
 
-    # Command Mode
-    command = listen()
 
-    if not command:
-        speak("I didn't hear anything.")
-        continue
 
-    print(f"You: {command}")
+    # ==========================
+    # COMMAND PROCESSING
+    # ==========================
 
-    if command == "exit":
-        speak("Goodbye!")
-        break
 
-    # Process command
-    cmd = Command(command)
+    cmd = Command(
+        text
+    )
 
-    result = process(cmd)
+
+
+    result = process(
+        cmd
+    )
+
+
 
     if not result:
+
         continue
+
+
+
+
 
     # ==========================
     # MEMORY
     # ==========================
 
+
     if result["type"] == "memory":
 
-        speak(result["message"])
+
+        speak(
+            result["message"]
+        )
+
 
         continue
 
 
 
-    if result["type"] == "system":
 
-        speak(result["message"])
-
-        continue
-
-
-
-    if result["type"] == "confirmation":
-
-        speak(result["message"])
-
-        continue
 
     # ==========================
     # CONFIRMATION
     # ==========================
 
+
     if result["type"] == "confirmation":
 
-        speak(result["message"])
+
+        speak(
+            result["message"]
+        )
+        time.sleep(1)
+
 
         continue
-   
-   
-  
 
-   # ==========================
-     #  PLUGINS
-# ==========================
+
+
+
+
+    # ==========================
+    # PLUGIN
+    # ==========================
+
 
     if result["type"] == "plugin":
 
-        if "ollama" in result["data"]:
-             speak(result["data"]["ollama"])
 
-        if "message" in result["data"]:
-            speak(result["data"]["message"])
+        data = result["data"]
+
+
+
+        if isinstance(data, dict):
+
+
+            if "message" in data:
+
+
+                speak(
+                    data["message"]
+                )
+
+
+            elif "ollama" in data:
+
+
+                speak(
+                    data["ollama"]
+                )
+
+
+        else:
+
+
+            speak(
+                str(data)
+            )
+
+
 
         continue
+
+
+
+
+
     # ==========================
     # TOOLS
     # ==========================
 
+
     if result["type"] == "tool":
+
 
         action = result["action"]
 
-        speak(action["message"])
 
-        execute(action)
 
-        speak("Anything else?")
+        speak(
+            action["message"]
+        )
+
+
+
+        execute(
+            action
+        )
+
+
+
+        speak(
+            "Anything else?"
+        )
+
 
         continue
 
+
+
+
+
     # ==========================
-    # AI
+    # AI FALLBACK
     # ==========================
+
 
     if result["type"] == "ai":
 
-        speak(result["message"])
 
-        speak("Anything else?")
+        speak(
+            result["message"]
+        )
+
+
+        speak(
+            "Anything else?"
+        )
