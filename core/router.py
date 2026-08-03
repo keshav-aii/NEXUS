@@ -1,9 +1,9 @@
 from brain.memory_manager import handle_memory
 from tools.tool_manager import choose_tool
 from brain.brain import ask_nexa
-from plugins.coding_plugin import handle as coding_plugin
+from core.plugin_loader import load_plugins
 
-
+plugins = load_plugins()
 def process(command):
     """
     Central router for every command.
@@ -18,13 +18,15 @@ def process(command):
             "message": memory_reply
         }
 
-    # 2. Coding Plugin
-    coding = coding_plugin(command)
+    # 2. Plugins
+    for plugin in plugins:
 
-    if coding:
-        return {
-            "type": "coding",
-            "data": coding
+        result = plugin(command)
+
+        if result:
+            return {
+                 "type": "plugin",
+                 "data": result
         }
 
     # 3. Tools

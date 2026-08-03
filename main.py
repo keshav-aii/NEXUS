@@ -78,18 +78,23 @@ while True:
 
         continue
 
-    # ==========================
-    # CODING MODE
-    # ==========================
+   
+   
+  
 
-    if result["type"] == "coding":
+   # ==========================
+     #  PLUGINS
+# ==========================
 
-        speak(result["data"]["ollama"])
+    if result["type"] == "plugin":
 
-        speak(result["data"]["message"])
+        if "ollama" in result["data"]:
+             speak(result["data"]["ollama"])
+
+        if "message" in result["data"]:
+            speak(result["data"]["message"])
 
         continue
-
     # ==========================
     # TOOLS
     # ==========================
