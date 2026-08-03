@@ -8,7 +8,7 @@ PLUGIN_INFO = {
 
     "name": "app",
 
-    "priority": 50;
+    "priority": 50,
 
     "intents": [
 
@@ -17,6 +17,7 @@ PLUGIN_INFO = {
     ]
 
 }
+
 
 
 
@@ -32,7 +33,10 @@ WEBSITE_WORDS = [
 
     "chatgpt",
 
+    "gmail",
+
 ]
+
 
 
 
@@ -40,11 +44,14 @@ WEBSITE_WORDS = [
 def handle(command: Command):
 
 
-    text = command.normalized.lower()
+    text = command.normalized.lower().strip()
 
 
 
-    # Website commands ko skip karo
+    # ==========================
+    # Website Skip
+    # ==========================
+
 
     for site in WEBSITE_WORDS:
 
@@ -58,9 +65,16 @@ def handle(command: Command):
 
 
 
+    # ==========================
+    # Only OPEN intent
+    # ==========================
+
+
     if command.intent != "open":
 
+
         return None
+
 
 
 
@@ -69,27 +83,45 @@ def handle(command: Command):
 
 
 
-    if "open" in words:
+    if "open" not in words:
 
 
-        index = words.index(
-            "open"
-        )
-
-
-        target = " ".join(
-            words[index + 1:]
-        )
+        return None
 
 
 
-        if target:
 
 
-            return open_application(
-                target
-            )
+    index = words.index(
+        "open"
+    )
 
 
 
-    return None
+    target = " ".join(
+        words[index + 1:]
+    )
+
+
+
+    if not target:
+
+
+        return None
+
+
+
+
+
+    result = open_application(
+        target
+    )
+
+
+
+    return {
+
+
+        "message": result
+
+    }

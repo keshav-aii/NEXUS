@@ -4,61 +4,131 @@ import shutil
 from core.command import Command
 
 
+
 PLUGIN_INFO = {
+
     "name": "file",
+
+    "priority": 30,
+
     "intents": [
+
         "open",
         "create",
         "delete"
+
     ]
+
 }
+
+
 
 
 FOLDER_MAP = {
 
-    "downloads": os.path.expanduser("~/Downloads"),
-    "desktop": os.path.expanduser("~/Desktop"),
-    "documents": os.path.expanduser("~/Documents"),
-    "pictures": os.path.expanduser("~/Pictures"),
-    "music": os.path.expanduser("~/Music"),
+    "downloads":
+    os.path.expanduser("~/Downloads"),
+
+    "desktop":
+    os.path.expanduser("~/Desktop"),
+
+    "documents":
+    os.path.expanduser("~/Documents"),
+
+    "pictures":
+    os.path.expanduser("~/Pictures"),
+
+    "music":
+    os.path.expanduser("~/Music"),
+
 }
 
 
-DESKTOP = os.path.expanduser("~/Desktop")
+
+DESKTOP = os.path.expanduser(
+    "~/Desktop"
+)
+
+
+
 
 
 def handle(command: Command):
 
 
-    if command.intent == "open":
+    intent = command.intent
 
-        target = command.entities.get("target")
+
+
+
+
+    # ==========================
+    # OPEN FOLDER
+    # ==========================
+
+
+    if intent == "open":
+
+
+        target = command.entities.get(
+            "target"
+        )
+
 
         if not target:
+
             return None
 
 
-        folder_path = FOLDER_MAP.get(target)
+
+        folder_path = FOLDER_MAP.get(
+            target
+        )
+
 
 
         if folder_path and os.path.exists(folder_path):
 
-            os.startfile(folder_path)
+
+            os.startfile(
+                folder_path
+            )
+
 
             return {
-                "message": f"Opening {target.title()}."
+
+                "message":
+                f"Opening {target.title()}."
+
             }
 
 
 
-    if command.intent == "create":
 
-        entity_type = command.entities.get("type")
-        name = command.entities.get("name")
+
+    # ==========================
+    # CREATE
+    # ==========================
+
+
+    if intent == "create":
+
+
+        entity_type = command.entities.get(
+            "type"
+        )
+
+
+        name = command.entities.get(
+            "name"
+        )
+
 
 
         if not name:
+
             return None
+
 
 
         path = os.path.join(
@@ -67,7 +137,9 @@ def handle(command: Command):
         )
 
 
+
         if entity_type == "folder":
+
 
             os.makedirs(
                 path,
@@ -76,31 +148,72 @@ def handle(command: Command):
 
 
             return {
-                "message": f"Created folder {name}."
+
+                "message":
+                f"Created folder {name}."
+
             }
+
+
 
 
 
         if entity_type == "file":
 
-            with open(path, "w") as f:
+
+            with open(
+                path,
+                "w"
+            ) as f:
+
                 f.write("")
 
 
+
             return {
-                "message": f"Created file {name}."
+
+                "message":
+                f"Created file {name}."
+
             }
 
 
 
-    if command.intent == "delete":
 
-        entity_type = command.entities.get("type")
-        name = command.entities.get("name")
+
+
+
+    # ==========================
+    # DELETE
+    # ==========================
+
+
+    if intent == "delete":
+
+
+        entity_type = command.entities.get(
+            "type"
+        )
+
+
+        name = command.entities.get(
+            "name"
+        )
+
 
 
         if not name:
-            return None
+
+
+            return {
+
+                "message":
+                "Please specify file or folder name."
+
+            }
+
+
+
 
 
         path = os.path.join(
@@ -109,29 +222,58 @@ def handle(command: Command):
         )
 
 
+
         if not os.path.exists(path):
 
+
             return {
-                "message": f"{name} not found."
+
+                "message":
+                f"{name} not found."
+
             }
+
+
+
+
 
 
         if entity_type == "file":
 
-            os.remove(path)
+
+            os.remove(
+                path
+            )
+
 
             return {
-                "message": f"Deleted file {name}."
+
+                "message":
+                f"Deleted file {name}."
+
             }
+
+
+
+
 
 
         if entity_type == "folder":
 
-            shutil.rmtree(path)
+
+            shutil.rmtree(
+                path
+            )
+
 
             return {
-                "message": f"Deleted folder {name}."
+
+                "message":
+                f"Deleted folder {name}."
+
             }
+
+
 
 
     return None

@@ -1,31 +1,86 @@
 import asyncio
-import edge_tts
 import tempfile
 import os
+
+import edge_tts
 from playsound import playsound
+
 
 VOICE = "en-US-GuyNeural"
 
 
+
 async def _generate(text, filename):
-    communicate = edge_tts.Communicate(text, VOICE)
-    await communicate.save(filename)
+
+    communicate = edge_tts.Communicate(
+        text,
+        VOICE
+    )
+
+    await communicate.save(
+        filename
+    )
+
+
+
 
 
 def speak(text):
-    print(f"NEXUS: {text}")
 
-    temp_file = tempfile.NamedTemporaryFile(delete=False, suffix=".mp3")
-    temp_file.close()
+
+    if isinstance(text, dict):
+
+        text = text.get(
+            "message",
+            ""
+        )
+
+
+    if not text:
+
+        return
+
+
+
+    text = str(text)
+
+
+
+    with tempfile.NamedTemporaryFile(
+        delete=False,
+        suffix=".mp3"
+    ) as temp_file:
+
+        file_path = temp_file.name
+
+
 
     try:
-        asyncio.run(_generate(text, temp_file.name))
-        playsound(temp_file.name)
 
-        import time
-        time.sleep(0.5)
+
+        asyncio.run(
+            _generate(
+                text,
+                file_path
+            )
+        )
+
+
+        playsound(
+            file_path
+        )
+
+
+
     finally:
+
+
         try:
-            os.remove(temp_file.name)
+
+            os.remove(
+                file_path
+            )
+
         except:
+
             pass

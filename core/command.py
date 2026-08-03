@@ -2,34 +2,65 @@ from dataclasses import dataclass, field
 from datetime import datetime
 
 
+
 @dataclass
 class Command:
-    """
-    Universal command object used throughout NEXUS pipeline.
-    """
 
-    # Original user input
+
+    # Original input
     raw: str
 
-    # Cleaned command after normalization
+
+
+    # Normalized input
     normalized: str = ""
 
-    # Detected user intention
+
+
+    # Intent
     intent: str | None = None
 
-    # Extracted information
-    entities: dict = field(default_factory=dict)
 
-    # Confidence score from intent engine
+
+    # Entities
+    entities: dict = field(
+        default_factory=dict
+    )
+
+
+
+    # Confidence
     confidence: float = 0.0
 
-    # Where command came from
+
+
+    # Source
     source: str = "voice"
 
-    # Extra temporary information
-    context: dict = field(default_factory=dict)
 
-    # Creation time
+
+    # Context
+    context: dict = field(
+        default_factory=dict
+    )
+
+
+
+    # Time
     timestamp: datetime = field(
         default_factory=datetime.now
     )
+
+
+
+    def __post_init__(self):
+
+
+        if not self.normalized:
+
+
+            self.normalized = (
+                self.raw
+                .lower()
+                .strip()
+            )

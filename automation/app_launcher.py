@@ -4,25 +4,40 @@ from automation import app_database
 
 
 
+
 ALIASES = {
 
-    "chrome": "chrome",
+    "chrome":
+    "chrome",
 
-    "google chrome": "chrome",
+    "google chrome":
+    "chrome",
 
-    "browser": "chrome",
+    "browser":
+    "chrome",
 
-    "git": "git",
+    "git":
+    "git",
 
-    "calculator": "calculator",
+    "calculator":
+    "calculator",
 
-    "calc": "calculator",
+    "calc":
+    "calculator",
+
+    "notepad":
+    "notepad",
+
+    "paint":
+    "paint",
 
 }
 
 
 
-def open_application(name):
+
+
+def find_application(name):
 
 
     name = name.lower().strip()
@@ -36,12 +51,32 @@ def open_application(name):
 
 
 
-    # Load apps
-
     if not app_database.APP_DATABASE:
+
 
         app_database.load_apps()
 
+
+
+
+
+    # Exact match first
+
+
+    for app, path in app_database.APP_DATABASE.items():
+
+
+        if app.lower() == name:
+
+
+            return path
+
+
+
+
+
+
+    # Partial match
 
 
     for app, path in app_database.APP_DATABASE.items():
@@ -50,23 +85,48 @@ def open_application(name):
         if name in app.lower():
 
 
-            subprocess.Popen(
-                path
-            )
+            return path
 
 
-            return {
 
-                "message":
-                f"Opening {name}."
 
-            }
+
+    return None
+
+
+
+
+
+def open_application(name):
+
+
+    path = find_application(
+        name
+    )
+
+
+
+    if path:
+
+
+        subprocess.Popen(
+            path
+        )
+
+
+        return {
+
+            "message":
+            f"Opening {name}."
+
+        }
+
 
 
 
     return {
 
         "message":
-        f"I couldn't find {name}."
+         f"Opening {name.title()}."
 
     }

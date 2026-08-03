@@ -1,266 +1,126 @@
-from brain.memory_manager import handle_memory
-from tools.tool_manager import choose_tool
-from brain.brain import ask_nexa
-
-from core.plugin_loader import load_plugins
-from core.normalizer import normalize
 from core.intent_engine import detect_intent
 from core.entity_extractor import extract_entities
-
-from brain.state_manager import (
-    set_pending,
-    get_pending,
-    clear_pending
-)
+from core.plugin_loader import load_plugins
 
 
 
-plugins = load_plugins()
+PLUGINS = load_plugins()
 
 
 
 def process(command):
 
 
-    # ==========================
-    # Confirmation Check
-    # ==========================
-
-    pending = get_pending()
-
-
-    if pending:
-
-
-        answer = command.raw.lower().strip()
-
-
-
-        if answer in [
-
-            "yes",
-            "yeah",
-            "yep",
-            "ok",
-            "okay",
-            "confirm",
-            "haan",
-            "ha",
-            "kar do",
-            "do it"
-
-        ]:
-
-
-            clear_pending()
-
-
-            result = pending["handler"](
-                pending["command"]
-            )
-
-
-            return {
-
-                "type": "plugin",
-
-                "data": result
-
-            }
-
-
-
-
-        if answer in [
-
-            "no",
-            "cancel",
-            "stop",
-            "nahi",
-            "mat karo"
-
-        ]:
-
-
-            clear_pending()
-
-
-            return {
-
-                "type": "system",
-
-                "message": "Cancelled."
-
-            }
-
-
-
-        return {
-
-            "type": "system",
-
-            "message": "Please confirm yes or no."
-
-        }
-
-
-
-
-
-    # ==========================
-    # Pipeline
-    # ==========================
-
-
-    command = normalize(
-        command
+    print(
+        "ROUTER COMMAND:",
+        command.normalized
     )
 
+
+
+    # ======================
+    # INTENT
+    # ======================
 
     command = detect_intent(
         command
     )
 
 
+    print(
+        "INTENT:",
+        command.intent
+    )
+
+
+
+    # ======================
+    # ENTITIES
+    # ======================
+
     command = extract_entities(
         command
     )
 
 
-
-
-
-    # ==========================
-    # Memory
-    # ==========================
-
-    memory = handle_memory(
-        command.normalized
+    print(
+        "ENTITIES:",
+        command.entities
     )
 
 
-    if memory:
+
+
+    # ======================
+    # DELETE CONFIRMATION
+    # ======================
+
+    # DELETE CONFIRMATION
+
+    if (
+        command.intent == "delete"
+        and not command.context.get("confirmed")
+    ):
 
 
         return {
 
-            "type": "memory",
+            "type": "confirmation",
 
-            "message": memory
+            "message":
+            f"Do you want to delete {command.entities.get('name')}?",
 
+            "command": command
         }
 
-
-
-
-
-    # ==========================
-    # Plugins
-    # ==========================
-
-    for plugin in plugins:
-
-
-        intents = plugin["info"].get(
-            "intents",
-            []
-        )
-
-
-        if command.intent not in intents:
-
-            continue
-
-
-
-
-        if command.intent == "delete":
-
-
-            set_pending({
-
-                "handler": plugin["handler"],
-
-                "command": command
-
-            })
-
-
-            return {
-
-                "type": "confirmation",
-
-                "message":
-                f"Do you want to delete {command.entities.get('name')}?"
-
-            }
-
-
-
-
-
-        result = plugin["handler"](
-            command
-        )
-
-
-
-        if result:
-
-
-            return {
-
-                "type": "plugin",
-
-                "data": result
-
-            }
-
-
-
-
-
-
-
-    # ==========================
-    # Tools
-    # ==========================
-
-
-    action = choose_tool(
-        command
+    print(
+        "CONFIRMED FLAG:",
+        command.context.get("confirmed")
     )
 
+    # ======================
+    # PLUGINS
+    # ======================
 
-    if action:
+    for plugin in PLUGINS:
 
 
-        return {
-
-            "type": "tool",
-
-            "action": action
-
-        }
+        handler = plugin["handler"]
 
 
 
+        try:
 
 
-    # ==========================
-    # AI
-    # ==========================
+            result = handler(
+                command
+            )
 
 
-    reply = ask_nexa(
-        command.normalized
-    )
+            if result:
 
 
-    return {
+                return {
 
-        "type": "ai",
+                    "type":
+                    "plugin",
 
-        "message": reply
 
-    }
+                    "data":
+                    result
+
+                }
+
+
+
+        except Exception as e:
+
+
+            print(
+                "PLUGIN ERROR:",
+                e
+            )
+
+
+
+    return None

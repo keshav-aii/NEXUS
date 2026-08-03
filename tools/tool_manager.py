@@ -1,5 +1,8 @@
 from core.command import Command
 
+from automation.app_launcher import find_application
+
+
 
 ALIASES = {
 
@@ -14,6 +17,8 @@ ALIASES = {
     "chat gpt": "chatgpt",
 
 }
+
+
 
 
 
@@ -39,7 +44,6 @@ def clean_target(text):
         )
 
 
-
     return text.strip()
 
 
@@ -53,8 +57,10 @@ def choose_tool(command: Command):
 
 
 
+
+
     # ==========================
-    # YOUTUBE PRIORITY
+    # SEARCH YOUTUBE
     # ==========================
 
 
@@ -62,7 +68,6 @@ def choose_tool(command: Command):
 
 
         query = text
-
 
 
         for word in [
@@ -84,26 +89,22 @@ def choose_tool(command: Command):
             )
 
 
-
-        query = clean_target(
-            query
-        )
+        query = clean_target(query)
 
 
 
         return {
 
-
             "type": "youtube",
 
-
             "query": query,
-
 
             "message":
             f"Searching YouTube for {query}."
 
         }
+
+
 
 
 
@@ -117,8 +118,11 @@ def choose_tool(command: Command):
     if text.startswith(
 
         (
+
             "search",
+
             "find",
+
             "look for"
 
         )
@@ -127,7 +131,6 @@ def choose_tool(command: Command):
 
 
         query = text
-
 
 
         for word in [
@@ -148,21 +151,16 @@ def choose_tool(command: Command):
             )
 
 
-
         query = clean_target(
             query
         )
 
 
-
         return {
-
 
             "type": "google",
 
-
             "query": query,
-
 
             "message":
             f"Searching Google for {query}."
@@ -173,16 +171,23 @@ def choose_tool(command: Command):
 
 
 
+
+
     # ==========================
-    # WEBSITE OPEN
+    # OPEN RESOLVER
     # ==========================
 
 
     if text.startswith(
 
         (
+
             "open",
+
             "launch",
+
+            "start",
+
             "go to"
 
         )
@@ -193,12 +198,13 @@ def choose_tool(command: Command):
         target = text
 
 
-
         for word in [
 
             "open",
 
             "launch",
+
+            "start",
 
             "go to"
 
@@ -206,11 +212,14 @@ def choose_tool(command: Command):
 
 
             target = target.replace(
-                word,
-                "",
-                1
-            )
 
+                word,
+
+                "",
+
+                1
+
+            )
 
 
         target = clean_target(
@@ -229,14 +238,43 @@ def choose_tool(command: Command):
 
 
 
-        return {
 
+
+        # First try APP
+
+
+        app = find_application(
+            target
+        )
+
+
+
+        if app:
+
+
+            return {
+
+                "type": "app",
+
+                "name": target,
+
+                "message":
+                f"Opening {target}."
+
+            }
+
+
+
+
+
+        # Otherwise website
+
+
+        return {
 
             "type": "website",
 
-
             "name": target,
-
 
             "message":
             f"Opening {target.title()}."
