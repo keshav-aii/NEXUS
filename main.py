@@ -1,6 +1,6 @@
 from voice.listener import listen
 from voice.speaker import speak
-
+import time
 from core.command import Command
 from core.router import process
 
@@ -151,7 +151,9 @@ awake_mode = False
 
 # NEW
 conversation_mode = False
+last_command_time = time.time()
 
+SLEEP_TIMEOUT = 120   # 5 minutes
 
 waiting_confirmation = False
 
@@ -162,6 +164,24 @@ pending_command = None
 
 
 while True:
+
+    # ==========================
+# AUTO SLEEP CHECK
+# ==========================
+
+    if conversation_mode:
+
+        if time.time() - last_command_time > SLEEP_TIMEOUT:
+
+
+            conversation_mode = False
+
+            awake_mode = False
+
+
+            print(
+                "NEXUS: Sleeping..."
+            )
 
 
     text = listen()
@@ -175,6 +195,7 @@ while True:
 
 
     text = text.lower().strip()
+    last_command_time = time.time()
 
 
 
@@ -450,3 +471,4 @@ while True:
     speak_result(
         result
     )
+    last_command_time = time.time()
