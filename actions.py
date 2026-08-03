@@ -14,13 +14,16 @@ def execute(action):
     action_type = action["type"]
 
     if action_type == "website":
-        open_website(action["name"])
+
+        result = open_website(action["name"])
+
+        if result is None:
+            run_app(action["name"])
 
     elif action_type == "google":
+
         search_google(action["query"])
 
     elif action_type == "youtube":
-        search_youtube(action["query"])
 
-    elif action_type == "app":
-        run_app(action["name"])
+        search_youtube(action["query"])

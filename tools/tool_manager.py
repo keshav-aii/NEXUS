@@ -1,4 +1,4 @@
-from tools.app_tools import run as run_app
+from brain.intent import detect_intent
 
 ALIASES = {
     "git hub": "github",
@@ -11,35 +11,33 @@ ALIASES = {
 
 def choose_tool(command):
 
-    command = command.lower().strip()
+    data = detect_intent(command)
 
-    if command.startswith("search youtube for "):
-        query = command.replace("search youtube for ", "")
+    intent = data["intent"]
+    target = ALIASES.get(data["target"], data["target"])
 
-        return {
-            "type": "youtube",
-            "query": query,
-            "message": f"Searching YouTube for {query}."
-        }
-
-    if command.startswith("search google for "):
-        query = command.replace("search google for ", "")
-
-        return {
-            "type": "google",
-            "query": query,
-            "message": f"Searching Google for {query}."
-        }
-
-    if command.startswith("open "):
-
-        name = command.replace("open ", "").strip()
-        name = ALIASES.get(name, name)
+    if intent == "open":
 
         return {
             "type": "website",
-            "name": name,
-            "message": f"Opening {name.title()}."
+            "name": target,
+            "message": f"Opening {target.title()}."
+        }
+
+    if intent == "google":
+
+        return {
+            "type": "google",
+            "query": target,
+            "message": f"Searching Google for {target}."
+        }
+
+    if intent == "youtube":
+
+        return {
+            "type": "youtube",
+            "query": target,
+            "message": f"Searching YouTube for {target}."
         }
 
     return None
