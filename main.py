@@ -1,6 +1,6 @@
 from voice.listener import listen
 from voice.speaker import speak
-import time
+
 from core.command import Command
 from core.router import process
 
@@ -8,31 +8,53 @@ from actions import execute
 
 
 
-def is_wake_word(text):
+def extract_command(text):
+
+    text = text.lower().strip()
+
+
+    print("BEFORE WAKE REMOVE:", text)
+
 
     wake_words = [
 
         "hey nexus",
-        "nexus",
-
         "hey nexa",
-        "nexa",
-
         "hey nexta",
-        "nexta"
+
+        "nexus",
+        "nexa",
+        "nexta",
+
+        "nexas",
+        "nexus ai",
+
+        "hey alexa",
+        "alexa"
 
     ]
 
 
-    return any(
-        word in text.lower()
-        for word in wake_words
-    )
+    for word in wake_words:
+
+        if word in text:
+
+            text = text.replace(
+                word,
+                ""
+            )
+
+            print("AFTER WAKE REMOVE:", text.strip())
+
+            return text.strip()
+
+
+    return None
 
 
 
 print("===================================")
-print("        NEXUS AI Assistant")
+print("          NEXUS AI Assistant")
 print(" Say 'Hey Nexus' to activate")
 print(" Say 'Exit' to quit")
 print("===================================")
@@ -40,6 +62,10 @@ print("===================================")
 
 
 awake_mode = False
+
+waiting_confirmation = False
+
+pending_command = None
 
 
 
@@ -49,7 +75,6 @@ while True:
     text = listen()
 
 
-
     if not text:
 
         continue
@@ -57,7 +82,6 @@ while True:
 
 
     text = text.lower().strip()
-
 
 
     print(
@@ -72,11 +96,9 @@ while True:
 
     if text == "exit":
 
-
         speak(
             "Radhe Radhe"
         )
-
 
         break
 
@@ -87,36 +109,132 @@ while True:
     # WAKE WORD
     # ==========================
 
-
     if not awake_mode:
 
 
-        if is_wake_word(text):
+        command_text = extract_command(
+            text
+        )
 
 
-            awake_mode = True
+        if command_text is None:
+
+            continue
 
 
-            speak(
-                "Yes?"
-            )
+
+        awake_mode = True
 
 
-        continue
+        speak(
+            "Yes?"
+        )
 
+
+        if command_text:
+
+            text = command_text
+
+
+        else:
+
+            continue
 
 
 
 
     # ==========================
-    # COMMAND PROCESSING
+    # CONFIRMATION
+    # ==========================
+
+    if waiting_confirmation:
+
+
+        if text in [
+
+            "yes",
+            "yeah",
+            "yep",
+            "confirm",
+            "ok",
+            "okay",
+            "haan",
+            "ha",
+            "kar do",
+            "do it"
+
+        ]:
+
+
+            waiting_confirmation = False
+
+
+
+            if pending_command:
+
+
+                result = process(
+                    pending_command
+                )
+
+
+        elif text in [
+
+            "no",
+            "cancel",
+            "stop",
+            "nahi",
+            "mat karo"
+
+        ]:
+
+
+            waiting_confirmation = False
+
+            pending_command = None
+
+
+            speak(
+                "Cancelled."
+            )
+
+
+            continue
+
+
+
+        else:
+
+
+            speak(
+                "Please say yes or no."
+            )
+
+
+            continue
+
+
+    # Remove wake word if assistant already awake
+
+    wake_removed = extract_command(text)
+
+
+    if wake_removed is not None:
+
+        if wake_removed:
+
+            text = wake_removed
+
+            
+
+    # ==========================
+    # PROCESS COMMAND
     # ==========================
 
 
     cmd = Command(
         text
     )
-
 
 
     result = process(
@@ -132,11 +250,9 @@ while True:
 
 
 
-
     # ==========================
     # MEMORY
     # ==========================
-
 
     if result["type"] == "memory":
 
@@ -151,19 +267,22 @@ while True:
 
 
 
-
     # ==========================
-    # CONFIRMATION
+    # CONFIRMATION REQUEST
     # ==========================
-
 
     if result["type"] == "confirmation":
+
+
+        waiting_confirmation = True
+
+
+        pending_command = cmd
 
 
         speak(
             result["message"]
         )
-        time.sleep(1)
 
 
         continue
@@ -171,11 +290,9 @@ while True:
 
 
 
-
     # ==========================
-    # PLUGIN
+    # PLUGIN RESULT
     # ==========================
-
 
     if result["type"] == "plugin":
 
@@ -189,14 +306,12 @@ while True:
 
             if "message" in data:
 
-
                 speak(
                     data["message"]
                 )
 
 
             elif "ollama" in data:
-
 
                 speak(
                     data["ollama"]
@@ -205,11 +320,9 @@ while True:
 
         else:
 
-
             speak(
                 str(data)
             )
-
 
 
         continue
@@ -217,11 +330,9 @@ while True:
 
 
 
-
     # ==========================
-    # TOOLS
+    # TOOL RESULT
     # ==========================
-
 
     if result["type"] == "tool":
 
@@ -229,17 +340,14 @@ while True:
         action = result["action"]
 
 
-
         speak(
             action["message"]
         )
 
 
-
         execute(
             action
         )
-
 
 
         speak(
@@ -252,11 +360,9 @@ while True:
 
 
 
-
     # ==========================
     # AI FALLBACK
     # ==========================
-
 
     if result["type"] == "ai":
 

@@ -3,27 +3,83 @@ from tools.browser_tools import (
     search_google,
     search_youtube,
 )
+
 from tools.app_tools import run as run_app
+
 
 
 def execute(action):
 
-    if not action:
-        return
 
-    action_type = action["type"]
+    if not action:
+
+        return None
+
+
+
+    action_type = action.get(
+        "type"
+    )
+
+
+
+    # ==========================
+    # WEBSITE
+    # ==========================
 
     if action_type == "website":
 
-        result = open_website(action["name"])
 
-        if result is None:
-            run_app(action["name"])
+        return open_website(
+            action["name"]
+        )
+
+
+
+
+
+    # ==========================
+    # GOOGLE SEARCH
+    # ==========================
 
     elif action_type == "google":
 
-        search_google(action["query"])
+
+        return search_google(
+            action["query"]
+        )
+
+
+
+
+
+    # ==========================
+    # YOUTUBE SEARCH
+    # ==========================
 
     elif action_type == "youtube":
 
-        search_youtube(action["query"])
+
+        return search_youtube(
+            action["query"]
+        )
+
+
+
+
+
+    # ==========================
+    # APP
+    # ==========================
+
+    elif action_type == "app":
+
+
+        return run_app(
+            action["name"]
+        )
+
+
+
+
+    return None

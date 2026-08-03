@@ -22,34 +22,34 @@ plugins = load_plugins()
 def process(command):
 
 
+    # ==========================
+    # Confirmation Check
+    # ==========================
+
     pending = get_pending()
 
 
     if pending:
 
 
-        text = command.raw.lower().strip()
+        answer = command.raw.lower().strip()
 
 
 
-    if text in [
+        if answer in [
 
-        "yes",
-        "yes please",
-        "yeah",
-        "yep",
-        "confirm",
-        "confirmed",
-        "ok",
-        "okay",
-         "do it",
-         "go ahead",
-        "proceed",
-        "haan",
-        "ha",
-         "kar do"
+            "yes",
+            "yeah",
+            "yep",
+            "ok",
+            "okay",
+            "confirm",
+            "haan",
+            "ha",
+            "kar do",
+            "do it"
 
-    ]:
+        ]:
 
 
             clear_pending()
@@ -70,14 +70,15 @@ def process(command):
 
 
 
-        if text in [
-             "no",
-        "cancel",
-         "stop",
-         "don't",
-          "dont",
-        "nahi",
-         "mat karo"
+
+        if answer in [
+
+            "no",
+            "cancel",
+            "stop",
+            "nahi",
+            "mat karo"
+
         ]:
 
 
@@ -94,71 +95,86 @@ def process(command):
 
 
 
-
-    command = normalize(command)
-
-
-    command = detect_intent(command)
-
-
-    command = extract_entities(command)
-
-
-
-    memory_reply = handle_memory(
-        command.normalized
-    )
-
-
-    if memory_reply:
-
-
         return {
 
-            "type": "memory",
+            "type": "system",
 
-            "message": memory_reply
+            "message": "Please confirm yes or no."
 
         }
 
 
 
 
+
+    # ==========================
+    # Pipeline
+    # ==========================
+
+
+    command = normalize(
+        command
+    )
+
+
+    command = detect_intent(
+        command
+    )
+
+
+    command = extract_entities(
+        command
+    )
+
+
+
+
+
+    # ==========================
+    # Memory
+    # ==========================
+
+    memory = handle_memory(
+        command.normalized
+    )
+
+
+    if memory:
+
+
+        return {
+
+            "type": "memory",
+
+            "message": memory
+
+        }
+
+
+
+
+
+    # ==========================
+    # Plugins
+    # ==========================
+
     for plugin in plugins:
 
 
-        plugin_intents = plugin["info"].get(
+        intents = plugin["info"].get(
             "intents",
             []
         )
 
 
-        if command.intent not in plugin_intents:
+        if command.intent not in intents:
 
             continue
 
 
 
+
         if command.intent == "delete":
-
-
-            name = command.entities.get(
-                "name"
-            )
-
-
-            if not name:
-
-
-                return {
-
-                    "type": "system",
-
-                    "message":
-                    "Please tell me the file or folder name."
-
-                }
-
 
 
             set_pending({
@@ -175,13 +191,17 @@ def process(command):
                 "type": "confirmation",
 
                 "message":
-                f"Do you want to delete {name}?"
+                f"Do you want to delete {command.entities.get('name')}?"
 
             }
 
 
 
-        result = plugin["handler"](command)
+
+
+        result = plugin["handler"](
+            command
+        )
 
 
 
@@ -200,7 +220,16 @@ def process(command):
 
 
 
-    action = choose_tool(command)
+
+
+    # ==========================
+    # Tools
+    # ==========================
+
+
+    action = choose_tool(
+        command
+    )
 
 
     if action:
@@ -215,6 +244,12 @@ def process(command):
         }
 
 
+
+
+
+    # ==========================
+    # AI
+    # ==========================
 
 
     reply = ask_nexa(

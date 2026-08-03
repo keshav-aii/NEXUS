@@ -1,10 +1,10 @@
 from core.command import Command
 
 
-
 ALIASES = {
 
     "git hub": "github",
+
     "github.com": "github",
 
     "you tube": "youtube",
@@ -17,55 +17,152 @@ ALIASES = {
 
 
 
+def clean_target(text):
+
+
+    text = text.lower().strip()
+
+
+
+    for word in [
+
+        "please",
+
+        "for me"
+
+    ]:
+
+
+        text = text.replace(
+            word,
+            ""
+        )
+
+
+
+    return text.strip()
+
+
+
+
+
 def choose_tool(command: Command):
 
 
-    intent = command.intent
-
-
-    target = command.entities.get(
-        "target",
-        ""
-    )
-
-
-    target = ALIASES.get(
-        target,
-        target
-    )
+    text = command.normalized.lower().strip()
 
 
 
-    if intent == "open":
+    # ==========================
+    # YOUTUBE PRIORITY
+    # ==========================
+
+
+    if "youtube" in text or "you tube" in text:
+
+
+        query = text
+
+
+
+        for word in [
+
+            "search",
+
+            "youtube",
+
+            "you tube",
+
+            "on"
+
+        ]:
+
+
+            query = query.replace(
+                word,
+                ""
+            )
+
+
+
+        query = clean_target(
+            query
+        )
+
 
 
         return {
 
-            "type": "website",
 
-            "name": target,
+            "type": "youtube",
+
+
+            "query": query,
+
 
             "message":
-            f"Opening {target.title()}."
+            f"Searching YouTube for {query}."
 
         }
 
 
 
-    if intent == "search":
 
 
-        query = command.entities.get(
-            "query",
-            ""
+    # ==========================
+    # GOOGLE SEARCH
+    # ==========================
+
+
+    if text.startswith(
+
+        (
+            "search",
+            "find",
+            "look for"
+
         )
+
+    ):
+
+
+        query = text
+
+
+
+        for word in [
+
+            "search",
+
+            "find",
+
+            "look for"
+
+        ]:
+
+
+            query = query.replace(
+                word,
+                "",
+                1
+            )
+
+
+
+        query = clean_target(
+            query
+        )
+
 
 
         return {
 
+
             "type": "google",
 
+
             "query": query,
+
 
             "message":
             f"Searching Google for {query}."
@@ -74,25 +171,78 @@ def choose_tool(command: Command):
 
 
 
-    if intent == "youtube":
 
 
-        query = command.entities.get(
-            "query",
-            ""
+    # ==========================
+    # WEBSITE OPEN
+    # ==========================
+
+
+    if text.startswith(
+
+        (
+            "open",
+            "launch",
+            "go to"
+
         )
+
+    ):
+
+
+        target = text
+
+
+
+        for word in [
+
+            "open",
+
+            "launch",
+
+            "go to"
+
+        ]:
+
+
+            target = target.replace(
+                word,
+                "",
+                1
+            )
+
+
+
+        target = clean_target(
+            target
+        )
+
+
+
+        target = ALIASES.get(
+
+            target,
+
+            target
+
+        )
+
 
 
         return {
 
-            "type": "youtube",
 
-            "query": query,
+            "type": "website",
+
+
+            "name": target,
+
 
             "message":
-            f"Searching YouTube for {query}."
+            f"Opening {target.title()}."
 
         }
+
 
 
 

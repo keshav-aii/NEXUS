@@ -1,49 +1,96 @@
 import webbrowser
+
 from tools.websites import WEBSITES
 
-def open_youtube():
-    webbrowser.open("https://www.youtube.com")
-    return "Opening YouTube..."
 
 
 def search_youtube(query):
-    query = query.replace(" ", "+")
-    webbrowser.open(
-        f"https://www.youtube.com/results?search_query={query}"
+
+
+    query = query.replace(
+        " ",
+        "+"
     )
-    return f"Searching YouTube for {query.replace('+', ' ')}..."
+
+
+    url = (
+        "https://www.youtube.com/results?search_query="
+        + query
+    )
+
+
+    webbrowser.open(
+        url
+    )
+
+
+    return True
+
+
+
 
 
 def search_google(query):
-    query = query.replace(" ", "+")
-    webbrowser.open(
-        f"https://www.google.com/search?q={query}"
+
+
+    query = query.replace(
+        " ",
+        "+"
     )
-    return f"Searching Google for {query.replace('+', ' ')}..."
 
 
-def open_github():
-    webbrowser.open("https://github.com")
-    return "Opening GitHub..."
+    url = (
+        "https://www.google.com/search?q="
+        + query
+    )
 
 
-def open_gmail():
-    webbrowser.open("https://mail.google.com")
-    return "Opening Gmail..."
+    webbrowser.open(
+        url
+    )
 
 
-def open_chatgpt():
-    webbrowser.open("https://chatgpt.com")
-    return "Opening ChatGPT..."
+    return True
 
 
-def open_linkedin():
-    webbrowser.open("https://www.linkedin.com")
-    return "Opening LinkedIn..."
+
+
 
 def open_website(name):
+
+
+    name = name.lower().strip()
+
+
+
     if name in WEBSITES:
-        url = WEBSITES[name]
-        webbrowser.open(url)
-        return f"Opening {name}..."
-    return None
+
+
+        webbrowser.open(
+            WEBSITES[name]
+        )
+
+
+        return True
+
+
+
+
+    # direct URL support
+
+    if name.startswith(
+        "http"
+    ):
+
+
+        webbrowser.open(
+            name
+        )
+
+
+        return True
+
+
+
+
+    return False
