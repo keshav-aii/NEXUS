@@ -1,11 +1,8 @@
-from brain.brain import ask_nexa
-from brain.memory_manager import handle_memory
-
-from tools.tool_manager import choose_tool
-from actions import execute
-
 from voice.listener import listen
 from voice.speaker import speak
+
+from core.router import process
+from actions import execute
 
 import time
 
@@ -33,8 +30,7 @@ print("===================================")
 
 while True:
 
-    # -------- Wake Mode --------
-
+    # Wake Mode
     text = listen()
 
     if not text:
@@ -53,8 +49,7 @@ while True:
 
     time.sleep(0.3)
 
-    # -------- Command Mode --------
-
+    # Command Mode
     command = listen()
 
     if not command:
@@ -67,21 +62,41 @@ while True:
         speak("Goodbye!")
         break
 
-    # -------- Memory --------
+    # Process command
+    result = process(command)
 
-    memory_reply = handle_memory(command)
-
-    if memory_reply:
-        speak(memory_reply)
+    if not result:
         continue
 
-    # -------- Tools --------
+    # ==========================
+    # MEMORY
+    # ==========================
 
-    action = choose_tool(command)
+    if result["type"] == "memory":
 
-    if action:
+        speak(result["message"])
 
-        print("DEBUG:", action)
+        continue
+
+    # ==========================
+    # CODING MODE
+    # ==========================
+
+    if result["type"] == "coding":
+
+        speak(result["data"]["ollama"])
+
+        speak(result["data"]["message"])
+
+        continue
+
+    # ==========================
+    # TOOLS
+    # ==========================
+
+    if result["type"] == "tool":
+
+        action = result["action"]
 
         speak(action["message"])
 
@@ -91,10 +106,12 @@ while True:
 
         continue
 
-    # -------- AI --------
+    # ==========================
+    # AI
+    # ==========================
 
-    reply = ask_nexa(command)
+    if result["type"] == "ai":
 
-    speak(reply)
+        speak(result["message"])
 
-    speak("Anything else?")
+        speak("Anything else?")
