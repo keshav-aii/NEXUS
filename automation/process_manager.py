@@ -2,8 +2,7 @@ import subprocess
 
 
 
-def get_running_processes():
-
+def get_process_list():
 
     result = subprocess.run(
         [
@@ -20,53 +19,97 @@ def get_running_processes():
 
 
 
-def is_running(process_name):
+def find_process(name):
+
+    processes = get_process_list()
 
 
-    processes = get_running_processes()
-
-
-    return process_name.lower() in processes
-
-
+    name = name.lower()
 
 
 
-def kill_process(process_name):
+    for line in processes.splitlines():
+
+        if name in line:
+
+            return line.split()[0]
 
 
-    try:
-
-
-        result = subprocess.run(
-            [
-                "taskkill",
-                "/IM",
-                process_name,
-                "/F"
-            ],
-            capture_output=True,
-            text=True
-        )
-
-
-        if result.returncode == 0:
-
-            return True
+    return None
 
 
 
-        return False
+
+
+def close_process(name):
+
+
+    process = find_process(
+        name
+    )
+
+
+    print(
+        "FOUND PROCESS:",
+        process
+    )
+
+
+    if not process:
+
+
+        return {
+
+            "success": False,
+
+            "message":
+            f"{name} is not running."
+
+        }
 
 
 
-    except Exception as e:
+
+    result = subprocess.run(
+
+        [
+            "taskkill",
+            "/IM",
+            process,
+            "/F"
+        ],
+
+        capture_output=True,
+
+        text=True
+
+    )
 
 
-        print(
-            "PROCESS ERROR:",
-            e
-        )
+
+    if result.returncode == 0:
 
 
-        return False
+        return {
+
+            "success": True,
+
+            "message":
+            f"Closing {name}.",
+
+            "item":
+            name
+
+        }
+
+
+
+    return {
+
+
+        "success": False,
+
+        "message":
+        f"Could not close {name}."
+
+    }

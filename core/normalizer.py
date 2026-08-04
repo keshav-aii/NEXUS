@@ -15,11 +15,37 @@ FILLER_WORDS = [
 
 VOICE_FIXES = {
 
+    # conversation
+
     "hu r u": "who are you",
     "who r u": "who are you",
     "h r u": "how are you",
     "what is ur name": "what is your name",
     "whats your name": "what is your name",
+
+
+    # open mistakes
+
+    "oppen": "open",
+    "opem": "open",
+    "openin": "open",
+
+
+    # close mistakes
+
+    "nos": "close",
+    "rose": "close",
+    "post": "close",
+    "cloze": "close",
+    "closes": "close",
+    "closs": "close",
+
+
+    # exit mistakes
+
+    "exet": "exit",
+    "exist": "exit",
+    "egzit": "exit",
 
 }
 
@@ -42,11 +68,11 @@ def normalize(command: Command) -> Command:
 
     for wrong, correct in VOICE_FIXES.items():
 
-        text = text.replace(
-            wrong,
-            correct
+        text = re.sub(
+            rf"\b{wrong}\b",
+            correct,
+            text
         )
-
 
 
     # Remove punctuation

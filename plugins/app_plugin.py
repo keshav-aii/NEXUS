@@ -21,11 +21,19 @@ PLUGIN_INFO = {
 
     "keywords": [
 
-        "open",
+         "open",
         "launch",
         "start",
+
         "close",
-        "quit"
+        "quit",
+        "exit",
+        "stop",
+        "kill",
+        "terminate",
+        "shutdown",
+        "shut",
+        "dismiss"
 
     ]
 

@@ -40,7 +40,6 @@ def generate_response(result):
             )
 
 
-
         return get_message(
 
             "delete_confirm",
@@ -76,12 +75,10 @@ def generate_response(result):
         )
 
 
-
         item = data.get(
             "item",
             ""
         )
-
 
 
         extra_data = data.get(
@@ -91,7 +88,24 @@ def generate_response(result):
 
 
 
-        # normal action
+        # ======================
+        # DIRECT PLUGIN MESSAGE
+        # PRIORITY 1
+        # ======================
+
+        if data.get(
+            "message"
+        ):
+
+            return data["message"]
+
+
+
+
+        # ======================
+        # MESSAGE ENGINE
+        # PRIORITY 2
+        # ======================
 
         if action:
 
@@ -108,14 +122,7 @@ def generate_response(result):
 
 
 
-        # fallback old plugins
-
-        if data.get(
-            "message"
-        ):
-
-            return data["message"]
-
+        return None
 
 
 
@@ -135,10 +142,15 @@ def generate_response(result):
 
         if action:
 
-            return action.get(
-                "message"
-            )
 
+            if isinstance(action, dict):
+
+                return action.get(
+                    "message"
+                )
+
+
+            return str(action)
 
 
 
@@ -154,6 +166,26 @@ def generate_response(result):
         return result.get(
             "message"
         )
+
+
+
+
+
+    # ======================
+    # UNKNOWN
+    # ======================
+
+    if result_type == "unknown":
+
+
+        return result.get(
+
+            "message",
+
+            "I did not understand that."
+
+        )
+
 
 
 

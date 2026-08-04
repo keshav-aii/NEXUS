@@ -26,6 +26,6 @@ def load_entities():
 
         if entity:
 
-            registry[entity["intent"]] = entity
+            registry[entity["name"]] = entity
 
     return registry

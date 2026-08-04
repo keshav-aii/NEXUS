@@ -1,7 +1,7 @@
 import subprocess
 
 from automation import app_database
-
+from automation.process_manager import close_process
 
 
 ALIASES = {
@@ -246,73 +246,10 @@ def open_application(name):
 
 def close_application(name):
 
-    name = name.lower().strip()
+
+    clean_name = normalize_name(name)
 
 
-    PROCESS_MAP = {
-
-        "chrome": "chrome.exe",
-        "calculator": "CalculatorApp.exe",
-        "notepad": "notepad.exe",
-        "paint": "mspaint.exe"
-
-    }
-
-
-    process = PROCESS_MAP.get(name)
-
-
-    if not process:
-
-        return {
-
-            "success": False,
-
-            "message": f"I don't know how to close {name}."
-
-        }
-
-
-
-    try:
-
-        subprocess.run(
-            [
-                "taskkill",
-                "/IM",
-                process,
-                "/F"
-            ],
-            capture_output=True,
-            text=True
-        )
-
-
-        return {
-
-            "success": True,
-
-            "message": f"Closing {name}.",
-
-            "item": name
-
-        }
-
-
-
-    except Exception as e:
-
-
-        print(
-            "CLOSE ERROR:",
-            e
-        )
-
-
-        return {
-
-            "success": False,
-
-            "message": f"Could not close {name}."
-
-        }
+    return close_process(
+        clean_name
+    )

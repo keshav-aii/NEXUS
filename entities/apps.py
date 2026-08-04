@@ -85,14 +85,44 @@ for alias_list in ALIASES.values():
 # ==========================
 
 
+def resolve_targets():
+
+    app_database.load_apps()
+
+
+    targets = []
+
+
+    # installed apps
+
+    for app in app_database.APP_DATABASE.keys():
+
+        targets.append(
+            app
+        )
+
+
+    # aliases
+
+    for alias_list in ALIASES.values():
+
+        targets.extend(
+            alias_list
+        )
+
+
+    return targets
+
+
+
+
+
 ENTITY = {
 
-    "intent": "open",
+    "name": "apps",
 
-    "patterns": {
+    "type": "target",
 
-        "target": targets
-
-    }
+    "resolver": resolve_targets
 
 }

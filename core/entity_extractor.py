@@ -7,6 +7,7 @@ ENTITY_REGISTRY = load_entities()
 
 
 print(
+    "ENTITY REGISTRY:",
     ENTITY_REGISTRY
 )
 
@@ -24,6 +25,17 @@ IGNORE_WORDS = {
     "of"
 
 }
+
+
+
+CONTEXT_WORDS = {
+
+    "it",
+    "this",
+    "that"
+
+}
+
 
 
 
@@ -51,135 +63,172 @@ def extract_entities(command):
 
 
 
-    entity = ENTITY_REGISTRY.get(
-        command.intent
-    )
+    # ======================
+    # COLLECT ALL ENTITIES
+    # ======================
+
+
+    all_entities = []
 
 
 
-    if not entity:
-
-        command.entities = {}
-
-        return command
+    for name, entity in ENTITY_REGISTRY.items():
 
 
+        resolver = entity.get(
+            "resolver"
+        )
 
 
 
-    patterns = entity.get(
-        "patterns",
-        {}
-    )
+        if resolver:
 
+
+            try:
+
+                values = resolver()
+
+
+                all_entities.extend(
+                    values
+                )
+
+
+            except Exception as e:
+
+                print(
+                    "ENTITY RESOLVER ERROR:",
+                    e
+                )
+
+
+
+        else:
+
+
+            patterns = entity.get(
+                "patterns",
+                {}
+            )
+
+
+            for key, values in patterns.items():
+
+
+                all_entities.extend(
+                    values
+                )
+
+
+
+
+    # ======================
+    # WORD CLEANING
+    # ======================
 
 
     words = text.split()
 
 
-    IGNORE_CONTEXT_WORDS = [
-    "it",
-    "this",
-    "that"
-    ]
-
 
     words = [
+
         word
+
         for word in words
-        if word not in IGNORE_CONTEXT_WORDS
+
+        if word not in CONTEXT_WORDS
+
     ]
 
 
 
 
 
-    for key, values in patterns.items():
+    # ======================
+    # FIND BEST MATCH
+    # ======================
 
 
-        best_score = 0
+    best_score = 0
 
-        best_value = None
-
-
-
-
-
-        for value in values:
-
-
-            value = value.lower().strip()
-
-
-
-            # ignore tiny useless entities
-
-            if value in IGNORE_WORDS:
-
-                continue
+    best_value = None
 
 
 
 
 
-            # ======================
-            # EXACT WORD MATCH
-            # ======================
+    for value in all_entities:
 
-            if value in words:
 
+        value = value.lower().strip()
+
+
+
+        if value in IGNORE_WORDS:
+
+            continue
+
+
+
+
+
+        # exact match
+
+        if value in words:
+
+
+            best_value = value
+
+            best_score = 100
+
+            break
+
+
+
+
+
+
+        # fuzzy match
+
+
+        for word in words:
+
+
+            score = fuzz.partial_ratio(
+                word,
+                value
+            )
+
+
+
+            if score > best_score:
+
+
+                best_score = score
 
                 best_value = value
 
-                best_score = 100
-
-                break
-
-
-
-
-
-            # ======================
-            # FUZZY MATCH
-            # ======================
-
-            for word in words:
-
-
-                if word in IGNORE_WORDS:
-
-                    continue
-
-
-
-                score = fuzz.ratio(
-                    word,
-                    value
-                )
-
-
-
-                if score > best_score:
-
-                    best_score = score
-
-                    best_value = value
 
 
 
 
 
 
-        if best_score >= 75:
+    # ======================
+    # SAVE ENTITY
+    # ======================
 
 
-            entities[key] = best_value
+    if best_score >= 75:
 
 
+        entities["target"] = best_value
 
 
 
     command.entities = entities
+
 
 
     return command

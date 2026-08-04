@@ -350,6 +350,15 @@ def respond(action, name=None, **kwargs):
 
         ],
 
+        "close": [
+        
+            f"Done boss, {kwargs.get('item','app')} close kar diya hai.",
+        
+                f"Okay boss, {kwargs.get('item','app')} band kar diya hai."
+        
+            ],
+        
+
 
 
 
@@ -359,18 +368,14 @@ def respond(action, name=None, **kwargs):
 
         "general": [
 
-            "Okay boss.",
+            "Main badhiya hoon boss, aap batao.",
 
-            "Done boss.",
+            "Haan boss, bolo.",
 
-            "Theek hai.",
-
-            "Samajh gayi boss."
+            "Ready hoon Keshav."
 
         ]
-
     }
-
 
 
 
@@ -385,3 +390,4 @@ def respond(action, name=None, **kwargs):
     return random.choice(
         responses["general"]
     )
+    

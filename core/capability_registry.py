@@ -22,10 +22,16 @@ PLUGIN_MAP = {
     "create": "file",
     "delete": "file",
 
+
+ 
+    "general": "general",
+
     # ========= Internet =========
 
     "search": "internet",
     "youtube": "internet"
+
+    
 
 }
 

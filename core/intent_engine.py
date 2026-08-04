@@ -71,24 +71,26 @@ def detect_intent(command):
 
         score = 0
 
+        from rapidfuzz import fuzz
+
 
         for keyword in keywords:
 
+            if keyword in text:
 
-            if keyword == text:
+                score += 50
 
-                score += 100
+            else:
+
+                similarity = fuzz.partial_ratio(
+                    keyword,
+                    text
+                )
 
 
-            elif f" {keyword} " in f" {text} ":
+                if similarity > 75:
 
-                score += 20
-
-
-            elif keyword in text:
-
-                score += 5
-
+                    score += similarity
 
 
         # priority boost
