@@ -3,36 +3,32 @@ import subprocess
 from automation import app_database
 
 
-
-
 ALIASES = {
 
-    "chrome":
-    "chrome",
+    "chrome": "chrome",
 
-    "google chrome":
-    "chrome",
+    "google chrome": "chrome",
 
-    "browser":
-    "chrome",
+    "browser": "chrome",
 
-    "git":
-    "git",
+    "calculator": "calculator",
 
-    "calculator":
-    "calculator",
+    "calc": "calculator",
 
-    "calc":
-    "calculator",
+    "notepad": "notepad",
 
-    "notepad":
-    "notepad",
+    "paint": "paint",
 
-    "paint":
-    "paint",
+    "git": "git",
 
 }
 
+STORE_APPS = {
+
+    "calculator":
+    "Microsoft.WindowsCalculator_8wekyb3d8bbwe!App"
+
+}
 
 
 
@@ -44,6 +40,14 @@ def find_application(name):
 
 
 
+    # remove punctuation
+    name = name.replace(".", "")
+    name = name.replace(",", "")
+
+
+
+    # alias convert
+
     name = ALIASES.get(
         name,
         name
@@ -53,21 +57,17 @@ def find_application(name):
 
     if not app_database.APP_DATABASE:
 
-
         app_database.load_apps()
 
 
 
 
 
-    # Exact match first
-
+    # Exact match
 
     for app, path in app_database.APP_DATABASE.items():
 
-
         if app.lower() == name:
-
 
             return path
 
@@ -75,15 +75,11 @@ def find_application(name):
 
 
 
-
     # Partial match
-
 
     for app, path in app_database.APP_DATABASE.items():
 
-
         if name in app.lower():
-
 
             return path
 
@@ -97,6 +93,58 @@ def find_application(name):
 
 
 
+
+
+
+def launch_path(path, name):
+
+    try:
+
+        print(
+            "LAUNCHING:",
+            path
+        )
+
+
+        # Microsoft Store apps
+
+        if name in STORE_APPS:
+
+
+            subprocess.Popen(
+                [
+                    "explorer.exe",
+                    f"shell:AppsFolder\\{STORE_APPS[name]}"
+                ]
+            )
+
+
+            return True
+
+
+
+
+        # Normal exe apps
+
+        subprocess.Popen(
+            path
+        )
+
+
+        return True
+
+
+
+    except Exception as e:
+
+        print(
+            "LAUNCH ERROR:",
+            e
+        )
+
+        return False
+
+
 def open_application(name):
 
 
@@ -105,53 +153,56 @@ def open_application(name):
     )
 
 
+
     print(
         "FOUND PATH:",
         path
     )
 
 
+
+
     if path:
 
 
-        try:
+        success = launch_path(
+        path,
+        name.lower()
+    )
 
-            subprocess.Popen(
-                [path],
-                shell=True
-            )
+        if success:
 
 
             return {
 
+
                 "message":
+
                 f"Opening {name}."
 
             }
 
 
-        except Exception as e:
 
 
-            print(
-                "LAUNCH ERROR:",
-                e
-            )
+        return {
 
 
-            return {
+            "message":
 
-                "message":
-                f"Failed opening {name}."
+            f"Could not open {name}."
 
-            }
+        }
+
 
 
 
 
     return {
 
+
         "message":
+
         f"I could not find {name}."
 
     }

@@ -1,42 +1,20 @@
 from core.personality import respond
 from memory.storage import get_user_name
 from core.response_engine import generate_response
-
+from config.wakewords import WAKE_WORDS
 from voice.listener import listen
 from voice.speaker import speak
 import string
 import time
 from rapidfuzz import fuzz
-
+from config.settings import SLEEP_TIMEOUT
 from core.command import Command
 from core.router import process
-
+from logs.logger import info, error
 from actions import execute
 
 
 
-# ==========================
-# WAKE WORDS
-# ==========================
-
-WAKE_WORDS = [
-
-    "nexus",
-    "hey nexus",
-
-    "nexa",
-    "hey nexa",
-
-    "nexta",
-    "hey nexta",
-
-    "alexa",
-    "hey alexa",
-
-    "nex",
-    "hey nex"
-
-]
 
 
 
@@ -186,7 +164,7 @@ pending_command = None
 last_command_time = time.time()
 
 
-SLEEP_TIMEOUT = 120
+
 
 
 
@@ -231,7 +209,7 @@ while True:
 
 
     text = text.lower().strip()
-    
+
     text = text.translate(
     str.maketrans(
         "",
@@ -241,12 +219,14 @@ while True:
 )
 
 
-
     print(
         "You:",
         text
     )
 
+    info(
+        f"USER: {text}"
+    )
 
 
     last_command_time = time.time()
@@ -356,6 +336,10 @@ while True:
         repr(text)
     )
 
+    info(
+    f"COMMAND: {text}"
+    )
+ 
 
 
     cmd = Command(
@@ -373,6 +357,10 @@ while True:
     print(
         "RESULT:",
         result
+    )
+
+    info(
+    f"RESULT: {result}"
     )
 
 

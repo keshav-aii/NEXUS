@@ -1,14 +1,11 @@
 import asyncio
 import tempfile
 import os
-
+from config.voice_config import VOICE, RATE, PITCH
 import edge_tts
 from playsound import playsound
 
 
-VOICE = "hi-IN-SwaraNeural"
-RATE = "+10%"
-PITCH = "+5Hz"
 
 
 async def _generate(text, filename):
