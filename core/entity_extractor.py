@@ -77,6 +77,20 @@ def extract_entities(command):
     words = text.split()
 
 
+    IGNORE_CONTEXT_WORDS = [
+    "it",
+    "this",
+    "that"
+    ]
+
+
+    words = [
+        word
+        for word in words
+        if word not in IGNORE_CONTEXT_WORDS
+    ]
+
+
 
 
 

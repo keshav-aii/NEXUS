@@ -3,7 +3,7 @@ from core.entity_extractor import extract_entities
 from core.plugin_loader import load_plugins
 from core.capability_registry import get_plugin
 from core.message_engine import get_message
-
+from core.context_resolver import resolve_context
 
 PLUGINS = load_plugins()
 
@@ -37,6 +37,14 @@ def process(command):
         command.entities
     )
 
+    command = resolve_context(command)
+
+    print(
+    "AFTER CONTEXT:",
+    command.entities
+    )
+
+   
     # ======================
     # DELETE CONFIRMATION
     # ======================

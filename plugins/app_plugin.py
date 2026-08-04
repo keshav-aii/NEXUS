@@ -1,6 +1,8 @@
 from core.command import Command
 import string
-from automation.app_launcher import open_application
+
+from automation.resolver import resolve_open
+from automation.app_launcher import close_application
 
 
 
@@ -12,7 +14,8 @@ PLUGIN_INFO = {
 
     "intents": [
 
-        "open"
+        "open",
+        "close"
 
     ],
 
@@ -20,24 +23,13 @@ PLUGIN_INFO = {
 
         "open",
         "launch",
-        "start"
+        "start",
+        "close",
+        "quit"
 
     ]
 
 }
-
-
-
-WEBSITE_WORDS = [
-
-    "github",
-    "youtube",
-    "google",
-    "linkedin",
-    "chatgpt",
-    "gmail",
-
-]
 
 
 
@@ -51,17 +43,68 @@ def handle(command: Command):
 
 
     # ==========================
-    # WEBSITE SKIP
+    # CLOSE INTENT
     # ==========================
 
 
-    for site in WEBSITE_WORDS:
+    if command.intent == "close":
 
 
-        if site in text:
+        target = command.entities.get(
+            "target"
+        )
 
+
+        if not target:
 
             return None
+
+
+
+        result = close_application(
+            target
+        )
+
+
+        print(
+            "CLOSE RESULT:",
+            result
+        )
+
+
+
+        if result.get("success"):
+
+
+            return {
+
+
+                "action":
+
+                "app_closed",
+
+
+                "item":
+
+                target
+
+            }
+
+
+
+        return {
+
+
+            "action":
+
+            "app_close_failed",
+
+
+            "item":
+
+            target
+
+        }
 
 
 
@@ -82,7 +125,6 @@ def handle(command: Command):
 
 
 
-
     words = text.split()
 
 
@@ -91,7 +133,6 @@ def handle(command: Command):
 
 
         return None
-
 
 
 
@@ -107,6 +148,7 @@ def handle(command: Command):
     )
 
 
+
     target = target.translate(
         str.maketrans(
             "",
@@ -114,6 +156,7 @@ def handle(command: Command):
             string.punctuation
         )
     )
+
 
 
     if not target:
@@ -125,8 +168,7 @@ def handle(command: Command):
 
 
 
-
-    result = open_application(
+    result = resolve_open(
         target
     )
 
@@ -151,6 +193,7 @@ def handle(command: Command):
 
         return {
 
+
             "action":
 
             "app_opened",
@@ -173,6 +216,7 @@ def handle(command: Command):
 
 
     return {
+
 
         "action":
 

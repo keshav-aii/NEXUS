@@ -12,8 +12,9 @@ from core.command import Command
 from core.router import process
 from logs.logger import info, error
 from actions import execute
-
-
+from core.context_manager import update_context
+from core.context_manager import get_context
+from core.context_resolver import resolve_context
 
 
 
@@ -347,15 +348,24 @@ while True:
     )
 
 
+   
 
     result = process(
         cmd
     )
 
 
+    update_context(
+        cmd,
+        result
+    )
+
 
     print(
-        "RESULT:",
+        get_context()
+    )
+    print(
+        "MAIN RESULT:",
         result
     )
 

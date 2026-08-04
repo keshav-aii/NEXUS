@@ -15,6 +15,7 @@ PLUGIN_MAP = {
     # ========= Apps =========
 
     "open": "app",
+    "close":"app",
 
     # ========= Files =========
 

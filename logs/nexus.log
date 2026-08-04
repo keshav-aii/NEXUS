@@ -312,3 +312,356 @@
 2026-08-04 23:14:18,841 | INFO | VAD filter removed 00:05.920 of audio
 2026-08-04 23:14:19,197 | INFO | Detected language 'en' with probability 0.88
 2026-08-04 23:14:19,334 | INFO | USER: exit
+2026-08-04 23:58:43,922 | INFO | Processing audio with duration 00:05.440
+2026-08-04 23:58:43,978 | INFO | VAD filter removed 00:04.368 of audio
+2026-08-04 23:58:44,241 | INFO | Detected language 'en' with probability 0.98
+2026-08-04 23:58:44,396 | INFO | USER: hey nexus
+2026-08-04 23:58:57,286 | INFO | Processing audio with duration 00:05.440
+2026-08-04 23:58:57,301 | INFO | VAD filter removed 00:04.368 of audio
+2026-08-04 23:58:57,695 | INFO | Detected language 'en' with probability 0.59
+2026-08-04 23:58:57,823 | INFO | USER: open chrome
+2026-08-04 23:58:57,823 | INFO | COMMAND: open chrome
+2026-08-04 23:58:57,826 | INFO | RESULT: {'type': 'plugin', 'data': {'action': 'app_opened', 'item': 'chrome'}}
+2026-08-04 23:59:09,144 | INFO | Processing audio with duration 00:06.080
+2026-08-04 23:59:09,153 | INFO | VAD filter removed 00:04.496 of audio
+2026-08-04 23:59:09,482 | INFO | Detected language 'en' with probability 0.47
+2026-08-04 23:59:09,613 | INFO | USER: open calculator
+2026-08-04 23:59:09,613 | INFO | COMMAND: open calculator
+2026-08-04 23:59:09,618 | INFO | RESULT: {'type': 'plugin', 'data': {'action': 'app_opened', 'item': 'calculator'}}
+2026-08-04 23:59:20,292 | INFO | Processing audio with duration 00:05.440
+2026-08-04 23:59:20,307 | INFO | VAD filter removed 00:04.400 of audio
+2026-08-04 23:59:20,675 | INFO | Detected language 'en' with probability 0.74
+2026-08-04 23:59:21,285 | INFO | USER: you can get help
+2026-08-04 23:59:21,285 | INFO | COMMAND: you can get help
+2026-08-04 23:59:21,285 | INFO | RESULT: None
+2026-08-04 23:59:30,458 | INFO | Processing audio with duration 00:05.440
+2026-08-04 23:59:30,467 | INFO | VAD filter removed 00:04.016 of audio
+2026-08-04 23:59:30,866 | INFO | Detected language 'en' with probability 0.76
+2026-08-04 23:59:30,993 | INFO | USER: open github
+2026-08-04 23:59:30,994 | INFO | COMMAND: open github
+2026-08-04 23:59:31,073 | INFO | RESULT: {'type': 'plugin', 'data': {'action': 'app_opened', 'item': 'github'}}
+2026-08-04 23:59:46,481 | INFO | Processing audio with duration 00:05.120
+2026-08-04 23:59:46,494 | INFO | VAD filter removed 00:04.176 of audio
+2026-08-04 23:59:46,883 | INFO | Detected language 'en' with probability 0.87
+2026-08-04 23:59:47,017 | INFO | USER: exit
+2026-08-05 00:16:02,156 | INFO | Processing audio with duration 00:05.440
+2026-08-05 00:16:02,216 | INFO | VAD filter removed 00:04.368 of audio
+2026-08-05 00:16:02,478 | INFO | Detected language 'en' with probability 0.90
+2026-08-05 00:16:02,628 | INFO | USER: hey nexus
+2026-08-05 00:16:14,868 | INFO | Processing audio with duration 00:05.760
+2026-08-05 00:16:14,881 | INFO | VAD filter removed 00:04.400 of audio
+2026-08-05 00:16:15,247 | INFO | Detected language 'en' with probability 0.60
+2026-08-05 00:16:15,378 | INFO | USER: open chrome
+2026-08-05 00:16:15,378 | INFO | COMMAND: open chrome
+2026-08-05 00:16:15,381 | INFO | RESULT: {'type': 'plugin', 'data': {'action': 'app_opened', 'item': 'chrome'}}
+2026-08-05 00:16:53,464 | INFO | Processing audio with duration 00:05.440
+2026-08-05 00:16:53,478 | INFO | VAD filter removed 00:02.064 of audio
+2026-08-05 00:16:53,857 | INFO | Detected language 'en' with probability 0.44
+2026-08-05 00:16:53,982 | INFO | USER: chrome
+2026-08-05 00:16:53,983 | INFO | COMMAND: chrome
+2026-08-05 00:16:53,983 | INFO | RESULT: None
+2026-08-05 00:17:04,404 | INFO | Processing audio with duration 00:05.760
+2026-08-05 00:17:04,414 | INFO | VAD filter removed 00:02.928 of audio
+2026-08-05 00:17:04,821 | INFO | Detected language 'en' with probability 0.62
+2026-08-05 00:17:04,951 | INFO | USER: open chrome
+2026-08-05 00:17:04,951 | INFO | COMMAND: open chrome
+2026-08-05 00:17:04,953 | INFO | RESULT: {'type': 'plugin', 'data': {'action': 'app_opened', 'item': 'chrome'}}
+2026-08-05 00:19:30,146 | INFO | Processing audio with duration 00:05.440
+2026-08-05 00:19:30,154 | INFO | VAD filter removed 00:03.632 of audio
+2026-08-05 00:19:30,561 | INFO | Detected language 'en' with probability 0.48
+2026-08-05 00:19:30,693 | INFO | USER: open chrome
+2026-08-05 00:19:30,693 | INFO | COMMAND: open chrome
+2026-08-05 00:19:30,695 | INFO | RESULT: {'type': 'plugin', 'data': {'action': 'app_opened', 'item': 'chrome'}}
+2026-08-05 00:19:52,365 | INFO | Processing audio with duration 00:05.120
+2026-08-05 00:19:52,378 | INFO | VAD filter removed 00:04.240 of audio
+2026-08-05 00:19:52,763 | INFO | Detected language 'en' with probability 0.90
+2026-08-05 00:19:52,896 | INFO | USER: visit
+2026-08-05 00:19:52,896 | INFO | COMMAND: visit
+2026-08-05 00:19:52,896 | INFO | RESULT: None
+2026-08-05 00:20:18,839 | INFO | Processing audio with duration 00:05.440
+2026-08-05 00:20:18,896 | INFO | VAD filter removed 00:04.176 of audio
+2026-08-05 00:20:19,172 | INFO | Detected language 'en' with probability 0.96
+2026-08-05 00:20:19,326 | INFO | USER: hey nexus
+2026-08-05 00:20:32,122 | INFO | Processing audio with duration 00:05.440
+2026-08-05 00:20:32,132 | INFO | VAD filter removed 00:04.112 of audio
+2026-08-05 00:20:32,413 | INFO | Detected language 'en' with probability 0.66
+2026-08-05 00:20:32,560 | INFO | USER: open chrome
+2026-08-05 00:20:32,560 | INFO | COMMAND: open chrome
+2026-08-05 00:20:32,563 | INFO | RESULT: {'type': 'plugin', 'data': {'action': 'app_opened', 'item': 'chrome'}}
+2026-08-05 00:20:52,787 | INFO | Processing audio with duration 00:05.120
+2026-08-05 00:20:52,794 | INFO | VAD filter removed 00:04.400 of audio
+2026-08-05 00:20:53,194 | INFO | Detected language 'en' with probability 0.64
+2026-08-05 00:20:53,975 | INFO | USER: thats it
+2026-08-05 00:20:53,975 | INFO | COMMAND: thats it
+2026-08-05 00:20:53,975 | INFO | RESULT: None
+2026-08-05 00:23:47,696 | INFO | Processing audio with duration 00:05.120
+2026-08-05 00:23:47,756 | INFO | VAD filter removed 00:03.568 of audio
+2026-08-05 00:35:21,005 | INFO | Processing audio with duration 00:05.440
+2026-08-05 00:35:21,065 | INFO | VAD filter removed 00:03.632 of audio
+2026-08-05 00:35:21,341 | INFO | Detected language 'en' with probability 0.89
+2026-08-05 00:35:21,485 | INFO | USER: hey nexus
+2026-08-05 00:35:33,394 | INFO | Processing audio with duration 00:05.440
+2026-08-05 00:35:33,401 | INFO | VAD filter removed 00:04.336 of audio
+2026-08-05 00:35:33,701 | INFO | Detected language 'en' with probability 0.30
+2026-08-05 00:35:33,821 | INFO | USER: chrome
+2026-08-05 00:35:33,821 | INFO | COMMAND: chrome
+2026-08-05 00:35:33,821 | INFO | RESULT: None
+2026-08-05 00:35:43,015 | INFO | Processing audio with duration 00:05.440
+2026-08-05 00:35:43,024 | INFO | VAD filter removed 00:04.272 of audio
+2026-08-05 00:35:43,314 | INFO | Detected language 'en' with probability 0.70
+2026-08-05 00:35:43,441 | INFO | USER: open chrome
+2026-08-05 00:35:43,441 | INFO | COMMAND: open chrome
+2026-08-05 00:35:43,445 | INFO | RESULT: {'type': 'plugin', 'data': {'action': 'app_opened', 'item': 'chrome'}}
+2026-08-05 00:35:55,092 | INFO | Processing audio with duration 00:05.760
+2026-08-05 00:35:55,107 | INFO | VAD filter removed 00:03.056 of audio
+2026-08-05 00:35:55,492 | INFO | Detected language 'en' with probability 0.31
+2026-08-05 00:36:04,794 | INFO | Processing audio with duration 00:06.080
+2026-08-05 00:36:04,807 | INFO | VAD filter removed 00:04.464 of audio
+2026-08-05 00:36:05,098 | INFO | Detected language 'hi' with probability 0.35
+2026-08-05 00:36:21,568 | INFO | Processing audio with duration 00:06.400
+2026-08-05 00:36:21,584 | INFO | VAD filter removed 00:04.528 of audio
+2026-08-05 00:36:21,903 | INFO | Detected language 'hi' with probability 0.39
+2026-08-05 00:36:22,036 | INFO | USER: open calculator
+2026-08-05 00:36:22,036 | INFO | COMMAND: open calculator
+2026-08-05 00:36:22,041 | INFO | RESULT: {'type': 'plugin', 'data': {'action': 'app_opened', 'item': 'calculator'}}
+2026-08-05 00:45:18,836 | INFO | Processing audio with duration 00:05.760
+2026-08-05 00:45:18,897 | INFO | VAD filter removed 00:04.464 of audio
+2026-08-05 00:45:19,171 | INFO | Detected language 'en' with probability 0.96
+2026-08-05 00:45:19,324 | INFO | USER: hey nexus
+2026-08-05 00:45:30,011 | INFO | Processing audio with duration 00:05.440
+2026-08-05 00:45:30,018 | INFO | VAD filter removed 00:04.464 of audio
+2026-08-05 00:45:30,418 | INFO | Detected language 'en' with probability 0.34
+2026-08-05 00:45:30,553 | INFO | USER: chrome
+2026-08-05 00:45:30,553 | INFO | COMMAND: chrome
+2026-08-05 00:45:30,554 | INFO | RESULT: None
+2026-08-05 00:45:40,401 | INFO | Processing audio with duration 00:05.760
+2026-08-05 00:45:40,416 | INFO | VAD filter removed 00:04.464 of audio
+2026-08-05 00:45:40,815 | INFO | Detected language 'en' with probability 0.41
+2026-08-05 00:45:40,951 | INFO | USER: open chrome
+2026-08-05 00:45:40,951 | INFO | COMMAND: open chrome
+2026-08-05 00:45:40,955 | INFO | RESULT: {'type': 'plugin', 'data': {'action': 'app_opened', 'item': 'chrome'}}
+2026-08-05 00:45:57,631 | INFO | Processing audio with duration 00:05.440
+2026-08-05 00:45:57,638 | INFO | VAD filter removed 00:04.432 of audio
+2026-08-05 00:45:58,031 | INFO | Detected language 'en' with probability 0.87
+2026-08-05 00:45:58,167 | INFO | USER: close it
+2026-08-05 00:45:58,167 | INFO | COMMAND: close it
+2026-08-05 00:45:58,167 | INFO | RESULT: None
+2026-08-05 00:55:21,438 | INFO | Processing audio with duration 00:05.760
+2026-08-05 00:55:21,500 | INFO | VAD filter removed 00:04.464 of audio
+2026-08-05 00:55:22,054 | INFO | Detected language 'en' with probability 0.94
+2026-08-05 00:55:22,219 | INFO | USER: hey nexus
+2026-08-05 00:55:33,926 | INFO | Processing audio with duration 00:05.440
+2026-08-05 00:55:33,941 | INFO | VAD filter removed 00:04.336 of audio
+2026-08-05 00:55:34,270 | INFO | Detected language 'ru' with probability 0.46
+2026-08-05 00:55:34,398 | INFO | USER: chrome
+2026-08-05 00:55:34,398 | INFO | COMMAND: chrome
+2026-08-05 00:55:34,398 | INFO | RESULT: None
+2026-08-05 00:55:44,516 | INFO | Processing audio with duration 00:05.440
+2026-08-05 00:55:44,531 | INFO | VAD filter removed 00:04.272 of audio
+2026-08-05 00:55:44,867 | INFO | Detected language 'en' with probability 0.35
+2026-08-05 00:55:45,001 | INFO | USER: open chrome
+2026-08-05 00:55:45,001 | INFO | COMMAND: open chrome
+2026-08-05 00:55:45,004 | INFO | RESULT: {'type': 'plugin', 'data': {'action': 'app_opened', 'item': 'chrome'}}
+2026-08-05 00:55:56,917 | INFO | Processing audio with duration 00:05.440
+2026-08-05 00:55:56,932 | INFO | VAD filter removed 00:04.400 of audio
+2026-08-05 00:55:57,263 | INFO | Detected language 'en' with probability 0.43
+2026-08-05 00:55:57,983 | INFO | USER: what was it
+2026-08-05 00:55:57,984 | INFO | COMMAND: what was it
+2026-08-05 00:55:57,984 | INFO | RESULT: None
+2026-08-05 00:56:10,647 | INFO | Processing audio with duration 00:05.120
+2026-08-05 00:56:10,662 | INFO | VAD filter removed 00:03.952 of audio
+2026-08-05 00:56:11,070 | INFO | Detected language 'en' with probability 0.89
+2026-08-05 00:56:12,367 | INFO | USER: close it
+2026-08-05 00:56:12,367 | INFO | COMMAND: close it
+2026-08-05 00:56:12,368 | INFO | RESULT: None
+2026-08-05 00:59:26,698 | INFO | Processing audio with duration 00:05.440
+2026-08-05 00:59:26,758 | INFO | VAD filter removed 00:04.336 of audio
+2026-08-05 00:59:27,026 | INFO | Detected language 'en' with probability 0.98
+2026-08-05 00:59:27,874 | INFO | USER: nexus
+2026-08-05 00:59:39,334 | INFO | Processing audio with duration 00:05.760
+2026-08-05 00:59:39,342 | INFO | VAD filter removed 00:04.560 of audio
+2026-08-05 00:59:39,661 | INFO | Detected language 'en' with probability 0.42
+2026-08-05 00:59:39,791 | INFO | USER: open chrome
+2026-08-05 00:59:39,791 | INFO | COMMAND: open chrome
+2026-08-05 00:59:39,792 | INFO | RESULT: None
+2026-08-05 01:00:24,837 | INFO | Processing audio with duration 00:05.440
+2026-08-05 01:00:24,895 | INFO | VAD filter removed 00:04.400 of audio
+2026-08-05 01:00:25,152 | INFO | Detected language 'en' with probability 0.95
+2026-08-05 01:00:25,296 | INFO | USER: hey nexus
+2026-08-05 01:00:38,370 | INFO | Processing audio with duration 00:05.760
+2026-08-05 01:00:38,385 | INFO | VAD filter removed 00:04.432 of audio
+2026-08-05 01:00:38,777 | INFO | Detected language 'en' with probability 0.40
+2026-08-05 01:00:38,907 | INFO | USER: open chrome
+2026-08-05 01:00:38,907 | INFO | COMMAND: open chrome
+2026-08-05 01:00:38,911 | INFO | RESULT: {'type': 'plugin', 'data': {'action': 'app_opened', 'item': 'chrome'}}
+2026-08-05 01:00:51,438 | INFO | Processing audio with duration 00:05.440
+2026-08-05 01:00:51,452 | INFO | VAD filter removed 00:04.432 of audio
+2026-08-05 01:00:51,765 | INFO | Detected language 'en' with probability 0.88
+2026-08-05 01:00:51,900 | INFO | USER: close it
+2026-08-05 01:00:51,900 | INFO | COMMAND: close it
+2026-08-05 01:00:51,901 | INFO | RESULT: None
+2026-08-05 01:01:56,407 | INFO | Processing audio with duration 00:05.120
+2026-08-05 01:01:56,417 | INFO | VAD filter removed 00:05.120 of audio
+2026-08-05 01:01:56,733 | INFO | Detected language 'en' with probability 0.44
+2026-08-05 01:05:47,278 | INFO | Processing audio with duration 00:05.440
+2026-08-05 01:05:47,336 | INFO | VAD filter removed 00:04.336 of audio
+2026-08-05 01:05:47,858 | INFO | Detected language 'en' with probability 0.98
+2026-08-05 01:05:48,006 | INFO | USER: hey nexus
+2026-08-05 01:06:01,803 | INFO | Processing audio with duration 00:05.440
+2026-08-05 01:06:01,815 | INFO | VAD filter removed 00:03.376 of audio
+2026-08-05 01:06:02,229 | INFO | Detected language 'en' with probability 0.69
+2026-08-05 01:06:02,356 | INFO | USER: open chrome
+2026-08-05 01:06:02,356 | INFO | COMMAND: open chrome
+2026-08-05 01:06:02,360 | INFO | RESULT: {'type': 'plugin', 'data': {'action': 'app_opened', 'item': 'chrome'}}
+2026-08-05 01:06:13,970 | INFO | Processing audio with duration 00:05.440
+2026-08-05 01:06:13,982 | INFO | VAD filter removed 00:04.368 of audio
+2026-08-05 01:06:14,227 | INFO | Detected language 'en' with probability 0.92
+2026-08-05 01:06:14,362 | INFO | USER: close it
+2026-08-05 01:06:14,362 | INFO | COMMAND: close it
+2026-08-05 01:06:14,363 | INFO | RESULT: None
+2026-08-05 01:06:32,180 | INFO | Processing audio with duration 00:09.600
+2026-08-05 01:06:32,194 | INFO | VAD filter removed 00:06.576 of audio
+2026-08-05 01:06:32,610 | INFO | Detected language 'en' with probability 0.86
+2026-08-05 01:06:32,735 | INFO | USER: exit
+2026-08-05 01:11:13,860 | INFO | Processing audio with duration 00:05.440
+2026-08-05 01:11:13,919 | INFO | VAD filter removed 00:04.304 of audio
+2026-08-05 01:11:14,185 | INFO | Detected language 'en' with probability 0.86
+2026-08-05 01:11:14,337 | INFO | USER: nexus
+2026-08-05 01:11:27,537 | INFO | Processing audio with duration 00:05.120
+2026-08-05 01:11:27,550 | INFO | VAD filter removed 00:04.464 of audio
+2026-08-05 01:11:27,869 | INFO | Detected language 'en' with probability 0.68
+2026-08-05 01:11:28,008 | INFO | USER: thanks for watching
+2026-08-05 01:11:28,008 | INFO | COMMAND: thanks for watching
+2026-08-05 01:11:28,009 | INFO | RESULT: None
+2026-08-05 01:11:46,124 | INFO | Processing audio with duration 00:05.760
+2026-08-05 01:11:46,132 | INFO | VAD filter removed 00:04.464 of audio
+2026-08-05 01:11:46,468 | INFO | Detected language 'en' with probability 0.60
+2026-08-05 01:11:46,591 | INFO | USER: chrome
+2026-08-05 01:11:46,591 | INFO | COMMAND: chrome
+2026-08-05 01:11:46,592 | INFO | RESULT: None
+2026-08-05 01:11:56,705 | INFO | Processing audio with duration 00:05.440
+2026-08-05 01:11:56,717 | INFO | VAD filter removed 00:04.336 of audio
+2026-08-05 01:11:57,067 | INFO | Detected language 'en' with probability 0.68
+2026-08-05 01:11:57,202 | INFO | USER: open chrome
+2026-08-05 01:11:57,202 | INFO | COMMAND: open chrome
+2026-08-05 01:11:57,205 | INFO | RESULT: {'type': 'plugin', 'data': {'action': 'app_opened', 'item': 'chrome'}}
+2026-08-05 01:12:08,235 | INFO | Processing audio with duration 00:05.120
+2026-08-05 01:12:08,242 | INFO | VAD filter removed 00:04.368 of audio
+2026-08-05 01:12:08,642 | INFO | Detected language 'en' with probability 0.73
+2026-08-05 01:12:09,378 | INFO | USER: thanks for watching
+2026-08-05 01:12:09,379 | INFO | COMMAND: thanks for watching
+2026-08-05 01:12:09,379 | INFO | RESULT: None
+2026-08-05 01:12:17,883 | INFO | Processing audio with duration 00:05.440
+2026-08-05 01:12:17,897 | INFO | VAD filter removed 00:04.336 of audio
+2026-08-05 01:12:18,251 | INFO | Detected language 'en' with probability 0.95
+2026-08-05 01:12:18,377 | INFO | USER: close it
+2026-08-05 01:12:18,377 | INFO | COMMAND: close it
+2026-08-05 01:12:18,378 | INFO | RESULT: None
+2026-08-05 01:14:59,310 | INFO | Processing audio with duration 00:05.440
+2026-08-05 01:14:59,368 | INFO | VAD filter removed 00:04.368 of audio
+2026-08-05 01:14:59,628 | INFO | Detected language 'en' with probability 0.99
+2026-08-05 01:14:59,779 | INFO | USER: nexus
+2026-08-05 01:15:12,471 | INFO | Processing audio with duration 00:05.440
+2026-08-05 01:15:12,483 | INFO | VAD filter removed 00:04.368 of audio
+2026-08-05 01:15:12,814 | INFO | Detected language 'ru' with probability 0.40
+2026-08-05 01:15:12,939 | INFO | USER: chrome
+2026-08-05 01:15:12,939 | INFO | COMMAND: chrome
+2026-08-05 01:15:12,939 | INFO | RESULT: None
+2026-08-05 01:15:22,402 | INFO | Processing audio with duration 00:05.440
+2026-08-05 01:15:22,416 | INFO | VAD filter removed 00:04.240 of audio
+2026-08-05 01:15:22,806 | INFO | Detected language 'en' with probability 0.48
+2026-08-05 01:15:22,927 | INFO | USER: chrome
+2026-08-05 01:15:22,927 | INFO | COMMAND: chrome
+2026-08-05 01:15:22,927 | INFO | RESULT: None
+2026-08-05 01:15:32,412 | INFO | Processing audio with duration 00:05.440
+2026-08-05 01:15:32,422 | INFO | VAD filter removed 00:04.336 of audio
+2026-08-05 01:15:32,805 | INFO | Detected language 'en' with probability 0.28
+2026-08-05 01:15:32,927 | INFO | USER: chrome
+2026-08-05 01:15:32,927 | INFO | COMMAND: chrome
+2026-08-05 01:15:32,928 | INFO | RESULT: None
+2026-08-05 01:15:43,039 | INFO | Processing audio with duration 00:05.760
+2026-08-05 01:15:43,052 | INFO | VAD filter removed 00:04.336 of audio
+2026-08-05 01:15:43,395 | INFO | Detected language 'en' with probability 0.71
+2026-08-05 01:15:43,528 | INFO | USER: open chrome
+2026-08-05 01:15:43,528 | INFO | COMMAND: open chrome
+2026-08-05 01:15:43,531 | INFO | RESULT: {'type': 'plugin', 'data': {'action': 'app_opened', 'item': 'chrome'}}
+2026-08-05 01:15:55,030 | INFO | Processing audio with duration 00:05.120
+2026-08-05 01:15:55,041 | INFO | VAD filter removed 00:04.240 of audio
+2026-08-05 01:15:55,391 | INFO | Detected language 'en' with probability 0.38
+2026-08-05 01:15:56,024 | INFO | USER: hows it going
+2026-08-05 01:15:56,024 | INFO | COMMAND: hows it going
+2026-08-05 01:15:56,025 | INFO | RESULT: None
+2026-08-05 01:16:14,778 | INFO | Processing audio with duration 00:05.760
+2026-08-05 01:16:14,793 | INFO | VAD filter removed 00:04.432 of audio
+2026-08-05 01:16:15,179 | INFO | Detected language 'en' with probability 0.96
+2026-08-05 01:16:15,313 | INFO | USER: close it
+2026-08-05 01:16:15,313 | INFO | COMMAND: close it
+2026-08-05 01:16:15,313 | INFO | RESULT: None
+2026-08-05 01:16:51,995 | INFO | Processing audio with duration 00:05.120
+2026-08-05 01:16:52,008 | INFO | VAD filter removed 00:04.432 of audio
+2026-08-05 01:16:52,364 | INFO | Detected language 'en' with probability 0.89
+2026-08-05 01:16:52,500 | INFO | USER: chrome
+2026-08-05 01:16:52,500 | INFO | COMMAND: chrome
+2026-08-05 01:16:52,500 | INFO | RESULT: None
+2026-08-05 01:24:40,140 | INFO | Processing audio with duration 00:05.760
+2026-08-05 01:24:40,199 | INFO | VAD filter removed 00:04.432 of audio
+2026-08-05 01:24:40,457 | INFO | Detected language 'en' with probability 0.98
+2026-08-05 01:24:40,620 | INFO | USER: hey nexus
+2026-08-05 01:24:58,735 | INFO | Processing audio with duration 00:05.760
+2026-08-05 01:24:58,749 | INFO | VAD filter removed 00:04.560 of audio
+2026-08-05 01:24:58,997 | INFO | Detected language 'ru' with probability 0.34
+2026-08-05 01:24:59,125 | INFO | USER: open chrome
+2026-08-05 01:24:59,126 | INFO | COMMAND: open chrome
+2026-08-05 01:24:59,129 | INFO | RESULT: {'type': 'plugin', 'data': {'action': 'app_opened', 'item': 'chrome'}}
+2026-08-05 01:25:10,536 | INFO | Processing audio with duration 00:05.120
+2026-08-05 01:25:10,548 | INFO | VAD filter removed 00:04.240 of audio
+2026-08-05 01:25:10,781 | INFO | Detected language 'en' with probability 0.45
+2026-08-05 01:25:11,646 | INFO | USER: hows it
+2026-08-05 01:25:11,646 | INFO | COMMAND: hows it
+2026-08-05 01:25:11,647 | INFO | RESULT: None
+2026-08-05 01:25:22,101 | INFO | Processing audio with duration 00:05.440
+2026-08-05 01:25:22,115 | INFO | VAD filter removed 00:04.336 of audio
+2026-08-05 01:25:22,388 | INFO | Detected language 'en' with probability 0.92
+2026-08-05 01:25:22,989 | INFO | USER: how was it
+2026-08-05 01:25:22,989 | INFO | COMMAND: how was it
+2026-08-05 01:25:22,990 | INFO | RESULT: None
+2026-08-05 01:25:34,690 | INFO | Processing audio with duration 00:05.440
+2026-08-05 01:25:34,703 | INFO | VAD filter removed 00:04.336 of audio
+2026-08-05 01:25:34,991 | INFO | Detected language 'en' with probability 0.83
+2026-08-05 01:25:35,121 | INFO | USER: close it
+2026-08-05 01:25:35,121 | INFO | COMMAND: close it
+2026-08-05 01:25:35,122 | INFO | RESULT: None
+2026-08-05 01:26:02,515 | INFO | Processing audio with duration 00:05.120
+2026-08-05 01:26:02,521 | INFO | VAD filter removed 00:05.120 of audio
+2026-08-05 01:26:02,770 | INFO | Detected language 'en' with probability 0.44
+2026-08-05 01:26:40,711 | INFO | Processing audio with duration 00:05.120
+2026-08-05 01:26:40,724 | INFO | VAD filter removed 00:05.120 of audio
+2026-08-05 01:26:40,960 | INFO | Detected language 'en' with probability 0.44
+2026-08-05 01:30:13,221 | INFO | Processing audio with duration 00:05.440
+2026-08-05 01:30:13,280 | INFO | VAD filter removed 00:04.432 of audio
+2026-08-05 01:30:13,546 | INFO | Detected language 'en' with probability 0.74
+2026-08-05 01:30:13,716 | INFO | USER: nexa
+2026-08-05 01:30:25,933 | INFO | Processing audio with duration 00:05.760
+2026-08-05 01:30:25,943 | INFO | VAD filter removed 00:04.528 of audio
+2026-08-05 01:30:26,359 | INFO | Detected language 'en' with probability 0.77
+2026-08-05 01:30:26,492 | INFO | USER: open chrome
+2026-08-05 01:30:26,492 | INFO | COMMAND: open chrome
+2026-08-05 01:30:26,496 | INFO | RESULT: {'type': 'plugin', 'data': {'action': 'app_opened', 'item': 'chrome'}}
+2026-08-05 01:30:38,726 | INFO | Processing audio with duration 00:05.440
+2026-08-05 01:30:38,738 | INFO | VAD filter removed 00:04.464 of audio
+2026-08-05 01:30:39,157 | INFO | Detected language 'en' with probability 0.39
+2026-08-05 01:30:41,256 | INFO | USER: thank you very much for watching this video
+2026-08-05 01:30:41,256 | INFO | COMMAND: thank you very much for watching this video
+2026-08-05 01:30:41,257 | INFO | RESULT: None
+2026-08-05 01:30:52,377 | INFO | Processing audio with duration 00:05.760
+2026-08-05 01:30:52,388 | INFO | VAD filter removed 00:04.528 of audio
+2026-08-05 01:30:52,744 | INFO | Detected language 'en' with probability 0.95
+2026-08-05 01:30:52,869 | INFO | USER: close it
+2026-08-05 01:30:52,869 | INFO | COMMAND: close it
+2026-08-05 01:30:52,930 | INFO | RESULT: {'type': 'plugin', 'data': {'action': 'app_closed', 'item': 'chrome'}}
+2026-08-05 01:31:09,739 | INFO | Processing audio with duration 00:09.600
+2026-08-05 01:31:09,760 | INFO | VAD filter removed 00:08.656 of audio
+2026-08-05 01:31:10,140 | INFO | Detected language 'en' with probability 0.90
+2026-08-05 01:31:10,276 | INFO | USER: good job
+2026-08-05 01:31:10,277 | INFO | COMMAND: good job
+2026-08-05 01:31:10,277 | INFO | RESULT: None
