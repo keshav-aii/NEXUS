@@ -97,10 +97,28 @@ def handle(command: Command):
 
             return {
 
-                "message":
-                f"Opening {target.title()}."
+                "action":
+                "open",
+
+                "item":
+                target
 
             }
+
+
+
+
+        return {
+
+            "action":
+            "file_not_found",
+
+            "item":
+            target
+
+        }
+
+
 
 
 
@@ -131,10 +149,12 @@ def handle(command: Command):
 
 
 
+
         path = os.path.join(
             DESKTOP,
             name
         )
+
 
 
 
@@ -147,12 +167,17 @@ def handle(command: Command):
             )
 
 
+
             return {
 
-                "message":
-                f"Created folder {name}."
+                "action":
+                "folder_created",
+
+                "item":
+                name
 
             }
+
 
 
 
@@ -172,8 +197,11 @@ def handle(command: Command):
 
             return {
 
-                "message":
-                f"Created file {name}."
+                "action":
+                "file_created",
+
+                "item":
+                name
 
             }
 
@@ -189,6 +217,7 @@ def handle(command: Command):
 
 
     if intent == "delete":
+
 
 
         entity_type = command.entities.get(
@@ -207,10 +236,11 @@ def handle(command: Command):
 
             return {
 
-                "message":
-                "Please specify file or folder name."
+                "action":
+                "missing_name"
 
             }
+
 
 
 
@@ -223,13 +253,17 @@ def handle(command: Command):
 
 
 
+
         if not os.path.exists(path):
 
 
             return {
 
-                "message":
-                f"{name} not found."
+                "action":
+                "file_not_found",
+
+                "item":
+                name
 
             }
 
@@ -246,10 +280,14 @@ def handle(command: Command):
             )
 
 
+
             return {
 
-                "message":
-                f"Deleted file {name}."
+                "action":
+                "delete_success",
+
+                "item":
+                name
 
             }
 
@@ -266,12 +304,17 @@ def handle(command: Command):
             )
 
 
+
             return {
 
-                "message":
-                f"Deleted folder {name}."
+                "action":
+                "folder_deleted",
+
+                "item":
+                name
 
             }
+
 
 
 

@@ -8,6 +8,7 @@ from memory.storage import (
 )
 
 
+
 PLUGIN_INFO = {
 
     "name": "memory",
@@ -24,6 +25,8 @@ PLUGIN_INFO = {
 
 
 
+
+
 def handle(command: Command):
 
 
@@ -33,7 +36,9 @@ def handle(command: Command):
 
 
 
+
     text = command.normalized.lower().strip()
+
 
 
     print(
@@ -43,14 +48,18 @@ def handle(command: Command):
 
 
 
+
+
     # =========================
     # REMEMBER NAME
     # =========================
+
 
     if (
         "remember my name is" in text
         or "remember that my name is" in text
     ):
+
 
 
         name = text.split(
@@ -69,10 +78,20 @@ def handle(command: Command):
 
         return {
 
-            "message":
-            f"I will remember that your name is {name}."
+
+            "action":
+
+            "memory_saved",
+
+
+
+            "item":
+
+            "name"
 
         }
+
+
 
 
 
@@ -88,6 +107,7 @@ def handle(command: Command):
     if "remember" in text:
 
 
+
         data = text.replace(
             "remember",
             "",
@@ -96,7 +116,9 @@ def handle(command: Command):
 
 
 
+
         if " is " in data:
+
 
 
             key, value = data.split(
@@ -105,18 +127,31 @@ def handle(command: Command):
             )
 
 
+
             remember(
                 key.strip(),
                 value.strip()
             )
 
 
+
             return {
 
-                "message":
-                f"I will remember that {key.strip()} is {value.strip()}."
+
+                "action":
+
+                "memory_saved",
+
+
+
+                "item":
+
+                key.strip()
 
             }
+
+
+
 
 
 
@@ -133,28 +168,44 @@ def handle(command: Command):
     ):
 
 
+
         name = recall(
             "my name"
         )
 
 
+
         if name:
+
 
 
             return {
 
-                "message":
-                f"Your name is {name}."
+
+                "action":
+
+                "name_recall",
+
+
+
+                "item":
+
+                name
 
             }
 
 
+
         return {
 
-            "message":
-            "I don't remember your name."
+
+            "action":
+
+            "memory_empty"
 
         }
+
+
 
 
 
@@ -172,40 +223,45 @@ def handle(command: Command):
     ):
 
 
+
         memories = get_all_memory()
 
 
 
         if not memories:
 
+
+
             return {
 
-                "message":
-                "I don't remember anything yet."
+
+                "action":
+
+                "memory_empty"
 
             }
 
 
 
-        result = ", ".join(
-
-            [
-                f"{key} is {value}"
-
-                for key, value in memories.items()
-
-            ]
-
-        )
 
 
 
         return {
 
-            "message":
-            "I remember: " + result
+
+            "action":
+
+            "memory_list",
+
+
+
+            "data":
+
+            memories
 
         }
+
+
 
 
 
@@ -219,6 +275,7 @@ def handle(command: Command):
     if "forget" in text:
 
 
+
         key = text.replace(
             "forget",
             ""
@@ -230,10 +287,13 @@ def handle(command: Command):
 
 
 
+
         if key in memories:
 
 
+
             del memories[key]
+
 
 
             save_memory(
@@ -241,21 +301,38 @@ def handle(command: Command):
             )
 
 
+
             return {
 
-                "message":
-                f"I forgot {key}."
+
+                "action":
+
+                "memory_forgotten",
+
+
+
+                "item":
+
+                key
 
             }
 
 
 
+
+
+
         return {
 
-            "message":
-            "I could not find that memory."
+
+            "action":
+
+            "memory_not_found"
 
         }
+
+
+
 
 
 

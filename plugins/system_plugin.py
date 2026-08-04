@@ -29,6 +29,8 @@ def handle(command: Command):
 
 
 
+
+
     # ==========================
     # LOCK
     # ==========================
@@ -44,10 +46,14 @@ def handle(command: Command):
 
         return {
 
-            "message":
-            "Locking computer."
+            "action":
+
+            "system_locked"
 
         }
+
+
+
 
 
 
@@ -68,10 +74,14 @@ def handle(command: Command):
 
         return {
 
-            "message":
-            "Shutting down computer."
+            "action":
+
+            "system_shutdown"
 
         }
+
+
+
 
 
 
@@ -92,10 +102,13 @@ def handle(command: Command):
 
         return {
 
-            "message":
-            "Restarting computer."
+            "action":
+
+            "system_restart"
 
         }
+
+
 
 
 

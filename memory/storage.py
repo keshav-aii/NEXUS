@@ -44,7 +44,8 @@ def save_memory(memory):
         json.dump(
             memory,
             file,
-            indent=4
+            indent=4,
+            ensure_ascii=False
         )
 
 
@@ -77,3 +78,32 @@ def recall(key):
 def get_all_memory():
 
     return load_memory()
+
+
+
+
+# ==========================
+# USER PROFILE
+# ==========================
+
+def get_user_name():
+
+    memory = load_memory()
+
+
+    # direct name key
+    if "name" in memory:
+
+        return memory["name"]
+
+
+
+    # profile based memory support
+    if "profile" in memory:
+
+        return memory["profile"].get(
+            "name"
+        )
+
+
+    return None

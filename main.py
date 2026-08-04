@@ -1,6 +1,11 @@
+from core.personality import respond
+from memory.storage import get_user_name
+from core.response_engine import generate_response
 from voice.listener import listen
 from voice.speaker import speak
+
 import time
+
 from core.command import Command
 from core.router import process
 
@@ -8,44 +13,49 @@ from actions import execute
 
 
 
-def remove_wake_word(text):
+# ==========================
+# WAKE WORDS
+# ==========================
 
-    text = text.lower().strip()
+WAKE_WORDS = [
 
+    "nexus",
+    "hey nexus",
 
-    wake_words = [
+    "nexa",
+    "hey nexa",
 
-        "hey nexus",
-        "hey nexa",
-        "hey nexta",
+    "nexta",
+    "hey nexta",
 
-        "nexus",
-        "nexa",
-        "nexta",
+    "alexa",
+    "hey alexa",
 
-        "hey alexa",
-        "alexa"
+    "nex",
+    "hey nex"
 
-    ]
-
-
-    for word in wake_words:
-
-        if text.startswith(word):
-
-            return text[len(word):].strip()
-
-
-    return None
+]
 
 
 
+# ==========================
+# HELPERS
+# ==========================
 
 
 def speak_result(result):
 
-    if not result:
-        return
+
+    message = generate_response(
+        result
+    )
+
+
+    if message:
+
+        speak(
+            message
+        )
 
 
     if isinstance(result, str):
@@ -67,6 +77,7 @@ def speak_result(result):
 
 
     if result_type == "plugin":
+
 
         data = result.get("data")
 
@@ -98,7 +109,10 @@ def speak_result(result):
 
     elif result_type == "tool":
 
-        action = result.get("action")
+
+        action = result.get(
+            "action"
+        )
 
 
         if action:
@@ -117,7 +131,9 @@ def speak_result(result):
 
 
 
+
     elif result_type == "ai":
+
 
         speak(
             result.get(
@@ -130,6 +146,7 @@ def speak_result(result):
 
     elif result.get("message"):
 
+
         speak(
             result["message"]
         )
@@ -137,6 +154,10 @@ def speak_result(result):
 
 
 
+
+# ==========================
+# START
+# ==========================
 
 
 print("===================================")
@@ -149,27 +170,37 @@ print("===================================")
 
 awake_mode = False
 
-# NEW
 conversation_mode = False
-last_command_time = time.time()
-
-SLEEP_TIMEOUT = 120   # 5 minutes
 
 waiting_confirmation = False
+
 
 pending_command = None
 
 
+last_command_time = time.time()
 
+
+SLEEP_TIMEOUT = 120
+
+
+
+
+# ==========================
+# MAIN LOOP
+# ==========================
 
 
 while True:
 
+
+
     # ==========================
-# AUTO SLEEP CHECK
-# ==========================
+    # AUTO SLEEP
+    # ==========================
 
     if conversation_mode:
+
 
         if time.time() - last_command_time > SLEEP_TIMEOUT:
 
@@ -184,6 +215,8 @@ while True:
             )
 
 
+
+
     text = listen()
 
 
@@ -194,8 +227,8 @@ while True:
 
 
 
+
     text = text.lower().strip()
-    last_command_time = time.time()
 
 
 
@@ -206,9 +239,14 @@ while True:
 
 
 
+    last_command_time = time.time()
 
 
+
+    # ==========================
     # EXIT
+    # ==========================
+
 
     if text == "exit":
 
@@ -224,56 +262,76 @@ while True:
 
 
 
+    # ==========================
+    # WAKE / ATTENTION
+    # ==========================
 
-    # =========================
-    # WAKE SYSTEM
-    # =========================
+
+    if text in WAKE_WORDS:
+
+
+        name = get_user_name()
+
+
+
+        if conversation_mode:
+
+
+            speak(
+                respond(
+                    "attention",
+                    name
+                )
+            )
+
+
+        else:
+
+
+            conversation_mode = True
+
+            awake_mode = True
+
+
+            speak(
+                respond(
+                    "wake",
+                    name
+                )
+            )
+
+
+
+        last_command_time = time.time()
+
+
+        continue
+
+
+
+
+
+    # ==========================
+    # IGNORE WHEN SLEEPING
+    # ==========================
 
 
     if not conversation_mode:
 
 
-        command_text = remove_wake_word(
-            text
-        )
-
-
-        if command_text is None:
-
-            continue
-
-
-
-        conversation_mode = True
-
-
-        speak(
-            "Yes?"
-        )
-
-
-
-        if command_text:
-
-            text = command_text
-
-
-        else:
-
-            continue
+        continue
 
 
 
 
 
-
-
-    # =========================
+    # ==========================
     # CONFIRMATION
-    # =========================
+    # ==========================
 
 
     if waiting_confirmation:
+
 
 
         yes_words = [
@@ -281,17 +339,26 @@ while True:
             "yes",
             "yeah",
             "yep",
+
             "confirm",
             "confirmed",
+
             "ok",
             "okay",
+
             "haan",
             "ha",
+
             "kar do",
+
             "delete it",
+
             "do it",
+
             "go ahead",
+
             "proceed",
+
             "sure"
 
         ]
@@ -306,7 +373,6 @@ while True:
             "nahi"
 
         ]
-
 
 
 
@@ -331,6 +397,7 @@ while True:
                 )
 
 
+
                 print(
                     "CONFIRM RESULT:",
                     result
@@ -343,6 +410,7 @@ while True:
                 )
 
 
+
                 pending_command = None
 
 
@@ -352,12 +420,10 @@ while True:
 
 
 
-
         elif text in no_words:
 
 
             waiting_confirmation = False
-
 
             pending_command = None
 
@@ -387,19 +453,15 @@ while True:
 
 
 
-
-
-    # =========================
-    # COMMAND PROCESS
-    # =========================
-
+    # ==========================
+    # PROCESS COMMAND
+    # ==========================
 
 
     print(
         "FINAL TEXT:",
         repr(text)
     )
-
 
 
     cmd = Command(
@@ -421,7 +483,6 @@ while True:
 
 
 
-
     if not result:
 
         continue
@@ -430,13 +491,13 @@ while True:
 
 
 
-
-    # =========================
-    # DELETE CONFIRM
-    # =========================
+    # ==========================
+    # DELETE CONFIRMATION
+    # ==========================
 
 
     if result.get("type") == "confirmation":
+
 
 
         waiting_confirmation = True
@@ -445,6 +506,7 @@ while True:
         pending_command = result.get(
             "command"
         )
+
 
 
         speak(
@@ -462,13 +524,15 @@ while True:
 
 
 
-
-    # =========================
-    # NORMAL
-    # =========================
+    # ==========================
+    # NORMAL RESPONSE
+    # ==========================
 
 
     speak_result(
         result
     )
+
+
+
     last_command_time = time.time()

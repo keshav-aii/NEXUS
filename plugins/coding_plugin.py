@@ -44,9 +44,11 @@ def handle(command: Command):
 
 
 
+
     project = PROJECTS.get(
         "nexus"
     )
+
 
 
 
@@ -85,6 +87,7 @@ def handle(command: Command):
 
 
 
+
     # ==========================
     # GITHUB
     # ==========================
@@ -102,6 +105,7 @@ def handle(command: Command):
 
 
 
+
     # ==========================
     # CHATGPT
     # ==========================
@@ -113,6 +117,7 @@ def handle(command: Command):
         webbrowser.open(
             "https://chatgpt.com"
         )
+
 
 
 
@@ -143,11 +148,11 @@ def handle(command: Command):
             )
 
 
-
         except FileNotFoundError:
 
 
             pass
+
 
 
 
@@ -171,18 +176,16 @@ def handle(command: Command):
         )
 
 
-        ollama_status = (
-            "Ollama is running."
-        )
+        ollama_status = "running"
 
 
 
     except requests.RequestException:
 
 
-        ollama_status = (
-            "Warning. Ollama is not running."
-        )
+        ollama_status = "not_running"
+
+
 
 
 
@@ -191,9 +194,9 @@ def handle(command: Command):
     return {
 
 
-        "message":
+        "action":
 
-        "Coding workspace is ready.",
+        "coding_ready",
 
 
 

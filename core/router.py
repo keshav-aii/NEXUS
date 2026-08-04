@@ -2,9 +2,12 @@ from core.intent_engine import detect_intent
 from core.entity_extractor import extract_entities
 from core.plugin_loader import load_plugins
 
+from core.message_engine import get_message
+
 
 
 PLUGINS = load_plugins()
+
 
 
 
@@ -34,6 +37,7 @@ def process(command):
 
 
 
+
     # ======================
     # ENTITIES
     # ======================
@@ -51,11 +55,11 @@ def process(command):
 
 
 
+
     # ======================
     # DELETE CONFIRMATION
     # ======================
 
-    # DELETE CONFIRMATION
 
     if (
         command.intent == "delete"
@@ -65,18 +69,43 @@ def process(command):
 
         return {
 
-            "type": "confirmation",
+
+            "type":
+            "confirmation",
+
+
 
             "message":
-            f"Do you want to delete {command.entities.get('name')}?",
 
-            "command": command
+            get_message(
+
+                "delete_confirm",
+
+                item=command.entities.get(
+                    "name",
+                    "file"
+                )
+
+            ),
+
+
+
+            "command":
+            command
+
         }
+
+
+
+
 
     print(
         "CONFIRMED FLAG:",
         command.context.get("confirmed")
     )
+
+
+
 
     print(
         "LOADED PLUGINS:",
@@ -86,11 +115,18 @@ def process(command):
         ]
     )
 
+
+
+
+
     # ======================
     # PLUGINS
     # ======================
 
+
     for plugin in PLUGINS:
+
+
 
         print(
             "TRY PLUGIN:",
@@ -98,11 +134,14 @@ def process(command):
         )
 
 
+
         handler = plugin["handler"]
 
 
 
+
         try:
+
 
 
             result = handler(
@@ -110,19 +149,27 @@ def process(command):
             )
 
 
+
             if result:
+
 
 
                 return {
 
+
                     "type":
+
                     "plugin",
 
 
+
                     "data":
+
                     result
 
                 }
+
+
 
 
 
@@ -134,6 +181,13 @@ def process(command):
                 e
             )
 
+
+
+
+
+    # ======================
+    # UNKNOWN
+    # ======================
 
 
     return None

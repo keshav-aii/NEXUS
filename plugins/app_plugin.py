@@ -24,15 +24,10 @@ PLUGIN_INFO = {
 WEBSITE_WORDS = [
 
     "github",
-
     "youtube",
-
     "google",
-
     "linkedin",
-
     "chatgpt",
-
     "gmail",
 
 ]
@@ -49,7 +44,7 @@ def handle(command: Command):
 
 
     # ==========================
-    # Website Skip
+    # WEBSITE SKIP
     # ==========================
 
 
@@ -65,8 +60,9 @@ def handle(command: Command):
 
 
 
+
     # ==========================
-    # Only OPEN intent
+    # ONLY OPEN INTENT
     # ==========================
 
 
@@ -74,6 +70,7 @@ def handle(command: Command):
 
 
         return None
+
 
 
 
@@ -87,6 +84,7 @@ def handle(command: Command):
 
 
         return None
+
 
 
 
@@ -113,15 +111,62 @@ def handle(command: Command):
 
 
 
+
     result = open_application(
         target
     )
 
 
 
+    print(
+        "APP RESULT:",
+        result
+    )
+
+
+
+
+
+    # ==========================
+    # SUCCESS
+    # ==========================
+
+
+    if result:
+
+
+        return {
+
+            "action":
+
+            "app_opened",
+
+
+            "item":
+
+            target
+
+        }
+
+
+
+
+
+
+    # ==========================
+    # FAILED
+    # ==========================
+
+
     return {
 
+        "action":
 
-        "message": result
+        "app_failed",
+
+
+        "item":
+
+        target
 
     }

@@ -6,7 +6,9 @@ import edge_tts
 from playsound import playsound
 
 
-VOICE = "en-US-GuyNeural"
+VOICE = "hi-IN-SwaraNeural"
+RATE = "+10%"
+PITCH = "+5Hz"
 
 
 
@@ -14,7 +16,9 @@ async def _generate(text, filename):
 
     communicate = edge_tts.Communicate(
         text,
-        VOICE
+        VOICE,
+        rate=RATE,
+        pitch=PITCH
     )
 
     await communicate.save(
