@@ -123,6 +123,10 @@ def detect_intent(command):
 
     command.intent = best_intent
 
+    if best_intent is None:
+
+        command.intent = "ai"
+
 
     command.confidence = (
         min(best_score / 100, 1.0)

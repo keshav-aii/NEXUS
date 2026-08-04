@@ -23,6 +23,8 @@ PLUGIN_MAP = {
     "delete": "file",
 
 
+    "ai": "ai",
+
  
     "general": "general",
 

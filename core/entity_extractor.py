@@ -46,6 +46,20 @@ def extract_entities(command):
     text = command.normalized.lower()
 
 
+    AI_SKIP_INTENTS = [
+
+        "ai",
+        "general"
+
+    ]
+
+
+    if command.intent in AI_SKIP_INTENTS:
+
+        command.entities = {}
+
+        return command
+
 
     # remove punctuation
 
