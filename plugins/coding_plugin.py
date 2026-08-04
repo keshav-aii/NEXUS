@@ -26,11 +26,19 @@ PLUGIN_INFO = {
 
         "coding"
 
+    ],
+
+    "keywords": [
+
+        "coding",
+        "code",
+        "developer",
+        "workspace",
+        "start coding"
+
     ]
 
 }
-
-
 
 
 

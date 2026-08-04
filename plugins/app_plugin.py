@@ -1,5 +1,5 @@
 from core.command import Command
-
+import string
 from automation.app_launcher import open_application
 
 
@@ -14,10 +14,17 @@ PLUGIN_INFO = {
 
         "open"
 
+    ],
+
+    "keywords": [
+
+        "open",
+        "launch",
+        "start"
+
     ]
 
 }
-
 
 
 
@@ -95,11 +102,18 @@ def handle(command: Command):
     )
 
 
-
     target = " ".join(
         words[index + 1:]
     )
 
+
+    target = target.translate(
+        str.maketrans(
+            "",
+            "",
+            string.punctuation
+        )
+    )
 
 
     if not target:

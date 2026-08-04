@@ -1,119 +1,90 @@
-from core.command import Command
+from rapidfuzz import fuzz
+
+from core.entity_registry import load_entities
+
+
+ENTITY_REGISTRY = load_entities()
+
+
+print(ENTITY_REGISTRY)
 
 
 
-def extract_entities(command: Command):
+def extract_entities(command):
+
+    text = command.normalized.lower()
+
+    entities = {}
+
+    entity = ENTITY_REGISTRY.get(
+        command.intent
+    )
 
 
-    text = command.normalized.lower().strip()
+    if not entity:
+
+        command.entities = {}
+
+        return command
+
+
+
+    patterns = entity.get(
+        "patterns",
+        {}
+    )
+
+
 
     words = text.split()
 
 
-    command.entities = {}
+
+    for key, values in patterns.items():
+
+
+        best_score = 0
+        best_value = None
 
 
 
-    # =====================
-    # CREATE
-    # =====================
-
-    if command.intent == "create":
+        for value in values:
 
 
-        if "file" in words:
+            # normal match
 
+            if value in text:
 
-            index = words.index("file")
-
-
-            name = " ".join(
-                words[index + 1:]
-            )
-
-
-            command.entities["type"] = "file"
-
-            command.entities["name"] = name.strip()
+                best_value = value
+                best_score = 100
+                break
 
 
 
-        elif "folder" in words:
+            # fuzzy match
+
+            for word in words:
+
+                score = fuzz.ratio(
+                    word,
+                    value
+                )
 
 
-            index = words.index("folder")
+                if score > best_score:
 
-
-            name = " ".join(
-                words[index + 1:]
-            )
-
-
-            command.entities["type"] = "folder"
-
-            command.entities["name"] = name.strip()
-
-
-
-
-
-    # =====================
-    # DELETE
-    # =====================
-
-    elif command.intent == "delete":
-
-
-        if "file" in words:
-
-
-            index = words.index("file")
-
-
-            name = " ".join(
-                words[index + 1:]
-            )
-
-
-            command.entities["type"] = "file"
-
-            command.entities["name"] = name.strip()
+                    best_score = score
+                    best_value = value
 
 
 
-        elif "folder" in words:
+        if best_score >= 75:
 
-
-            index = words.index("folder")
-
-
-            name = " ".join(
-                words[index + 1:]
-            )
-
-
-            command.entities["type"] = "folder"
-
-            command.entities["name"] = name.strip()
+            entities[key] = best_value
 
 
 
-
-
-    # =====================
-    # OPEN
-    # =====================
-
-    elif command.intent == "open":
-
-
-        if len(words) > 1:
-
-
-            command.entities["target"] = " ".join(
-                words[1:]
-            )
-
+    command.entities = entities
 
 
     return command

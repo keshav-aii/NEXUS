@@ -13,11 +13,21 @@ PLUGIN_INFO = {
 
     "name": "memory",
 
-    "priority": 50,
+    "priority": 70,
 
     "intents": [
 
         "memory"
+
+    ],
+
+    "keywords": [
+
+        "remember",
+        "forget",
+        "recall",
+        "what do you remember",
+        "what is my"
 
     ]
 

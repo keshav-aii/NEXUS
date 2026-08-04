@@ -1,9 +1,9 @@
 AI_NAME = "NEXA"
 
-VERSION = "0.1.0"
-
-MODEL_NAME = "qwen2.5:3b"
-
 CREATOR = "Keshav"
 
-WAKE_WORD = "NEXA"
+MODEL_NAME = "qwen3"
+
+VERSION = "0.1.0"
+
+WAKE_WORD = "nexa"

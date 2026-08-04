@@ -10,7 +10,7 @@ PLUGIN_FOLDER = "plugins"
 def load_plugins():
 
 
-    plugins = []
+    plugins = {}
 
 
 
@@ -79,10 +79,7 @@ def load_plugins():
 
 
 
-                plugins.append(
-                    plugin
-                )
-
+                plugins[plugin["info"]["name"]] = plugin
 
 
                 print(
@@ -100,17 +97,6 @@ def load_plugins():
 
 
 
-    plugins.sort(
-
-      key=lambda x:
-      x["info"].get(
-         "priority",
-         0
-      ),
-
-     reverse=True
-
-    )
-
+    
 
     return plugins

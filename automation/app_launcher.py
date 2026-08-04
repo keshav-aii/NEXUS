@@ -105,21 +105,46 @@ def open_application(name):
     )
 
 
+    print(
+        "FOUND PATH:",
+        path
+    )
+
 
     if path:
 
 
-        subprocess.Popen(
-            path
-        )
+        try:
+
+            subprocess.Popen(
+                [path],
+                shell=True
+            )
 
 
-        return {
+            return {
 
-            "message":
-            f"Opening {name}."
+                "message":
+                f"Opening {name}."
 
-        }
+            }
+
+
+        except Exception as e:
+
+
+            print(
+                "LAUNCH ERROR:",
+                e
+            )
+
+
+            return {
+
+                "message":
+                f"Failed opening {name}."
+
+            }
 
 
 
@@ -127,6 +152,6 @@ def open_application(name):
     return {
 
         "message":
-         f"Opening {name.title()}."
+        f"I could not find {name}."
 
     }

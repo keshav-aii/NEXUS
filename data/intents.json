@@ -1,0 +1,54 @@
+{
+    "coding": [
+        "start coding",
+        "coding",
+        "developer mode",
+        "workspace",
+        "open coding"
+    ],
+
+    "memory": [
+        "remember",
+        "forget",
+        "recall",
+        "what do you remember",
+        "what is my",
+        "what's my",
+        "whats my"
+    ],
+
+    "open": [
+        "open",
+        "launch",
+        "show",
+        "go to"
+    ],
+
+    "create": [
+        "create",
+        "make",
+        "new"
+    ],
+
+    "delete": [
+        "delete",
+        "remove"
+    ],
+
+    "youtube": [
+        "youtube",
+        "play on youtube"
+    ],
+
+    "search": [
+        "search",
+        "find",
+        "look for"
+    ],
+
+    "system": [
+        "shutdown",
+        "restart",
+        "lock"
+    ]
+}

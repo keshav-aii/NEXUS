@@ -1,94 +1,68 @@
-import speech_recognition as sr
-import time
+import numpy as np
 
-
-
-recognizer = sr.Recognizer()
-
-
-
-recognizer.pause_threshold = 0.8
-recognizer.non_speaking_duration = 0.3
-recognizer.dynamic_energy_threshold = True
-
-
-
-microphone = sr.Microphone()
-
-
-
-with microphone as source:
-
-    print("Calibrating microphone...")
-
-    recognizer.adjust_for_ambient_noise(
-        source,
-        duration=1
-    )
-
+from voice.stream import audio_stream
+from voice.vad import has_speech
+from voice.transcriber import transcribe
 
 
 def listen():
 
+    print("Waiting for speech...")
 
-    try:
+    recording = False
 
+    silence_count = 0
 
-        with microphone as source:
-
-
-            print("🎤 Listening...")
-
-
-            audio = recognizer.listen(
-
-                source,
-
-                timeout=8,
-
-                phrase_time_limit=5
-
-            )
+    chunks = []
 
 
-
-        text = recognizer.recognize_google(
-            audio
-        )
+    for chunk in audio_stream():
 
 
+        if has_speech(chunk):
 
-        print(
-            f"Recognized: {text}"
-        )
+            if not recording:
 
+                print("🎤 Speech detected...")
 
-
-        return text.lower().strip()
-
+                recording = True
 
 
-    except sr.WaitTimeoutError:
+            silence_count = 0
+
+            chunks.append(chunk)
 
 
-        return ""
+        else:
+
+
+            if recording:
+
+                silence_count += 1
+
+                chunks.append(chunk)
+
+
+                if silence_count >= 15:
+
+                    break
 
 
 
-    except sr.UnknownValueError:
-
+    if not chunks:
 
         return ""
 
 
-
-    except Exception as e:
-
-
-        print(
-            "Voice error:",
-            e
-        )
+    audio = np.concatenate(chunks)
 
 
-        return ""
+    print(
+        "📝 Transcribing..."
+    )
+
+
+    text = transcribe(audio)
+
+
+    return text

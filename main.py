@@ -1,10 +1,12 @@
 from core.personality import respond
 from memory.storage import get_user_name
 from core.response_engine import generate_response
+
 from voice.listener import listen
 from voice.speaker import speak
-
+import string
 import time
+from rapidfuzz import fuzz
 
 from core.command import Command
 from core.router import process
@@ -39,11 +41,70 @@ WAKE_WORDS = [
 
 
 # ==========================
-# HELPERS
+# WAKE HELPERS
 # ==========================
 
+def is_wake_word(text):
+
+    for word in WAKE_WORDS:
+
+        score = fuzz.partial_ratio(
+            text,
+            word
+        )
+
+        if score >= 70:
+
+            return True
+
+
+    return False
+
+
+
+def remove_wake_word(text):
+
+    for word in sorted(
+        WAKE_WORDS,
+        key=len,
+        reverse=True
+    ):
+
+        if word in text:
+
+            text = text.replace(
+                word,
+                ""
+            )
+
+            break
+
+
+    # remove punctuation
+
+    text = text.replace(
+        ".",
+        ""
+    )
+
+    text = text.replace(
+        ",",
+        ""
+    )
+
+    return text.strip()
+
+# ==========================
+# RESPONSE HANDLER
+# ==========================
 
 def speak_result(result):
+
+
+    if not result:
+
+        return
+
 
 
     message = generate_response(
@@ -57,29 +118,25 @@ def speak_result(result):
             message
         )
 
+        return
+
+
 
     if isinstance(result, str):
 
         speak(result)
+
         return
 
 
 
-    if not isinstance(result, dict):
 
-        speak(str(result))
-        return
+    if result.get("type") == "plugin":
 
 
-
-    result_type = result.get("type")
-
-
-
-    if result_type == "plugin":
-
-
-        data = result.get("data")
+        data = result.get(
+            "data"
+        )
 
 
         if isinstance(data, dict):
@@ -91,61 +148,13 @@ def speak_result(result):
                 )
 
 
-            elif data.get("ollama"):
-
-                speak(
-                    data["ollama"]
-                )
-
-
-        else:
-
-            speak(
-                str(data)
-            )
+        return
 
 
 
 
-    elif result_type == "tool":
 
-
-        action = result.get(
-            "action"
-        )
-
-
-        if action:
-
-            speak(
-                action.get(
-                    "message",
-                    ""
-                )
-            )
-
-
-            execute(
-                action
-            )
-
-
-
-
-    elif result_type == "ai":
-
-
-        speak(
-            result.get(
-                "message",
-                ""
-            )
-        )
-
-
-
-    elif result.get("message"):
-
+    if result.get("message"):
 
         speak(
             result["message"]
@@ -159,21 +168,17 @@ def speak_result(result):
 # START
 # ==========================
 
-
-print("===================================")
-print("          NEXUS AI Assistant")
-print(" Say 'Hey Nexus' to activate")
-print(" Say 'Exit' to quit")
-print("===================================")
-
+print("==============================")
+print("       NEXUS AI Assistant")
+print(" Say Hey Nexus")
+print(" Say Exit")
+print("==============================")
 
 
-awake_mode = False
 
 conversation_mode = False
 
 waiting_confirmation = False
-
 
 pending_command = None
 
@@ -186,18 +191,16 @@ SLEEP_TIMEOUT = 120
 
 
 
+
 # ==========================
 # MAIN LOOP
 # ==========================
-
 
 while True:
 
 
 
-    # ==========================
     # AUTO SLEEP
-    # ==========================
 
     if conversation_mode:
 
@@ -207,12 +210,11 @@ while True:
 
             conversation_mode = False
 
-            awake_mode = False
-
 
             print(
                 "NEXUS: Sleeping..."
             )
+
 
 
 
@@ -229,6 +231,14 @@ while True:
 
 
     text = text.lower().strip()
+    
+    text = text.translate(
+    str.maketrans(
+        "",
+        "",
+        string.punctuation
+    )
+)
 
 
 
@@ -243,54 +253,48 @@ while True:
 
 
 
-    # ==========================
+
+
+    # ======================
     # EXIT
-    # ==========================
+    # ======================
 
 
-    if text == "exit":
-
+    if "exit" in text:
 
         speak(
             "Radhe Radhe"
         )
-
 
         break
 
 
 
 
-
-    # ==========================
-    # WAKE / ATTENTION
-    # ==========================
-
-
-    if text in WAKE_WORDS:
+    # ======================
+    # WAKE HANDLING
+    # ======================
 
 
-        name = get_user_name()
+    if is_wake_word(text):
+
+
+        cleaned = remove_wake_word(
+            text
+        )
 
 
 
-        if conversation_mode:
+        # only wake word
 
 
-            speak(
-                respond(
-                    "attention",
-                    name
-                )
-            )
-
-
-        else:
+        if not cleaned:
 
 
             conversation_mode = True
 
-            awake_mode = True
+
+            name = get_user_name()
 
 
             speak(
@@ -301,19 +305,36 @@ while True:
             )
 
 
-
-        last_command_time = time.time()
-
-
-        continue
+            continue
 
 
 
 
+        # wake + command
 
-    # ==========================
-    # IGNORE WHEN SLEEPING
-    # ==========================
+
+        else:
+
+
+            conversation_mode = True
+
+
+            text = cleaned
+
+
+            print(
+                "COMMAND AFTER WAKE:",
+                text
+            )
+
+
+
+
+
+
+    # ======================
+    # IGNORE SLEEPING
+    # ======================
 
 
     if not conversation_mode:
@@ -325,143 +346,16 @@ while True:
 
 
 
-    # ==========================
-    # CONFIRMATION
-    # ==========================
-
-
-    if waiting_confirmation:
-
-
-
-        yes_words = [
-
-            "yes",
-            "yeah",
-            "yep",
-
-            "confirm",
-            "confirmed",
-
-            "ok",
-            "okay",
-
-            "haan",
-            "ha",
-
-            "kar do",
-
-            "delete it",
-
-            "do it",
-
-            "go ahead",
-
-            "proceed",
-
-            "sure"
-
-        ]
-
-
-
-        no_words = [
-
-            "no",
-            "cancel",
-            "stop",
-            "nahi"
-
-        ]
-
-
-
-        if text in yes_words:
-
-
-            waiting_confirmation = False
-
-
-
-            if pending_command:
-
-
-                pending_command.context[
-                    "confirmed"
-                ] = True
-
-
-
-                result = process(
-                    pending_command
-                )
-
-
-
-                print(
-                    "CONFIRM RESULT:",
-                    result
-                )
-
-
-
-                speak_result(
-                    result
-                )
-
-
-
-                pending_command = None
-
-
-
-            continue
-
-
-
-
-        elif text in no_words:
-
-
-            waiting_confirmation = False
-
-            pending_command = None
-
-
-            speak(
-                "Cancelled."
-            )
-
-
-            continue
-
-
-
-
-        else:
-
-
-            speak(
-                "Please say yes or no."
-            )
-
-
-            continue
-
-
-
-
-
-
-    # ==========================
+    # ======================
     # PROCESS COMMAND
-    # ==========================
+    # ======================
 
 
     print(
         "FINAL TEXT:",
         repr(text)
     )
+
 
 
     cmd = Command(
@@ -477,61 +371,18 @@ while True:
 
 
     print(
-        "MAIN RESULT:",
+        "RESULT:",
         result
     )
 
 
 
-    if not result:
-
-        continue
+    if result:
 
 
-
-
-
-    # ==========================
-    # DELETE CONFIRMATION
-    # ==========================
-
-
-    if result.get("type") == "confirmation":
-
-
-
-        waiting_confirmation = True
-
-
-        pending_command = result.get(
-            "command"
+        speak_result(
+            result
         )
-
-
-
-        speak(
-            result.get(
-                "message",
-                ""
-            )
-        )
-
-
-        continue
-
-
-
-
-
-
-    # ==========================
-    # NORMAL RESPONSE
-    # ==========================
-
-
-    speak_result(
-        result
-    )
 
 
 

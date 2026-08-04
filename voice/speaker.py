@@ -11,7 +11,6 @@ RATE = "+10%"
 PITCH = "+5Hz"
 
 
-
 async def _generate(text, filename):
 
     communicate = edge_tts.Communicate(
@@ -21,16 +20,11 @@ async def _generate(text, filename):
         pitch=PITCH
     )
 
-    await communicate.save(
-        filename
-    )
-
-
+    await communicate.save(filename)
 
 
 
 def speak(text):
-
 
     if isinstance(text, dict):
 
@@ -41,13 +35,10 @@ def speak(text):
 
 
     if not text:
-
         return
 
 
-
     text = str(text)
-
 
 
     with tempfile.NamedTemporaryFile(
@@ -58,9 +49,7 @@ def speak(text):
         file_path = temp_file.name
 
 
-
     try:
-
 
         asyncio.run(
             _generate(
@@ -75,16 +64,10 @@ def speak(text):
         )
 
 
-
     finally:
 
-
         try:
-
-            os.remove(
-                file_path
-            )
+            os.remove(file_path)
 
         except:
-
             pass

@@ -1,193 +1,131 @@
 from core.intent_engine import detect_intent
 from core.entity_extractor import extract_entities
 from core.plugin_loader import load_plugins
-
+from core.capability_registry import get_plugin
 from core.message_engine import get_message
-
 
 
 PLUGINS = load_plugins()
 
 
-
-
 def process(command):
-
 
     print(
         "ROUTER COMMAND:",
         command.normalized
     )
 
-
-
     # ======================
     # INTENT
     # ======================
 
-    command = detect_intent(
-        command
-    )
-
+    command = detect_intent(command)
 
     print(
         "INTENT:",
         command.intent
     )
 
-
-
-
     # ======================
     # ENTITIES
     # ======================
 
-    command = extract_entities(
-        command
-    )
-
+    command = extract_entities(command)
 
     print(
         "ENTITIES:",
         command.entities
     )
 
-
-
-
-
     # ======================
     # DELETE CONFIRMATION
     # ======================
-
 
     if (
         command.intent == "delete"
         and not command.context.get("confirmed")
     ):
 
-
         return {
 
+            "type": "confirmation",
 
-            "type":
-            "confirmation",
-
-
-
-            "message":
-
-            get_message(
-
+            "message": get_message(
                 "delete_confirm",
-
                 item=command.entities.get(
                     "name",
                     "file"
                 )
-
             ),
 
-
-
-            "command":
-            command
+            "command": command
 
         }
-
-
-
-
 
     print(
         "CONFIRMED FLAG:",
         command.context.get("confirmed")
     )
 
+    # ======================
+    # CAPABILITY REGISTRY
+    # ======================
 
-
-
-    print(
-        "LOADED PLUGINS:",
-        [
-            p["info"].get("name")
-            for p in PLUGINS
-        ]
+    plugin_name = get_plugin(
+        command.intent
     )
 
+    print(
+        "TARGET PLUGIN:",
+        plugin_name
+    )
 
+    if not plugin_name:
 
+        return None
 
+    plugin = PLUGINS.get(
+        plugin_name
+    )
 
-    # ======================
-    # PLUGINS
-    # ======================
-
-
-    for plugin in PLUGINS:
-
-
+    if not plugin:
 
         print(
-            "TRY PLUGIN:",
-            plugin["info"].get("name")
+            f"PLUGIN NOT FOUND: {plugin_name}"
         )
 
+        return None
 
+    print(
+        "RUNNING:",
+        plugin_name
+    )
 
-        handler = plugin["handler"]
+    try:
 
+        result = plugin["handler"](
+            command
+        )
 
+        if result:
 
+            return {
 
-        try:
+                "type": "plugin",
 
+                "data": result
 
+            }
 
-            result = handler(
-                command
-            )
+    except Exception as e:
 
-
-
-            if result:
-
-
-
-                return {
-
-
-                    "type":
-
-                    "plugin",
-
-
-
-                    "data":
-
-                    result
-
-                }
-
-
-
-
-
-        except Exception as e:
-
-
-            print(
-                "PLUGIN ERROR:",
-                e
-            )
-
-
-
-
+        print(
+            "PLUGIN ERROR:",
+            e
+        )
 
     # ======================
     # UNKNOWN
     # ======================
-
 
     return None
