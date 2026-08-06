@@ -1072,3 +1072,1050 @@
 2026-08-05 03:45:06,528 | INFO | USER: thank you
 2026-08-05 03:45:06,529 | INFO | COMMAND: thank you
 2026-08-05 03:45:06,529 | INFO | RESULT: {'type': 'plugin', 'data': {'action': 'general', 'message': 'Welcome boss.'}}
+2026-08-05 03:56:50,901 | INFO | Processing audio with duration 00:05.440
+2026-08-05 03:56:50,959 | INFO | VAD filter removed 00:04.464 of audio
+2026-08-05 03:56:51,217 | INFO | Detected language 'en' with probability 0.98
+2026-08-05 03:56:51,367 | INFO | USER: nexus
+2026-08-05 03:57:11,493 | INFO | Processing audio with duration 00:06.720
+2026-08-05 03:57:11,511 | INFO | VAD filter removed 00:04.464 of audio
+2026-08-05 03:57:11,909 | INFO | Detected language 'en' with probability 0.69
+2026-08-05 03:57:12,095 | INFO | USER: remember my name is kisho
+2026-08-05 03:57:12,095 | INFO | COMMAND: remember my name is kisho
+2026-08-05 03:57:12,102 | INFO | RESULT: {'type': 'plugin', 'data': {'action': 'memory_saved', 'item': 'name'}}
+2026-08-05 03:57:31,085 | INFO | Processing audio with duration 00:05.760
+2026-08-05 03:57:31,099 | INFO | VAD filter removed 00:04.400 of audio
+2026-08-05 03:57:31,509 | INFO | Detected language 'en' with probability 0.84
+2026-08-05 03:57:31,660 | INFO | USER: what is my name
+2026-08-05 03:57:31,660 | INFO | COMMAND: what is my name
+2026-08-05 03:57:31,661 | INFO | RESULT: {'type': 'plugin', 'data': {'action': 'general', 'message': 'Haan boss, bolo.'}}
+2026-08-05 03:57:53,462 | INFO | Processing audio with duration 00:05.760
+2026-08-05 03:57:53,478 | INFO | VAD filter removed 00:04.368 of audio
+2026-08-05 03:57:53,716 | INFO | Detected language 'en' with probability 0.86
+2026-08-05 03:57:53,877 | INFO | USER: again to my name
+2026-08-05 03:57:53,877 | INFO | COMMAND: again to my name
+2026-08-05 04:03:17,341 | INFO | Processing audio with duration 00:05.120
+2026-08-05 04:03:17,392 | INFO | VAD filter removed 00:04.016 of audio
+2026-08-05 04:03:17,989 | INFO | Detected language 'en' with probability 0.95
+2026-08-05 04:03:18,137 | INFO | USER: hey nexus
+2026-08-05 04:03:32,753 | INFO | Processing audio with duration 00:06.720
+2026-08-05 04:03:32,768 | INFO | VAD filter removed 00:04.496 of audio
+2026-08-05 04:03:33,198 | INFO | Detected language 'en' with probability 0.68
+2026-08-05 04:03:33,361 | INFO | USER: remember my name is kesho
+2026-08-05 04:03:33,361 | INFO | COMMAND: remember my name is kesho
+2026-08-05 04:03:33,363 | INFO | RESULT: {'type': 'plugin', 'data': {'action': 'general', 'message': 'Haan boss, bolo.'}}
+2026-08-05 04:03:48,652 | INFO | Processing audio with duration 00:06.080
+2026-08-05 04:03:48,667 | INFO | VAD filter removed 00:04.336 of audio
+2026-08-05 04:03:48,997 | INFO | Detected language 'en' with probability 0.75
+2026-08-05 04:03:49,149 | INFO | USER: what is my name
+2026-08-05 04:03:49,149 | INFO | COMMAND: what is my name
+2026-08-05 04:03:49,150 | INFO | RESULT: {'type': 'plugin', 'data': {'action': 'general', 'message': 'Haan boss, bolo.'}}
+2026-08-05 04:13:05,039 | INFO | Processing audio with duration 00:05.440
+2026-08-05 04:13:05,090 | INFO | VAD filter removed 00:04.336 of audio
+2026-08-05 04:13:05,356 | INFO | Detected language 'en' with probability 0.91
+2026-08-05 04:13:05,501 | INFO | USER: hey nexus
+2026-08-05 04:13:19,988 | INFO | Processing audio with duration 00:06.720
+2026-08-05 04:13:19,998 | INFO | VAD filter removed 00:04.528 of audio
+2026-08-05 04:13:20,294 | INFO | Detected language 'en' with probability 0.73
+2026-08-05 04:13:20,460 | INFO | USER: remember my name is kesho
+2026-08-05 04:13:20,460 | INFO | COMMAND: remember my name is kesho
+2026-08-05 04:13:20,473 | INFO | RESULT: {'type': 'plugin', 'data': {'action': 'memory_saved', 'item': 'name'}}
+2026-08-05 04:13:39,740 | INFO | Processing audio with duration 00:05.760
+2026-08-05 04:13:39,755 | INFO | VAD filter removed 00:04.528 of audio
+2026-08-05 04:13:40,081 | INFO | Detected language 'en' with probability 0.83
+2026-08-05 04:13:40,231 | INFO | USER: what is my name
+2026-08-05 04:13:40,231 | INFO | COMMAND: what is my name
+2026-08-05 04:13:40,248 | INFO | RESULT: {'type': 'plugin', 'data': {'action': 'name_recall', 'item': 'kesho'}}
+2026-08-05 04:13:54,841 | INFO | Processing audio with duration 00:05.760
+2026-08-05 04:13:54,856 | INFO | VAD filter removed 00:04.592 of audio
+2026-08-05 04:13:55,262 | INFO | Detected language 'en' with probability 0.89
+2026-08-05 04:13:55,415 | INFO | USER: share it in my name
+2026-08-05 04:13:55,415 | INFO | COMMAND: share it in my name
+2026-08-05 04:13:55,425 | INFO | RESULT: None
+2026-08-05 04:14:11,953 | INFO | Processing audio with duration 00:05.760
+2026-08-05 04:14:11,967 | INFO | VAD filter removed 00:04.304 of audio
+2026-08-05 04:14:12,267 | INFO | Detected language 'en' with probability 0.80
+2026-08-05 04:14:12,422 | INFO | USER: what a guy to my name
+2026-08-05 04:14:12,423 | INFO | COMMAND: what a guy to my name
+2026-08-05 04:14:12,438 | INFO | RESULT: None
+2026-08-05 04:14:25,758 | INFO | Processing audio with duration 00:06.400
+2026-08-05 04:14:25,767 | INFO | VAD filter removed 00:04.400 of audio
+2026-08-05 04:14:26,074 | INFO | Detected language 'en' with probability 0.78
+2026-08-05 04:14:26,234 | INFO | USER: dont forget my name
+2026-08-05 04:14:26,234 | INFO | COMMAND: dont forget my name
+2026-08-05 04:14:26,244 | INFO | RESULT: {'type': 'plugin', 'data': {'action': 'memory_not_found'}}
+2026-08-05 04:14:41,523 | INFO | Processing audio with duration 00:06.080
+2026-08-05 04:14:41,535 | INFO | VAD filter removed 00:04.336 of audio
+2026-08-05 04:14:41,860 | INFO | Detected language 'en' with probability 0.77
+2026-08-05 04:14:42,031 | INFO | USER: bout to get to my name
+2026-08-05 04:14:42,031 | INFO | COMMAND: bout to get to my name
+2026-08-05 04:14:42,046 | INFO | RESULT: None
+2026-08-05 04:14:54,727 | INFO | Processing audio with duration 00:05.440
+2026-08-05 04:14:54,742 | INFO | VAD filter removed 00:04.080 of audio
+2026-08-05 04:14:55,057 | INFO | Detected language 'en' with probability 0.94
+2026-08-05 04:14:55,242 | INFO | USER: were going to have to find them
+2026-08-05 04:14:55,242 | INFO | COMMAND: were going to have to find them
+2026-08-05 04:20:02,448 | INFO | Processing audio with duration 00:05.440
+2026-08-05 04:20:02,512 | INFO | VAD filter removed 00:04.432 of audio
+2026-08-05 04:20:02,977 | INFO | Detected language 'en' with probability 0.98
+2026-08-05 04:20:03,127 | INFO | USER: nexus
+2026-08-05 04:20:15,541 | INFO | Processing audio with duration 00:05.440
+2026-08-05 04:20:15,548 | INFO | VAD filter removed 00:04.240 of audio
+2026-08-05 04:20:15,747 | INFO | Detected language 'ru' with probability 0.37
+2026-08-05 04:20:15,889 | INFO | USER: \u043d\u0435 \u0437\u0432\u043e\u043d\u0438
+2026-08-05 04:20:15,890 | INFO | COMMAND: \u043d\u0435 \u0437\u0432\u043e\u043d\u0438
+2026-08-05 04:21:03,947 | INFO | Processing audio with duration 00:05.440
+2026-08-05 04:21:04,000 | INFO | VAD filter removed 00:04.336 of audio
+2026-08-05 04:21:04,544 | INFO | Detected language 'en' with probability 0.80
+2026-08-05 04:21:04,684 | INFO | USER: nexus
+2026-08-05 04:21:18,386 | INFO | Processing audio with duration 00:06.080
+2026-08-05 04:21:18,402 | INFO | VAD filter removed 00:03.568 of audio
+2026-08-05 04:21:18,729 | INFO | Detected language 'en' with probability 0.43
+2026-08-05 04:21:18,873 | INFO | USER: what is my name
+2026-08-05 04:21:18,873 | INFO | COMMAND: what is my name
+2026-08-05 04:21:18,874 | INFO | RESULT: {'type': 'plugin', 'data': {'action': 'name_recall', 'item': 'kesho'}}
+2026-08-05 04:21:33,027 | INFO | Processing audio with duration 00:05.440
+2026-08-05 04:21:33,037 | INFO | VAD filter removed 00:04.048 of audio
+2026-08-05 04:21:33,329 | INFO | Detected language 'en' with probability 0.75
+2026-08-05 04:21:33,487 | INFO | USER: okay to my name
+2026-08-05 04:21:33,487 | INFO | COMMAND: okay to my name
+2026-08-05 04:21:33,488 | INFO | RESULT: None
+2026-08-05 04:21:49,991 | INFO | Processing audio with duration 00:06.080
+2026-08-05 04:21:50,002 | INFO | VAD filter removed 00:04.400 of audio
+2026-08-05 04:21:50,320 | INFO | Detected language 'en' with probability 0.85
+2026-08-05 04:21:50,481 | INFO | USER: i want to get my name
+2026-08-05 04:21:50,481 | INFO | COMMAND: i want to get my name
+2026-08-05 04:21:50,482 | INFO | RESULT: None
+2026-08-05 04:22:00,588 | INFO | Processing audio with duration 00:06.080
+2026-08-05 04:22:00,597 | INFO | VAD filter removed 00:04.400 of audio
+2026-08-05 04:22:00,910 | INFO | Detected language 'en' with probability 0.75
+2026-08-05 04:22:01,083 | INFO | USER: forgot to get the name
+2026-08-05 04:22:01,084 | INFO | COMMAND: forgot to get the name
+2026-08-05 04:22:01,085 | INFO | RESULT: None
+2026-08-05 04:22:13,743 | INFO | Processing audio with duration 00:06.080
+2026-08-05 04:22:13,758 | INFO | VAD filter removed 00:03.664 of audio
+2026-08-05 04:22:14,104 | INFO | Detected language 'en' with probability 0.92
+2026-08-05 04:22:14,275 | INFO | USER: im going to get the main room
+2026-08-05 04:22:14,275 | INFO | COMMAND: im going to get the main room
+2026-08-05 04:22:56,073 | INFO | Processing audio with duration 00:05.440
+2026-08-05 04:22:56,124 | INFO | VAD filter removed 00:04.336 of audio
+2026-08-05 04:22:56,698 | INFO | Detected language 'en' with probability 0.98
+2026-08-05 04:22:56,839 | INFO | USER: nexus
+2026-08-05 04:23:10,267 | INFO | Processing audio with duration 00:05.760
+2026-08-05 04:23:10,283 | INFO | VAD filter removed 00:03.344 of audio
+2026-08-05 04:23:10,682 | INFO | Detected language 'en' with probability 0.33
+2026-08-05 04:23:10,850 | INFO | USER: remember my name is tishon
+2026-08-05 04:23:10,850 | INFO | COMMAND: remember my name is tishon
+2026-08-05 04:23:10,851 | INFO | RESULT: {'type': 'plugin', 'data': {'action': 'memory_saved', 'item': 'name'}}
+2026-08-05 04:23:26,774 | INFO | Processing audio with duration 00:05.120
+2026-08-05 04:23:26,785 | INFO | VAD filter removed 00:04.592 of audio
+2026-08-05 04:23:27,081 | INFO | Detected language 'en' with probability 0.87
+2026-08-05 04:23:27,217 | INFO | USER: thank you
+2026-08-05 04:23:27,217 | INFO | COMMAND: thank you
+2026-08-05 04:23:27,218 | INFO | RESULT: {'type': 'plugin', 'data': {'action': 'general', 'message': 'Welcome boss.'}}
+2026-08-05 04:23:48,668 | INFO | Processing audio with duration 00:05.440
+2026-08-05 04:23:48,682 | INFO | VAD filter removed 00:04.464 of audio
+2026-08-05 04:23:49,059 | INFO | Detected language 'en' with probability 0.50
+2026-08-05 04:23:49,688 | INFO | USER: audio
+2026-08-05 04:23:49,688 | INFO | COMMAND: audio
+2026-08-05 04:24:08,091 | INFO | RESULT: {'type': 'plugin', 'data': {'action': 'ai', 'message': "Boss, audio received. What's up? Need anything from me?"}}
+2026-08-05 04:24:30,791 | INFO | Processing audio with duration 00:05.440
+2026-08-05 04:24:30,798 | INFO | VAD filter removed 00:04.496 of audio
+2026-08-05 04:24:31,057 | INFO | Detected language 'en' with probability 0.47
+2026-08-05 04:24:31,237 | INFO | USER: how are you
+2026-08-05 04:24:31,237 | INFO | COMMAND: how are you
+2026-08-05 04:24:31,238 | INFO | RESULT: {'type': 'plugin', 'data': {'action': 'general', 'message': 'Main badhiya hoon boss, aap batao.'}}
+2026-08-05 04:24:48,177 | INFO | Processing audio with duration 00:05.760
+2026-08-05 04:24:48,192 | INFO | VAD filter removed 00:04.528 of audio
+2026-08-05 04:24:48,453 | INFO | Detected language 'en' with probability 0.59
+2026-08-05 04:24:48,589 | INFO | USER: open chrome
+2026-08-05 04:24:48,589 | INFO | COMMAND: open chrome
+2026-08-05 04:24:48,594 | INFO | RESULT: {'type': 'plugin', 'data': {'action': 'app_opened', 'item': 'chrome'}}
+2026-08-05 04:25:01,605 | INFO | Processing audio with duration 00:05.120
+2026-08-05 04:25:01,619 | INFO | VAD filter removed 00:04.240 of audio
+2026-08-05 04:25:02,038 | INFO | Detected language 'en' with probability 0.85
+2026-08-05 04:25:02,658 | INFO | USER: how was it
+2026-08-05 04:25:02,658 | INFO | COMMAND: how was it
+2026-08-05 04:25:17,101 | INFO | RESULT: {'type': 'plugin', 'data': {'action': 'ai', 'message': 'Boss, audio received. All good! Need anything else?'}}
+2026-08-05 04:25:35,519 | INFO | Processing audio with duration 00:05.760
+2026-08-05 04:25:35,532 | INFO | VAD filter removed 00:04.496 of audio
+2026-08-05 04:25:35,846 | INFO | Detected language 'en' with probability 0.36
+2026-08-05 04:25:35,988 | INFO | USER: chrome
+2026-08-05 04:25:35,988 | INFO | COMMAND: chrome
+2026-08-05 04:25:50,930 | INFO | RESULT: {'type': 'plugin', 'data': {'action': 'ai', 'message': 'Boss, Chrome? Need help with anything related to it? Let me know!'}}
+2026-08-05 04:26:11,186 | INFO | Processing audio with duration 00:05.440
+2026-08-05 04:26:11,200 | INFO | VAD filter removed 00:04.368 of audio
+2026-08-05 04:26:11,620 | INFO | Detected language 'en' with probability 0.38
+2026-08-05 04:26:13,517 | INFO | USER: chrome
+2026-08-05 04:26:13,517 | INFO | COMMAND: chrome
+2026-08-05 04:26:22,600 | INFO | RESULT: {'type': 'plugin', 'data': {'action': 'ai', 'message': 'Boss, Chrome? Need help with anything related to it? Let me know!'}}
+2026-08-05 04:26:45,501 | INFO | Processing audio with duration 00:05.760
+2026-08-05 04:26:45,508 | INFO | VAD filter removed 00:04.304 of audio
+2026-08-05 04:26:45,822 | INFO | Detected language 'en' with probability 0.84
+2026-08-05 04:26:46,772 | INFO | USER: coscalculator
+2026-08-05 04:26:46,772 | INFO | COMMAND: coscalculator
+2026-08-05 04:27:00,947 | INFO | RESULT: {'type': 'plugin', 'data': {'action': 'ai', 'message': 'Boss, cos calculator? Need help calculating cosine of an angle? Let me know the value!'}}
+2026-08-05 04:27:21,332 | INFO | Processing audio with duration 00:06.720
+2026-08-05 04:27:21,346 | INFO | VAD filter removed 00:00.000 of audio
+2026-08-05 04:27:21,618 | INFO | Detected language 'en' with probability 0.55
+2026-08-05 04:27:30,892 | INFO | Processing audio with duration 00:06.080
+2026-08-05 04:27:30,908 | INFO | VAD filter removed 00:04.368 of audio
+2026-08-05 04:27:31,202 | INFO | Detected language 'en' with probability 0.74
+2026-08-05 04:27:31,346 | INFO | USER: close calculator
+2026-08-05 04:27:31,346 | INFO | COMMAND: close calculator
+2026-08-05 04:27:31,444 | INFO | RESULT: {'type': 'plugin', 'data': {'action': 'app_close_failed', 'item': 'calculator'}}
+2026-08-05 04:28:01,484 | INFO | Processing audio with duration 00:06.080
+2026-08-05 04:28:01,500 | INFO | VAD filter removed 00:04.304 of audio
+2026-08-05 04:28:01,804 | INFO | Detected language 'en' with probability 0.71
+2026-08-05 04:28:01,957 | INFO | USER: open can cool it down
+2026-08-05 04:28:01,957 | INFO | COMMAND: open can cool it down
+2026-08-05 04:28:01,962 | INFO | RESULT: {'type': 'plugin', 'data': {'action': 'app_opened', 'item': 'can cool it down'}}
+2026-08-05 04:36:33,692 | INFO | Processing audio with duration 00:05.120
+2026-08-05 04:36:33,706 | INFO | VAD filter removed 00:04.304 of audio
+2026-08-05 04:36:34,014 | INFO | Detected language 'en' with probability 0.43
+2026-08-05 04:36:34,837 | INFO | USER: thanks for watching
+2026-08-05 04:36:34,837 | INFO | COMMAND: thanks for watching
+2026-08-05 04:36:34,839 | INFO | RESULT: {'type': 'plugin', 'data': {'action': 'general', 'message': 'Welcome boss.'}}
+2026-08-05 04:39:47,221 | INFO | Processing audio with duration 00:05.440
+2026-08-05 04:39:47,278 | INFO | VAD filter removed 00:04.272 of audio
+2026-08-05 04:39:47,576 | INFO | Detected language 'en' with probability 0.86
+2026-08-05 04:39:47,730 | INFO | USER: hey nexus
+2026-08-05 04:40:01,465 | INFO | Processing audio with duration 00:05.760
+2026-08-05 04:40:01,481 | INFO | VAD filter removed 00:04.304 of audio
+2026-08-05 04:40:01,878 | INFO | Detected language 'en' with probability 0.81
+2026-08-05 04:40:02,021 | INFO | USER: most calculator
+2026-08-05 04:40:02,021 | INFO | COMMAND: most calculator
+2026-08-05 04:40:20,971 | INFO | RESULT: {'type': 'plugin', 'data': {'action': 'ai', 'message': 'Boss, aap calculator lagana hai ya calculator app? Scientific ya simple? Google Keep ya Windows Calculator accha lag raha hai? Aapko koi specific calculation ka help chahiye?'}}
+2026-08-05 04:40:48,113 | INFO | Processing audio with duration 00:05.440
+2026-08-05 04:40:48,127 | INFO | VAD filter removed 00:04.272 of audio
+2026-08-05 04:40:48,457 | INFO | Detected language 'en' with probability 0.43
+2026-08-05 04:40:49,122 | INFO | USER: well see you in the next video
+2026-08-05 04:40:49,122 | INFO | COMMAND: well see you in the t video
+2026-08-05 04:41:04,315 | INFO | RESULT: {'type': 'plugin', 'data': {'action': 'ai', 'message': 'Boss, video dekho ya aur help chahiye? Aapko koi specific calculation ka help chahiye?'}}
+2026-08-05 04:42:19,382 | INFO | Processing audio with duration 00:06.400
+2026-08-05 04:42:19,398 | INFO | VAD filter removed 00:03.088 of audio
+2026-08-05 04:42:19,820 | INFO | Detected language 'en' with probability 0.65
+2026-08-05 04:42:19,977 | INFO | USER: next week calculator
+2026-08-05 04:42:19,977 | INFO | COMMAND: t week calculator
+2026-08-05 04:42:39,226 | INFO | RESULT: {'type': 'plugin', 'data': {'action': 'ai', 'message': 'Boss, t week calculator kya? Weekly planner ya koi specific calculation? Google Sheets ya app lagana chahiye? Aapko koi help chahiye?'}}
+2026-08-05 04:43:03,261 | INFO | Processing audio with duration 00:06.080
+2026-08-05 04:43:03,273 | INFO | VAD filter removed 00:04.336 of audio
+2026-08-05 04:43:03,630 | INFO | Detected language 'en' with probability 0.90
+2026-08-05 04:43:03,792 | INFO | USER: exit notepad
+2026-08-05 04:45:46,280 | INFO | Processing audio with duration 00:05.440
+2026-08-05 04:45:46,347 | INFO | VAD filter removed 00:04.304 of audio
+2026-08-05 04:45:46,951 | INFO | Detected language 'en' with probability 0.98
+2026-08-05 04:45:47,090 | INFO | USER: nexus
+2026-08-05 04:46:00,473 | INFO | Processing audio with duration 00:05.760
+2026-08-05 04:46:00,485 | INFO | VAD filter removed 00:04.400 of audio
+2026-08-05 04:46:00,759 | INFO | Detected language 'en' with probability 0.80
+2026-08-05 04:46:00,948 | INFO | USER: i hope youre all familiar with it
+2026-08-05 04:46:00,948 | INFO | COMMAND: i hope youre all familiar with it
+2026-08-05 04:46:00,950 | INFO | RESULT: None
+2026-08-05 04:46:15,550 | INFO | Processing audio with duration 00:05.760
+2026-08-05 04:46:15,566 | INFO | VAD filter removed 00:04.336 of audio
+2026-08-05 04:46:15,932 | INFO | Detected language 'en' with probability 0.63
+2026-08-05 04:46:16,867 | INFO | USER: im out of notes guys
+2026-08-05 04:46:16,867 | INFO | COMMAND: im out of notes guys
+2026-08-05 04:46:29,457 | INFO | RESULT: {'type': 'plugin', 'data': {'action': 'ai', 'message': 'Boss, notes khaali hain? Cloud me check karo ya note app use karo. Main help karta hu.'}}
+2026-08-05 04:46:50,664 | INFO | Processing audio with duration 00:06.080
+2026-08-05 04:46:50,672 | INFO | VAD filter removed 00:04.560 of audio
+2026-08-05 04:46:50,954 | INFO | Detected language 'en' with probability 0.69
+2026-08-05 04:46:51,099 | INFO | USER: stop canculator
+2026-08-05 04:46:51,099 | INFO | COMMAND: stop canculator
+2026-08-05 04:46:51,317 | INFO | RESULT: {'type': 'plugin', 'data': {'action': 'app_opened', 'item': 'ncu'}}
+2026-08-05 04:52:15,405 | INFO | Processing audio with duration 00:05.440
+2026-08-05 04:52:15,471 | INFO | VAD filter removed 00:04.304 of audio
+2026-08-05 04:52:15,728 | INFO | Detected language 'en' with probability 0.93
+2026-08-05 04:52:15,872 | INFO | USER: hey nexus
+2026-08-05 04:52:29,266 | INFO | Processing audio with duration 00:05.760
+2026-08-05 04:52:29,281 | INFO | VAD filter removed 00:04.464 of audio
+2026-08-05 04:52:29,537 | INFO | Detected language 'en' with probability 0.48
+2026-08-05 04:52:29,682 | INFO | USER: calculator
+2026-08-05 04:52:29,682 | INFO | COMMAND: calculator
+2026-08-05 04:52:45,774 | INFO | RESULT: {'type': 'plugin', 'data': {'action': 'ai', 'message': 'Boss, aap calculation kijiye ya help chahiye? Mere paas calculator hai, kuch bhi calculate kar sakte ho.'}}
+2026-08-05 04:53:06,925 | INFO | Processing audio with duration 00:06.080
+2026-08-05 04:53:06,935 | INFO | VAD filter removed 00:04.464 of audio
+2026-08-05 04:53:07,321 | INFO | Detected language 'en' with probability 0.47
+2026-08-05 04:53:16,420 | INFO | Processing audio with duration 00:05.760
+2026-08-05 04:53:16,435 | INFO | VAD filter removed 00:04.272 of audio
+2026-08-05 04:53:16,732 | INFO | Detected language 'en' with probability 0.72
+2026-08-05 04:53:16,880 | INFO | USER: stop calculator
+2026-08-05 04:53:16,880 | INFO | COMMAND: stop calculator
+2026-08-05 04:53:16,889 | INFO | RESULT: {'type': 'plugin', 'data': {'action': 'app_close_failed', 'item': 'calculator'}}
+2026-08-05 04:53:44,066 | INFO | Processing audio with duration 00:06.080
+2026-08-05 04:53:44,079 | INFO | VAD filter removed 00:04.368 of audio
+2026-08-05 04:53:44,503 | INFO | Detected language 'en' with probability 0.90
+2026-08-05 04:53:44,649 | INFO | USER: exit mode pad
+2026-08-05 05:06:31,558 | INFO | Processing audio with duration 00:05.440
+2026-08-05 05:06:31,625 | INFO | VAD filter removed 00:04.144 of audio
+2026-08-05 05:06:31,887 | INFO | Detected language 'en' with probability 0.97
+2026-08-05 05:06:32,028 | INFO | USER: hey nexus
+2026-08-05 05:06:45,671 | INFO | Processing audio with duration 00:05.760
+2026-08-05 05:06:45,684 | INFO | VAD filter removed 00:04.112 of audio
+2026-08-05 05:06:45,933 | INFO | Detected language 'en' with probability 0.82
+2026-08-05 05:06:46,076 | INFO | USER: top calculator
+2026-08-05 05:06:46,077 | INFO | COMMAND: top calculator
+2026-08-05 05:06:46,088 | INFO | RESULT: {'type': 'plugin', 'data': {'action': 'app_not_running', 'item': 'calculator'}}
+2026-08-05 05:07:03,618 | INFO | Processing audio with duration 00:06.080
+2026-08-05 05:07:03,633 | INFO | VAD filter removed 00:04.496 of audio
+2026-08-05 05:07:03,927 | INFO | Detected language 'en' with probability 0.86
+2026-08-05 05:07:04,668 | INFO | USER: stop canculator
+2026-08-05 05:07:04,668 | INFO | COMMAND: stop canculator
+2026-08-05 05:07:04,677 | INFO | RESULT: {'type': 'plugin', 'data': {'action': 'app_not_running', 'item': 'ncu'}}
+2026-08-05 05:07:19,336 | INFO | Processing audio with duration 00:05.760
+2026-08-05 05:07:19,344 | INFO | VAD filter removed 00:04.368 of audio
+2026-08-05 05:07:19,727 | INFO | Detected language 'en' with probability 0.82
+2026-08-05 05:07:21,200 | INFO | USER: not calculator
+2026-08-05 05:07:21,201 | INFO | COMMAND: not calculator
+2026-08-05 05:07:37,115 | INFO | RESULT: {'type': 'plugin', 'data': {'action': 'ai', 'message': 'Boss, calculator nahi chahiye? Kya help chahiye?'}}
+2026-08-05 05:08:02,419 | INFO | Processing audio with duration 00:06.080
+2026-08-05 05:08:02,427 | INFO | VAD filter removed 00:04.304 of audio
+2026-08-05 05:08:02,725 | INFO | Detected language 'en' with probability 0.77
+2026-08-05 05:08:02,859 | INFO | USER: close calculator
+2026-08-05 05:08:02,859 | INFO | COMMAND: close calculator
+2026-08-05 05:08:02,868 | INFO | RESULT: {'type': 'plugin', 'data': {'action': 'app_not_running', 'item': 'calculator'}}
+2026-08-05 05:15:51,806 | INFO | Processing audio with duration 00:05.440
+2026-08-05 05:15:51,858 | INFO | VAD filter removed 00:04.496 of audio
+2026-08-05 05:15:52,121 | INFO | Detected language 'en' with probability 0.89
+2026-08-05 05:15:52,277 | INFO | USER: nexus
+2026-08-05 05:16:06,211 | INFO | Processing audio with duration 00:05.440
+2026-08-05 05:16:06,226 | INFO | VAD filter removed 00:04.112 of audio
+2026-08-05 05:16:06,597 | INFO | Detected language 'en' with probability 0.33
+2026-08-05 05:16:06,751 | INFO | USER: canculator
+2026-08-05 05:16:06,751 | INFO | COMMAND: canculator
+2026-08-05 05:16:25,263 | INFO | RESULT: {'type': 'plugin', 'data': {'action': 'ai', 'message': "Boss, you mean calculator? \U0001f60a  \nI'm here to help with all your calculations. Just tell me what you need!  \nNo matter the sum, I've got you covered.  \nLet's make it happen, boss! \U0001f680"}}
+2026-08-05 05:17:02,930 | INFO | Processing audio with duration 00:06.080
+2026-08-05 05:17:02,942 | INFO | VAD filter removed 00:04.400 of audio
+2026-08-05 05:17:03,192 | INFO | Detected language 'en' with probability 0.89
+2026-08-05 05:17:03,346 | INFO | USER: exit notepad
+2026-08-05 05:37:47,111 | INFO | Processing audio with duration 00:05.120
+2026-08-05 05:37:47,183 | INFO | VAD filter removed 00:03.792 of audio
+2026-08-05 05:37:47,442 | INFO | Detected language 'en' with probability 0.87
+2026-08-05 05:37:47,593 | INFO | USER: hey nexus
+2026-08-05 05:38:00,551 | INFO | Processing audio with duration 00:05.760
+2026-08-05 05:38:00,567 | INFO | VAD filter removed 00:03.568 of audio
+2026-08-05 05:38:00,990 | INFO | Detected language 'en' with probability 0.63
+2026-08-05 05:38:01,211 | INFO | USER: thanks for watching see you in the next video
+2026-08-05 05:38:01,212 | INFO | COMMAND: thanks for watching see you in the t video
+2026-08-05 05:38:01,212 | INFO | RESULT: {'type': 'plugin', 'data': {'action': 'general', 'message': 'Welcome boss.'}}
+2026-08-05 05:38:13,657 | INFO | Processing audio with duration 00:05.760
+2026-08-05 05:38:13,671 | INFO | VAD filter removed 00:04.592 of audio
+2026-08-05 05:38:13,977 | INFO | Detected language 'en' with probability 0.51
+2026-08-05 05:38:25,839 | INFO | Processing audio with duration 00:07.040
+2026-08-05 05:38:25,855 | INFO | VAD filter removed 00:04.112 of audio
+2026-08-05 05:38:26,174 | INFO | Detected language 'en' with probability 0.71
+2026-08-05 05:38:26,325 | INFO | USER: lock pc
+2026-08-05 05:38:26,325 | INFO | COMMAND: lock pc
+2026-08-05 05:38:26,361 | INFO | RESULT: {'type': 'plugin', 'data': {'action': 'system_lock'}}
+2026-08-05 05:39:41,191 | INFO | Processing audio with duration 00:05.440
+2026-08-05 05:39:41,204 | INFO | VAD filter removed 00:04.432 of audio
+2026-08-05 05:39:41,547 | INFO | Detected language 'en' with probability 0.80
+2026-08-05 05:39:41,702 | INFO | USER: reboot
+2026-08-05 05:39:41,702 | INFO | COMMAND: reboot
+2026-08-05 05:39:41,729 | INFO | RESULT: {'type': 'plugin', 'data': {'action': 'system_restart'}}
+2026-08-05 05:58:35,353 | INFO | Processing audio with duration 00:05.120
+2026-08-05 05:58:35,500 | INFO | VAD filter removed 00:03.888 of audio
+2026-08-05 05:58:36,885 | INFO | Detected language 'en' with probability 0.79
+2026-08-05 05:58:37,041 | INFO | USER: hey nexus
+2026-08-05 05:59:01,101 | INFO | Processing audio with duration 00:05.120
+2026-08-05 05:59:01,114 | INFO | VAD filter removed 00:04.192 of audio
+2026-08-05 05:59:01,460 | INFO | Detected language 'en' with probability 0.83
+2026-08-05 05:59:01,581 | INFO | USER: pc
+2026-08-05 05:59:01,581 | INFO | COMMAND: pc
+2026-08-05 05:59:26,355 | INFO | RESULT: {'type': 'plugin', 'data': {'action': 'ai', 'message': 'Boss, kya lag raha hai? PC ki kuch help chaiye ya kuch aur?'}}
+2026-08-05 06:00:15,531 | INFO | Processing audio with duration 00:05.440
+2026-08-05 06:00:15,597 | INFO | VAD filter removed 00:04.400 of audio
+2026-08-05 06:00:16,044 | INFO | Detected language 'en' with probability 0.95
+2026-08-05 06:00:16,210 | INFO | USER: nexus
+2026-08-05 06:00:32,118 | INFO | Processing audio with duration 00:05.120
+2026-08-05 06:00:32,126 | INFO | VAD filter removed 00:04.368 of audio
+2026-08-05 06:00:32,428 | INFO | Detected language 'en' with probability 0.48
+2026-08-05 06:00:32,557 | INFO | USER: thank you
+2026-08-05 06:00:32,557 | INFO | COMMAND: thank you
+2026-08-05 06:00:32,558 | INFO | RESULT: {'type': 'plugin', 'data': {'action': 'general', 'message': 'Welcome boss.'}}
+2026-08-05 06:00:44,139 | INFO | Processing audio with duration 00:05.760
+2026-08-05 06:00:44,153 | INFO | VAD filter removed 00:03.696 of audio
+2026-08-05 06:00:44,434 | INFO | Detected language 'en' with probability 0.74
+2026-08-05 06:00:44,569 | INFO | USER: lock pc
+2026-08-05 06:00:44,569 | INFO | COMMAND: lock pc
+2026-08-05 06:00:44,611 | INFO | RESULT: {'type': 'plugin', 'data': {'action': 'system_lock'}}
+2026-08-05 21:22:24,036 | INFO | Processing audio with duration 00:05.120
+2026-08-05 21:22:24,127 | INFO | VAD filter removed 00:04.112 of audio
+2026-08-05 21:22:24,785 | INFO | Detected language 'en' with probability 0.97
+2026-08-05 21:22:24,933 | INFO | USER: nexus
+2026-08-05 21:22:35,511 | INFO | Processing audio with duration 00:05.120
+2026-08-05 21:22:35,522 | INFO | VAD filter removed 00:04.336 of audio
+2026-08-05 21:22:35,880 | INFO | Detected language 'en' with probability 0.38
+2026-08-05 21:22:43,747 | INFO | Processing audio with duration 00:05.120
+2026-08-05 21:22:43,757 | INFO | VAD filter removed 00:05.120 of audio
+2026-08-05 21:22:44,096 | INFO | Detected language 'en' with probability 0.44
+2026-08-05 21:22:55,355 | INFO | Processing audio with duration 00:05.120
+2026-08-05 21:22:55,366 | INFO | VAD filter removed 00:04.272 of audio
+2026-08-05 21:22:55,677 | INFO | Detected language 'en' with probability 0.76
+2026-08-05 21:22:55,800 | INFO | USER: github
+2026-08-05 21:22:55,800 | INFO | COMMAND: github
+2026-08-05 21:23:15,973 | INFO | RESULT: {'type': 'plugin', 'data': {'action': 'ai', 'message': 'Boss, GitHub pe kya kar raha hai? Repo create karna hai ya kuch aur? \u092e\u0948\u0902 \u0906\u092a\u0915\u0940 \u092e\u0926\u0926 \u0915\u0930 \u0938\u0915\u0924\u093e \u0939\u0942\u0902\u0964'}}
+2026-08-05 21:23:35,848 | INFO | Processing audio with duration 00:05.120
+2026-08-05 21:23:35,862 | INFO | VAD filter removed 00:04.048 of audio
+2026-08-05 21:23:36,282 | INFO | Detected language 'en' with probability 0.65
+2026-08-05 21:23:36,430 | INFO | USER: what do you do
+2026-08-05 21:23:36,430 | INFO | COMMAND: what do you do
+2026-08-05 21:23:36,431 | INFO | RESULT: None
+2026-08-05 21:27:02,263 | INFO | Processing audio with duration 00:05.440
+2026-08-05 21:27:02,318 | INFO | VAD filter removed 00:04.304 of audio
+2026-08-05 21:27:02,813 | INFO | Detected language 'en' with probability 0.78
+2026-08-05 21:27:02,967 | INFO | USER: hey nexus
+2026-08-05 21:27:15,201 | INFO | Processing audio with duration 00:05.760
+2026-08-05 21:27:15,214 | INFO | VAD filter removed 00:04.272 of audio
+2026-08-05 21:27:15,602 | INFO | Detected language 'en' with probability 0.77
+2026-08-05 21:27:15,744 | INFO | USER: open youtube
+2026-08-05 21:27:15,744 | INFO | COMMAND: open youtube
+2026-08-05 21:27:15,818 | INFO | RESULT: {'type': 'plugin', 'data': {'action': 'app_opened', 'item': 'openssl'}}
+2026-08-05 21:27:28,468 | INFO | Processing audio with duration 00:05.440
+2026-08-05 21:27:28,483 | INFO | VAD filter removed 00:04.464 of audio
+2026-08-05 21:27:28,792 | INFO | Detected language 'en' with probability 0.69
+2026-08-05 21:27:28,912 | INFO | USER: youtube
+2026-08-05 21:27:28,912 | INFO | COMMAND: youtube
+2026-08-05 21:27:28,913 | INFO | RESULT: {'type': 'plugin', 'data': {'action': 'general', 'message': 'Haan boss, bolo.'}}
+2026-08-05 21:27:40,377 | INFO | Processing audio with duration 00:05.440
+2026-08-05 21:27:40,386 | INFO | VAD filter removed 00:04.144 of audio
+2026-08-05 21:27:40,792 | INFO | Detected language 'en' with probability 0.32
+2026-08-05 21:27:40,929 | INFO | USER: one youtube
+2026-08-05 21:27:40,929 | INFO | COMMAND: one youtube
+2026-08-05 21:27:40,930 | INFO | RESULT: {'type': 'plugin', 'data': {'action': 'general', 'message': 'Haan boss, bolo.'}}
+2026-08-05 21:27:55,119 | INFO | Processing audio with duration 00:05.760
+2026-08-05 21:27:55,131 | INFO | VAD filter removed 00:04.464 of audio
+2026-08-05 21:27:55,389 | INFO | Detected language 'en' with probability 0.64
+2026-08-05 21:27:55,522 | INFO | USER: open youtube
+2026-08-05 21:27:55,522 | INFO | COMMAND: open youtube
+2026-08-05 21:27:55,527 | INFO | RESULT: {'type': 'plugin', 'data': {'action': 'app_opened', 'item': 'openssl'}}
+2026-08-05 21:28:10,067 | INFO | Processing audio with duration 00:06.080
+2026-08-05 21:28:10,082 | INFO | VAD filter removed 00:04.208 of audio
+2026-08-05 21:28:10,396 | INFO | Detected language 'en' with probability 0.46
+2026-08-05 21:28:10,541 | INFO | USER: search python on youtube
+2026-08-05 21:28:10,542 | INFO | COMMAND: search python on youtube
+2026-08-05 21:28:10,542 | INFO | RESULT: {'type': 'plugin', 'data': {'action': 'general', 'message': 'Haan boss, bolo.'}}
+2026-08-05 21:28:26,269 | INFO | Processing audio with duration 00:05.440
+2026-08-05 21:28:26,283 | INFO | VAD filter removed 00:04.304 of audio
+2026-08-05 21:28:26,580 | INFO | Detected language 'en' with probability 0.75
+2026-08-05 21:28:26,708 | INFO | USER: open youtube
+2026-08-05 21:28:26,708 | INFO | COMMAND: open youtube
+2026-08-05 21:28:26,712 | INFO | RESULT: {'type': 'plugin', 'data': {'action': 'app_opened', 'item': 'openssl'}}
+2026-08-05 21:28:44,097 | INFO | Processing audio with duration 00:05.440
+2026-08-05 21:28:44,105 | INFO | VAD filter removed 00:04.304 of audio
+2026-08-05 21:28:44,380 | INFO | Detected language 'en' with probability 0.48
+2026-08-05 21:28:46,028 | INFO | USER: when are you going to do it
+2026-08-05 21:28:46,028 | INFO | COMMAND: when are you going to do it
+2026-08-05 21:28:46,029 | INFO | RESULT: {'type': 'plugin', 'data': {'action': 'general', 'message': 'Haan boss, bolo.'}}
+2026-08-05 21:28:57,727 | INFO | Processing audio with duration 00:05.760
+2026-08-05 21:28:57,741 | INFO | VAD filter removed 00:04.496 of audio
+2026-08-05 21:28:58,166 | INFO | Detected language 'hi' with probability 0.55
+2026-08-05 21:28:58,296 | INFO | USER: open github
+2026-08-05 21:28:58,296 | INFO | COMMAND: open github
+2026-08-05 21:28:58,336 | INFO | RESULT: {'type': 'plugin', 'data': {'action': 'app_opened', 'item': 'git'}}
+2026-08-05 21:29:34,021 | INFO | Processing audio with duration 00:06.080
+2026-08-05 21:29:34,036 | INFO | VAD filter removed 00:04.528 of audio
+2026-08-05 21:29:34,356 | INFO | Detected language 'en' with probability 0.52
+2026-08-05 21:29:34,503 | INFO | USER: open chargivity
+2026-08-05 21:29:34,503 | INFO | COMMAND: open chargivity
+2026-08-05 21:29:34,508 | INFO | RESULT: {'type': 'plugin', 'data': {'action': 'app_opened', 'item': 'openssl'}}
+2026-08-05 21:29:48,730 | INFO | Processing audio with duration 00:06.080
+2026-08-05 21:29:48,741 | INFO | VAD filter removed 00:04.432 of audio
+2026-08-05 21:29:49,144 | INFO | Detected language 'en' with probability 0.37
+2026-08-05 21:29:49,303 | INFO | USER: open chat gpt
+2026-08-05 21:29:49,303 | INFO | COMMAND: open chat gpt
+2026-08-05 21:29:49,308 | INFO | RESULT: {'type': 'plugin', 'data': {'action': 'app_opened', 'item': 'openssl'}}
+2026-08-05 21:30:36,931 | INFO | Processing audio with duration 00:05.440
+2026-08-05 21:30:36,946 | INFO | VAD filter removed 00:04.464 of audio
+2026-08-05 21:30:37,329 | INFO | Detected language 'en' with probability 0.77
+2026-08-05 21:30:37,460 | INFO | USER: exit
+2026-08-05 21:39:58,781 | INFO | Processing audio with duration 00:05.760
+2026-08-05 21:39:58,843 | INFO | VAD filter removed 00:04.464 of audio
+2026-08-05 21:39:59,361 | INFO | Detected language 'en' with probability 0.90
+2026-08-05 21:39:59,515 | INFO | USER: hey nexus
+2026-08-05 21:40:11,460 | INFO | Processing audio with duration 00:05.120
+2026-08-05 21:40:11,474 | INFO | VAD filter removed 00:04.464 of audio
+2026-08-05 21:40:11,759 | INFO | Detected language 'en' with probability 0.79
+2026-08-05 21:40:11,897 | INFO | USER: go
+2026-08-05 21:40:11,897 | INFO | COMMAND: go
+2026-08-05 21:40:11,898 | INFO | RESULT: {'type': 'plugin', 'data': {'action': 'general', 'message': 'Haan boss, bolo.'}}
+2026-08-05 21:40:23,554 | INFO | Processing audio with duration 00:05.440
+2026-08-05 21:40:23,568 | INFO | VAD filter removed 00:04.432 of audio
+2026-08-05 21:40:23,942 | INFO | Detected language 'en' with probability 0.75
+2026-08-05 21:40:24,085 | INFO | USER: open your door
+2026-08-05 21:40:24,085 | INFO | COMMAND: open your door
+2026-08-05 21:40:24,089 | INFO | RESULT: {'type': 'plugin', 'data': {'action': 'app_opened', 'item': 'your door'}}
+2026-08-05 21:40:38,986 | INFO | Processing audio with duration 00:06.720
+2026-08-05 21:40:38,996 | INFO | VAD filter removed 00:04.464 of audio
+2026-08-05 21:40:39,333 | INFO | Detected language 'en' with probability 0.90
+2026-08-05 21:40:39,483 | INFO | USER: and nexus open youtube
+2026-08-05 21:40:39,483 | INFO | COMMAND: and  open youtube
+2026-08-05 21:40:39,574 | INFO | RESULT: {'type': 'plugin', 'data': {'action': 'app_opened', 'item': 'youtube'}}
+2026-08-05 21:41:11,139 | INFO | Processing audio with duration 00:05.120
+2026-08-05 21:41:11,150 | INFO | VAD filter removed 00:03.120 of audio
+2026-08-05 21:41:11,519 | INFO | Detected language 'en' with probability 0.65
+2026-08-05 21:41:11,660 | INFO | USER: thanks for watching
+2026-08-05 21:41:11,660 | INFO | COMMAND: thanks for watching
+2026-08-05 21:41:11,661 | INFO | RESULT: {'type': 'plugin', 'data': {'action': 'general', 'message': 'Welcome boss.'}}
+2026-08-05 21:41:33,332 | INFO | Processing audio with duration 00:05.120
+2026-08-05 21:41:33,340 | INFO | VAD filter removed 00:04.240 of audio
+2026-08-05 21:41:33,715 | INFO | Detected language 'en' with probability 0.85
+2026-08-05 21:41:33,845 | INFO | USER: exit
+2026-08-05 21:45:42,773 | INFO | Processing audio with duration 00:05.440
+2026-08-05 21:45:42,829 | INFO | VAD filter removed 00:04.400 of audio
+2026-08-05 21:45:43,368 | INFO | Detected language 'en' with probability 0.94
+2026-08-05 21:45:43,528 | INFO | USER: hey nexus
+2026-08-05 21:45:56,104 | INFO | Processing audio with duration 00:06.080
+2026-08-05 21:45:56,119 | INFO | VAD filter removed 00:03.280 of audio
+2026-08-05 21:45:56,384 | INFO | Detected language 'en' with probability 0.82
+2026-08-05 21:45:56,533 | INFO | USER: just open youtube
+2026-08-05 21:45:56,533 | INFO | COMMAND: just open youtube
+2026-08-05 21:45:56,621 | INFO | RESULT: {'type': 'plugin', 'data': {'action': 'app_opened', 'item': 'youtube'}}
+2026-08-05 21:48:32,849 | INFO | Processing audio with duration 00:05.120
+2026-08-05 21:48:32,855 | INFO | VAD filter removed 00:04.624 of audio
+2026-08-05 21:48:33,136 | INFO | Detected language 'en' with probability 0.84
+2026-08-05 21:48:33,278 | INFO | USER: thanks for watching
+2026-08-05 21:48:33,278 | INFO | COMMAND: thanks for watching
+2026-08-05 21:48:33,279 | INFO | RESULT: {'type': 'plugin', 'data': {'action': 'general', 'message': 'Welcome boss.'}}
+2026-08-05 21:49:54,746 | INFO | Processing audio with duration 00:05.120
+2026-08-05 21:49:54,753 | INFO | VAD filter removed 00:05.120 of audio
+2026-08-05 21:49:55,108 | INFO | Detected language 'en' with probability 0.44
+2026-08-05 21:51:29,061 | INFO | Processing audio with duration 00:05.440
+2026-08-05 21:51:29,075 | INFO | VAD filter removed 00:05.440 of audio
+2026-08-05 21:51:29,466 | INFO | Detected language 'en' with probability 0.44
+2026-08-05 21:52:47,735 | INFO | Processing audio with duration 00:05.120
+2026-08-05 21:52:47,742 | INFO | VAD filter removed 00:05.120 of audio
+2026-08-05 21:52:48,036 | INFO | Detected language 'en' with probability 0.44
+2026-08-05 21:53:13,807 | INFO | Processing audio with duration 00:05.120
+2026-08-05 21:53:13,820 | INFO | VAD filter removed 00:04.656 of audio
+2026-08-05 21:53:14,230 | INFO | Detected language 'en' with probability 0.84
+2026-08-05 21:53:14,366 | INFO | USER: thanks for watching
+2026-08-05 21:56:07,496 | INFO | Processing audio with duration 00:05.440
+2026-08-05 21:56:07,554 | INFO | VAD filter removed 00:04.272 of audio
+2026-08-05 21:56:07,820 | INFO | Detected language 'en' with probability 0.90
+2026-08-05 21:56:07,967 | INFO | USER: hey nexus
+2026-08-05 21:56:39,928 | INFO | Processing audio with duration 00:05.440
+2026-08-05 21:56:39,936 | INFO | VAD filter removed 00:04.336 of audio
+2026-08-05 21:56:40,357 | INFO | Detected language 'en' with probability 0.89
+2026-08-05 21:56:40,493 | INFO | USER: open youtube
+2026-08-05 21:56:40,493 | INFO | COMMAND: open youtube
+2026-08-05 21:56:40,589 | INFO | RESULT: {'type': 'plugin', 'data': {'action': 'browser_opened', 'item': 'youtube'}}
+2026-08-05 21:57:08,404 | INFO | Processing audio with duration 00:05.440
+2026-08-05 21:57:08,411 | INFO | VAD filter removed 00:04.080 of audio
+2026-08-05 21:57:08,756 | INFO | Detected language 'en' with probability 0.83
+2026-08-05 21:57:09,755 | INFO | USER: one vs code
+2026-08-05 21:57:09,755 | INFO | COMMAND: one vs code
+2026-08-05 21:57:11,868 | INFO | RESULT: {'type': 'plugin', 'data': {'action': 'coding_ready', 'ollama': 'running'}}
+2026-08-05 21:57:47,936 | INFO | Processing audio with duration 00:06.080
+2026-08-05 21:57:47,950 | INFO | VAD filter removed 00:04.304 of audio
+2026-08-05 21:57:48,333 | INFO | Detected language 'en' with probability 0.90
+2026-08-05 21:57:48,471 | INFO | USER: open vs code
+2026-08-05 21:57:48,471 | INFO | COMMAND: open vs code
+2026-08-05 21:57:48,493 | INFO | RESULT: {'type': 'plugin', 'data': {'action': 'app_opened', 'item': 'od'}}
+2026-08-05 21:58:06,019 | INFO | Processing audio with duration 00:05.440
+2026-08-05 21:58:06,026 | INFO | VAD filter removed 00:04.432 of audio
+2026-08-05 21:58:06,332 | INFO | Detected language 'en' with probability 0.64
+2026-08-05 21:58:06,469 | INFO | USER: exit
+2026-08-05 22:08:14,120 | INFO | Processing audio with duration 00:05.440
+2026-08-05 22:08:14,208 | INFO | VAD filter removed 00:04.432 of audio
+2026-08-05 22:08:14,814 | INFO | Detected language 'en' with probability 0.93
+2026-08-05 22:08:14,964 | INFO | USER: nexus
+2026-08-05 22:08:26,366 | INFO | Processing audio with duration 00:05.120
+2026-08-05 22:08:26,373 | INFO | VAD filter removed 00:04.496 of audio
+2026-08-05 22:08:26,601 | INFO | Detected language 'en' with probability 0.77
+2026-08-05 22:08:26,739 | INFO | USER: thanks for watching
+2026-08-05 22:08:26,739 | INFO | COMMAND: thanks for watching
+2026-08-05 22:08:26,740 | INFO | RESULT: {'type': 'plugin', 'data': {'action': 'general', 'message': 'Welcome boss.'}}
+2026-08-05 22:08:36,980 | INFO | Processing audio with duration 00:05.120
+2026-08-05 22:08:36,994 | INFO | VAD filter removed 00:04.080 of audio
+2026-08-05 22:08:37,387 | INFO | Detected language 'en' with probability 0.61
+2026-08-05 22:08:37,521 | INFO | USER: open chrome
+2026-08-05 22:08:37,521 | INFO | COMMAND: open chrome
+2026-08-05 22:08:37,527 | INFO | RESULT: {'type': 'plugin', 'data': {'action': 'app_opened', 'item': 'chrome'}}
+2026-08-05 22:08:49,591 | INFO | Processing audio with duration 00:05.440
+2026-08-05 22:08:49,605 | INFO | VAD filter removed 00:04.432 of audio
+2026-08-05 22:08:49,987 | INFO | Detected language 'en' with probability 0.32
+2026-08-05 22:08:50,103 | INFO | USER: chrome
+2026-08-05 22:08:50,104 | INFO | COMMAND: chrome
+2026-08-05 22:09:08,791 | INFO | RESULT: {'type': 'plugin', 'data': {'action': 'ai', 'message': 'Boss, Chrome ka kuch karna hai ya koi aur problem hai? Help de sakta hoon.'}}
+2026-08-05 22:09:27,953 | INFO | Processing audio with duration 00:05.440
+2026-08-05 22:09:27,967 | INFO | VAD filter removed 00:04.368 of audio
+2026-08-05 22:09:28,374 | INFO | Detected language 'ru' with probability 0.44
+2026-08-05 22:09:28,496 | INFO | USER: android chrome
+2026-08-05 22:09:28,496 | INFO | COMMAND: android chrome
+2026-08-05 22:09:41,209 | INFO | RESULT: {'type': 'plugin', 'data': {'action': 'ai', 'message': 'Boss, Android Chrome par kuch problem hai? Slow lag raha hai ya koi aur issue?'}}
+2026-08-05 22:09:57,440 | INFO | Processing audio with duration 00:05.440
+2026-08-05 22:09:57,454 | INFO | VAD filter removed 00:04.272 of audio
+2026-08-05 22:09:57,762 | INFO | Detected language 'en' with probability 0.60
+2026-08-05 22:09:58,750 | INFO | USER: reset chrome
+2026-08-05 22:09:58,750 | INFO | COMMAND: reset chrome
+2026-08-05 22:10:13,990 | INFO | RESULT: {'type': 'plugin', 'data': {'action': 'ai', 'message': 'Boss, Chrome reset karna chahiye? Cache clear karna chahiye ya settings reset karna?'}}
+2026-08-05 22:10:33,796 | INFO | Processing audio with duration 00:05.440
+2026-08-05 22:10:33,810 | INFO | VAD filter removed 00:02.992 of audio
+2026-08-05 22:10:34,148 | INFO | Detected language 'en' with probability 0.58
+2026-08-05 22:10:34,808 | INFO | USER: chrome
+2026-08-05 22:10:34,808 | INFO | COMMAND: chrome
+2026-08-05 22:10:47,135 | INFO | RESULT: {'type': 'plugin', 'data': {'action': 'ai', 'message': 'Boss, Chrome ka kuch karna hai ya koi aur problem hai? Help de sakta hoon.'}}
+2026-08-05 22:11:02,634 | INFO | Processing audio with duration 00:05.120
+2026-08-05 22:11:02,647 | INFO | VAD filter removed 00:04.304 of audio
+2026-08-05 22:11:02,947 | INFO | Detected language 'en' with probability 0.39
+2026-08-05 22:11:03,062 | INFO | USER: chrome
+2026-08-05 22:11:03,062 | INFO | COMMAND: chrome
+2026-08-05 22:11:24,229 | INFO | RESULT: {'type': 'plugin', 'data': {'action': 'ai', 'message': 'Boss, Chrome ka kuch karna hai ya koi aur problem hai? Help de sakta hoon.'}}
+2026-08-05 22:11:41,240 | INFO | Processing audio with duration 00:06.080
+2026-08-05 22:11:41,254 | INFO | VAD filter removed 00:04.432 of audio
+2026-08-05 22:11:41,540 | INFO | Detected language 'en' with probability 0.96
+2026-08-05 22:11:41,682 | INFO | USER: open vs code
+2026-08-05 22:11:41,682 | INFO | COMMAND: open vs code
+2026-08-05 22:11:41,685 | INFO | RESULT: {'type': 'plugin', 'data': {'action': 'app_failed', 'item': 'vscode'}}
+2026-08-05 22:12:53,088 | INFO | Processing audio with duration 00:05.760
+2026-08-05 22:12:53,102 | INFO | VAD filter removed 00:04.528 of audio
+2026-08-05 22:12:53,506 | INFO | Detected language 'en' with probability 0.91
+2026-08-05 22:12:53,648 | INFO | USER: and notepad
+2026-08-05 22:12:53,648 | INFO | COMMAND: and notepad
+2026-08-05 22:13:10,000 | INFO | RESULT: {'type': 'plugin', 'data': {'action': 'ai', 'message': 'Boss, Notepad ka kuch karna hai ya koi aur problem hai? Help de sakta hoon.'}}
+2026-08-05 22:19:32,351 | INFO | Processing audio with duration 00:05.440
+2026-08-05 22:19:32,414 | INFO | VAD filter removed 00:04.304 of audio
+2026-08-05 22:19:32,974 | INFO | Detected language 'en' with probability 0.97
+2026-08-05 22:19:33,119 | INFO | USER: hey nexus
+2026-08-05 22:19:45,857 | INFO | Processing audio with duration 00:05.760
+2026-08-05 22:19:45,872 | INFO | VAD filter removed 00:04.560 of audio
+2026-08-05 22:19:46,166 | INFO | Detected language 'en' with probability 0.94
+2026-08-05 22:19:47,221 | INFO | USER: thanks for watching please subscribe and hit that like button if you like this video
+2026-08-05 22:19:47,221 | INFO | COMMAND: thanks for watching please subscribe and hit that like button if you like this video
+2026-08-05 22:19:47,222 | INFO | RESULT: {'type': 'plugin', 'data': {'action': 'general', 'message': 'Welcome boss.'}}
+2026-08-05 22:21:07,636 | INFO | Processing audio with duration 00:05.120
+2026-08-05 22:21:07,696 | INFO | VAD filter removed 00:04.368 of audio
+2026-08-05 22:21:07,957 | INFO | Detected language 'en' with probability 0.91
+2026-08-05 22:21:08,104 | INFO | USER: nexus
+2026-08-05 22:21:20,968 | INFO | Processing audio with duration 00:06.400
+2026-08-05 22:21:20,979 | INFO | VAD filter removed 00:03.248 of audio
+2026-08-05 22:21:21,356 | INFO | Detected language 'en' with probability 0.91
+2026-08-05 22:21:21,516 | INFO | USER: nexus open vs code
+2026-08-05 22:21:21,517 | INFO | COMMAND: open vs code
+2026-08-05 22:21:21,526 | INFO | RESULT: {'type': 'plugin', 'data': {'action': 'app_opened', 'item': 'vscode'}}
+2026-08-05 22:22:46,907 | INFO | Processing audio with duration 00:05.120
+2026-08-05 22:22:46,920 | INFO | VAD filter removed 00:05.120 of audio
+2026-08-05 22:22:47,317 | INFO | Detected language 'en' with probability 0.44
+2026-08-05 22:23:51,244 | INFO | Processing audio with duration 00:05.760
+2026-08-05 22:23:51,250 | INFO | VAD filter removed 00:04.272 of audio
+2026-08-05 22:23:51,531 | INFO | Detected language 'en' with probability 0.67
+2026-08-05 22:23:51,665 | INFO | USER: exit
+2026-08-06 00:45:27,988 | INFO | Processing audio with duration 00:05.440
+2026-08-06 00:45:28,186 | INFO | VAD filter removed 00:04.432 of audio
+2026-08-06 00:45:29,542 | INFO | Detected language 'en' with probability 0.95
+2026-08-06 00:45:29,742 | INFO | USER: nexus
+2026-08-06 00:45:41,497 | INFO | Processing audio with duration 00:05.440
+2026-08-06 00:45:41,526 | INFO | VAD filter removed 00:03.920 of audio
+2026-08-06 00:45:42,323 | INFO | Detected language 'en' with probability 0.59
+2026-08-06 00:45:42,480 | INFO | USER: open vs code
+2026-08-06 00:45:42,480 | INFO | COMMAND: open vs code
+2026-08-06 00:45:42,494 | INFO | RESULT: {'type': 'plugin', 'data': {'action': 'app_opened', 'item': 'vscode'}}
+2026-08-06 00:45:54,740 | INFO | Processing audio with duration 00:05.120
+2026-08-06 00:45:54,759 | INFO | VAD filter removed 00:04.560 of audio
+2026-08-06 00:45:55,563 | INFO | Detected language 'en' with probability 0.86
+2026-08-06 00:45:55,740 | INFO | USER: thanks for watching
+2026-08-06 00:45:55,741 | INFO | COMMAND: thanks for watching
+2026-08-06 00:45:55,742 | INFO | RESULT: {'type': 'plugin', 'data': {'action': 'general', 'message': 'Welcome boss.'}}
+2026-08-06 00:46:07,274 | INFO | Processing audio with duration 00:05.760
+2026-08-06 00:46:07,306 | INFO | VAD filter removed 00:04.464 of audio
+2026-08-06 00:46:08,150 | INFO | Detected language 'en' with probability 0.76
+2026-08-06 00:46:08,331 | INFO | USER: open notepad
+2026-08-06 00:46:08,331 | INFO | COMMAND: open notepad
+2026-08-06 00:46:08,348 | INFO | RESULT: {'type': 'plugin', 'data': {'action': 'app_opened', 'item': 'notepad'}}
+2026-08-06 00:46:25,670 | INFO | Processing audio with duration 00:05.440
+2026-08-06 00:46:25,700 | INFO | VAD filter removed 00:04.368 of audio
+2026-08-06 00:46:26,857 | INFO | Detected language 'en' with probability 0.62
+2026-08-06 00:46:27,002 | INFO | USER: open chrome
+2026-08-06 00:46:27,002 | INFO | COMMAND: open chrome
+2026-08-06 00:46:27,010 | INFO | RESULT: {'type': 'plugin', 'data': {'action': 'app_opened', 'item': 'chrome'}}
+2026-08-06 00:46:39,927 | INFO | Processing audio with duration 00:05.120
+2026-08-06 00:46:39,944 | INFO | VAD filter removed 00:04.048 of audio
+2026-08-06 00:46:40,744 | INFO | Detected language 'en' with probability 0.45
+2026-08-06 00:46:41,697 | INFO | USER: chrome
+2026-08-06 00:46:41,697 | INFO | COMMAND: chrome
+2026-08-06 00:47:01,140 | INFO | RESULT: {'type': 'plugin', 'data': {'action': 'ai', 'message': 'Boss, Chrome ka download karna hai ya kuch aur? Mai help kar sakta hoon.'}}
+2026-08-06 00:47:18,477 | INFO | Processing audio with duration 00:05.120
+2026-08-06 00:47:18,507 | INFO | VAD filter removed 00:04.272 of audio
+2026-08-06 00:47:19,676 | INFO | Detected language 'en' with probability 0.79
+2026-08-06 00:47:19,863 | INFO | USER: thanks for watching
+2026-08-06 00:47:19,863 | INFO | COMMAND: thanks for watching
+2026-08-06 00:47:19,864 | INFO | RESULT: {'type': 'plugin', 'data': {'action': 'general', 'message': 'Welcome boss.'}}
+2026-08-06 00:47:35,846 | INFO | Processing audio with duration 00:05.760
+2026-08-06 00:47:35,878 | INFO | VAD filter removed 00:04.496 of audio
+2026-08-06 00:47:37,076 | INFO | Detected language 'en' with probability 0.82
+2026-08-06 00:47:37,262 | INFO | USER: close the notepad
+2026-08-06 00:47:37,262 | INFO | COMMAND: close the notepad
+2026-08-06 00:47:39,498 | INFO | RESULT: {'type': 'plugin', 'data': {'action': 'app_closed', 'item': 'notepad'}}
+2026-08-06 00:47:52,959 | INFO | Processing audio with duration 00:05.760
+2026-08-06 00:47:52,978 | INFO | VAD filter removed 00:04.464 of audio
+2026-08-06 00:47:54,170 | INFO | Detected language 'en' with probability 0.90
+2026-08-06 00:47:54,555 | INFO | USER: nexus vs code
+2026-08-06 00:47:54,555 | INFO | COMMAND: vs code
+2026-08-06 00:47:56,896 | INFO | RESULT: {'type': 'plugin', 'data': {'action': 'coding_ready', 'ollama': 'running'}}
+2026-08-06 00:48:15,539 | INFO | Processing audio with duration 00:06.080
+2026-08-06 00:48:15,574 | INFO | VAD filter removed 00:04.496 of audio
+2026-08-06 00:48:16,744 | INFO | Detected language 'en' with probability 0.46
+2026-08-06 00:48:17,594 | INFO | USER: close vs code
+2026-08-06 00:48:17,594 | INFO | COMMAND: close vs code
+2026-08-06 00:48:19,869 | INFO | RESULT: {'type': 'plugin', 'data': {'action': 'app_closed', 'item': 'vscode'}}
+2026-08-06 00:51:08,073 | INFO | Processing audio with duration 00:05.120
+2026-08-06 00:51:08,101 | INFO | VAD filter removed 00:04.624 of audio
+2026-08-06 00:51:09,258 | INFO | Detected language 'en' with probability 0.72
+2026-08-06 00:51:09,429 | INFO | USER: thanks for watching
+2026-08-06 00:51:09,429 | INFO | COMMAND: thanks for watching
+2026-08-06 00:51:09,431 | INFO | RESULT: {'type': 'plugin', 'data': {'action': 'general', 'message': 'Welcome boss.'}}
+2026-08-06 01:04:21,159 | INFO | Processing audio with duration 00:10.240
+2026-08-06 01:04:21,218 | INFO | VAD filter removed 00:06.768 of audio
+2026-08-06 01:04:22,124 | INFO | Detected language 'en' with probability 0.79
+2026-08-06 01:05:01,874 | INFO | Processing audio with duration 00:05.120
+2026-08-06 01:05:01,906 | INFO | VAD filter removed 00:03.536 of audio
+2026-08-06 01:05:03,087 | INFO | Detected language 'en' with probability 0.64
+2026-08-06 01:05:04,098 | INFO | USER: no no no no
+2026-08-06 01:06:46,128 | INFO | Processing audio with duration 00:05.440
+2026-08-06 01:06:46,157 | INFO | VAD filter removed 00:04.528 of audio
+2026-08-06 01:06:47,315 | INFO | Detected language 'en' with probability 0.91
+2026-08-06 01:06:47,468 | INFO | USER: exit
+2026-08-06 01:27:10,143 | INFO | Processing audio with duration 00:05.440
+2026-08-06 01:27:10,312 | INFO | VAD filter removed 00:04.368 of audio
+2026-08-06 01:27:10,632 | INFO | Detected language 'en' with probability 0.92
+2026-08-06 01:27:10,797 | INFO | USER: hey nexus
+2026-08-06 01:27:23,734 | INFO | Processing audio with duration 00:05.760
+2026-08-06 01:27:23,766 | INFO | VAD filter removed 00:04.336 of audio
+2026-08-06 01:27:24,618 | INFO | Detected language 'en' with probability 0.91
+2026-08-06 01:27:24,808 | INFO | USER: one vs code
+2026-08-06 01:27:24,808 | INFO | COMMAND: one vs code
+2026-08-06 01:27:27,121 | INFO | RESULT: {'type': 'plugin', 'data': {'action': 'coding_ready', 'ollama': 'running'}}
+2026-08-06 01:27:51,233 | INFO | Processing audio with duration 00:06.080
+2026-08-06 01:27:51,269 | INFO | VAD filter removed 00:04.528 of audio
+2026-08-06 01:27:52,457 | INFO | Detected language 'en' with probability 0.93
+2026-08-06 01:27:55,078 | INFO | USER: thanks for watching please subscribe and hit that like button if you like this video
+2026-08-06 01:27:55,078 | INFO | COMMAND: thanks for watching please subscribe and hit that like button if you like this video
+2026-08-06 01:27:55,079 | INFO | RESULT: {'type': 'plugin', 'data': {'action': 'general', 'message': 'Welcome boss.'}}
+2026-08-06 01:28:07,742 | INFO | Processing audio with duration 00:05.440
+2026-08-06 01:28:07,773 | INFO | VAD filter removed 00:03.952 of audio
+2026-08-06 01:28:08,573 | INFO | Detected language 'en' with probability 0.83
+2026-08-06 01:28:08,740 | INFO | USER: open vs code
+2026-08-06 01:28:08,740 | INFO | COMMAND: open vs code
+2026-08-06 01:28:08,756 | INFO | RESULT: {'type': 'plugin', 'data': {'action': 'app_opened', 'item': 'vscode'}}
+2026-08-06 01:28:49,766 | INFO | Processing audio with duration 00:05.760
+2026-08-06 01:28:49,798 | INFO | VAD filter removed 00:04.528 of audio
+2026-08-06 01:28:51,002 | INFO | Detected language 'en' with probability 0.74
+2026-08-06 01:28:51,162 | INFO | USER: open chrome
+2026-08-06 01:28:51,163 | INFO | COMMAND: open chrome
+2026-08-06 01:28:51,167 | INFO | RESULT: {'type': 'plugin', 'data': {'action': 'app_opened', 'item': 'chrome'}}
+2026-08-06 01:29:26,307 | INFO | Processing audio with duration 00:05.440
+2026-08-06 01:29:26,337 | INFO | VAD filter removed 00:02.448 of audio
+2026-08-06 01:29:27,561 | INFO | Detected language 'en' with probability 0.53
+2026-08-06 01:29:27,712 | INFO | USER: exit
+2026-08-06 17:40:57,470 | INFO | Processing audio with duration 00:05.120
+2026-08-06 17:40:57,559 | INFO | VAD filter removed 00:04.400 of audio
+2026-08-06 17:40:58,175 | INFO | Detected language 'en' with probability 0.94
+2026-08-06 17:40:58,342 | INFO | USER: nexus
+2026-08-06 17:41:11,108 | INFO | Processing audio with duration 00:05.760
+2026-08-06 17:41:11,121 | INFO | VAD filter removed 00:04.240 of audio
+2026-08-06 17:41:11,486 | INFO | Detected language 'en' with probability 0.64
+2026-08-06 17:41:11,633 | INFO | USER: nexus open chrome
+2026-08-06 17:41:11,633 | INFO | COMMAND: open chrome
+2026-08-06 17:41:11,649 | INFO | RESULT: {'type': 'plugin', 'data': {'action': 'app_focused', 'item': 'chrome'}}
+2026-08-06 17:41:28,481 | INFO | Processing audio with duration 00:10.240
+2026-08-06 17:41:28,495 | INFO | VAD filter removed 00:06.864 of audio
+2026-08-06 17:41:28,873 | INFO | Detected language 'en' with probability 0.72
+2026-08-06 17:41:29,043 | INFO | USER: nice nexa nice
+2026-08-06 17:41:29,044 | INFO | COMMAND: nice  nice
+2026-08-06 17:41:48,592 | INFO | RESULT: {'type': 'plugin', 'data': {'action': 'ai', 'message': 'Boss, thnks! Kya aur help chahiye?'}}
+2026-08-06 17:42:19,004 | INFO | Processing audio with duration 00:08.960
+2026-08-06 17:42:19,020 | INFO | VAD filter removed 00:08.960 of audio
+2026-08-06 17:42:19,268 | INFO | Detected language 'en' with probability 0.44
+2026-08-06 17:42:35,167 | INFO | Processing audio with duration 00:06.080
+2026-08-06 17:42:35,181 | INFO | VAD filter removed 00:04.368 of audio
+2026-08-06 17:42:35,461 | INFO | Detected language 'en' with probability 0.58
+2026-08-06 17:42:35,618 | INFO | USER: nexus open chrome
+2026-08-06 17:42:35,618 | INFO | COMMAND: open chrome
+2026-08-06 17:42:35,624 | INFO | RESULT: {'type': 'plugin', 'data': {'action': 'app_opened', 'item': 'chrome'}}
+2026-08-06 17:43:30,971 | INFO | Processing audio with duration 00:05.120
+2026-08-06 17:43:30,982 | INFO | VAD filter removed 00:04.624 of audio
+2026-08-06 17:43:31,245 | INFO | Detected language 'en' with probability 0.54
+2026-08-06 17:43:31,392 | INFO | USER: thanks for watching
+2026-08-06 17:43:31,392 | INFO | COMMAND: thanks for watching
+2026-08-06 17:43:31,393 | INFO | RESULT: {'type': 'plugin', 'data': {'action': 'general', 'message': 'Welcome boss.'}}
+2026-08-06 17:45:18,563 | INFO | Processing audio with duration 00:06.400
+2026-08-06 17:45:18,579 | INFO | VAD filter removed 00:03.568 of audio
+2026-08-06 17:45:18,993 | INFO | Detected language 'en' with probability 0.87
+2026-08-06 17:45:19,196 | INFO | USER: nexus close chrome
+2026-08-06 17:45:19,196 | INFO | COMMAND: close chrome
+2026-08-06 17:45:21,314 | INFO | RESULT: {'type': 'plugin', 'data': {'action': 'app_closed', 'item': 'chrome'}}
+2026-08-06 17:45:33,968 | INFO | Processing audio with duration 00:05.440
+2026-08-06 17:45:33,975 | INFO | VAD filter removed 00:04.144 of audio
+2026-08-06 17:45:34,400 | INFO | Detected language 'en' with probability 0.65
+2026-08-06 17:45:35,382 | INFO | USER: thanks for watching this video hope you enjoy this video see you in the next video
+2026-08-06 17:45:35,382 | INFO | COMMAND: thanks for watching this video hope you enjoy this video see you in the t video
+2026-08-06 17:45:35,383 | INFO | RESULT: {'type': 'plugin', 'data': {'action': 'general', 'message': 'Welcome boss.'}}
+2026-08-06 17:45:47,681 | INFO | Processing audio with duration 00:06.400
+2026-08-06 17:45:47,696 | INFO | VAD filter removed 00:04.048 of audio
+2026-08-06 17:45:47,999 | INFO | Detected language 'en' with probability 0.80
+2026-08-06 17:45:48,162 | INFO | USER: hey nexus close vs code
+2026-08-06 17:45:48,162 | INFO | COMMAND: close vs code
+2026-08-06 17:45:50,308 | INFO | RESULT: {'type': 'plugin', 'data': {'action': 'app_closed', 'item': 'vscode'}}
+2026-08-06 17:50:48,544 | INFO | Processing audio with duration 00:05.120
+2026-08-06 17:50:48,558 | INFO | VAD filter removed 00:04.496 of audio
+2026-08-06 17:50:48,894 | INFO | Detected language 'en' with probability 0.65
+2026-08-06 17:50:49,034 | INFO | USER: thanks for watching
+2026-08-06 17:50:49,034 | INFO | COMMAND: thanks for watching
+2026-08-06 17:50:49,034 | INFO | RESULT: {'type': 'plugin', 'data': {'action': 'general', 'message': 'Welcome boss.'}}
+2026-08-06 17:53:36,088 | INFO | Processing audio with duration 00:05.120
+2026-08-06 17:53:36,094 | INFO | VAD filter removed 00:04.368 of audio
+2026-08-06 17:53:36,460 | INFO | Detected language 'en' with probability 0.36
+2026-08-06 17:53:36,607 | INFO | USER: thanks for watching
+2026-08-06 17:53:36,607 | INFO | COMMAND: thanks for watching
+2026-08-06 17:53:36,608 | INFO | RESULT: {'type': 'plugin', 'data': {'action': 'general', 'message': 'Welcome boss.'}}
+2026-08-06 17:59:28,629 | INFO | Processing audio with duration 00:05.120
+2026-08-06 17:59:28,637 | INFO | VAD filter removed 00:04.368 of audio
+2026-08-06 17:59:28,939 | INFO | Detected language 'en' with probability 0.52
+2026-08-06 17:59:29,091 | INFO | USER: thats it
+2026-08-06 17:59:29,091 | INFO | COMMAND: thats it
+2026-08-06 17:59:48,632 | INFO | RESULT: {'type': 'plugin', 'data': {'action': 'ai', 'message': 'Boss, okay! Koi aur need hai toh puch lo. Baaki baar baar thnks! \U0001f60a'}}
+2026-08-06 18:05:23,381 | INFO | Processing audio with duration 00:05.120
+2026-08-06 18:05:23,390 | INFO | VAD filter removed 00:05.120 of audio
+2026-08-06 18:05:23,788 | INFO | Detected language 'en' with probability 0.44
+2026-08-06 18:05:56,617 | INFO | Processing audio with duration 00:05.120
+2026-08-06 18:05:56,624 | INFO | VAD filter removed 00:04.496 of audio
+2026-08-06 18:05:56,977 | INFO | Detected language 'en' with probability 0.86
+2026-08-06 18:05:57,151 | INFO | USER: thanks for watching
+2026-08-06 18:06:53,459 | INFO | Processing audio with duration 00:05.440
+2026-08-06 18:06:53,542 | INFO | VAD filter removed 00:04.432 of audio
+2026-08-06 18:06:54,186 | INFO | Detected language 'en' with probability 0.98
+2026-08-06 18:06:54,324 | INFO | USER: nexus
+2026-08-06 18:07:06,018 | INFO | Processing audio with duration 00:05.440
+2026-08-06 18:07:06,032 | INFO | VAD filter removed 00:03.984 of audio
+2026-08-06 18:07:06,339 | INFO | Detected language 'en' with probability 0.83
+2026-08-06 18:07:06,480 | INFO | USER: open vs code
+2026-08-06 18:07:06,481 | INFO | COMMAND: open vs code
+2026-08-06 18:07:06,484 | INFO | RESULT: {'type': 'plugin', 'data': {'action': 'app_focused', 'item': 'vscode'}}
+2026-08-06 18:07:19,431 | INFO | Processing audio with duration 00:05.760
+2026-08-06 18:07:19,438 | INFO | VAD filter removed 00:04.560 of audio
+2026-08-06 18:07:19,738 | INFO | Detected language 'en' with probability 0.95
+2026-08-06 18:07:19,875 | INFO | USER: vs code
+2026-08-06 18:07:19,875 | INFO | COMMAND: vs code
+2026-08-06 18:07:22,116 | INFO | RESULT: {'type': 'plugin', 'data': {'action': 'coding_ready', 'ollama': 'running'}}
+2026-08-06 18:07:41,424 | INFO | Processing audio with duration 00:06.400
+2026-08-06 18:07:41,438 | INFO | VAD filter removed 00:04.464 of audio
+2026-08-06 18:07:41,757 | INFO | Detected language 'en' with probability 0.81
+2026-08-06 18:07:41,901 | INFO | USER: close terminal
+2026-08-06 18:07:41,901 | INFO | COMMAND: close terminal
+2026-08-06 18:07:42,011 | INFO | RESULT: {'type': 'plugin', 'data': {'action': 'app_closed', 'item': 'rm'}}
+2026-08-06 18:08:01,967 | INFO | Processing audio with duration 00:05.760
+2026-08-06 18:08:01,974 | INFO | VAD filter removed 00:04.464 of audio
+2026-08-06 18:08:02,328 | INFO | Detected language 'en' with probability 0.73
+2026-08-06 18:08:02,470 | INFO | USER: close terminal
+2026-08-06 18:08:02,470 | INFO | COMMAND: close terminal
+2026-08-06 18:08:02,534 | INFO | RESULT: {'type': 'plugin', 'data': {'action': 'app_not_running', 'item': 'rm'}}
+2026-08-06 18:08:16,802 | INFO | Processing audio with duration 00:05.760
+2026-08-06 18:08:16,815 | INFO | VAD filter removed 00:04.368 of audio
+2026-08-06 18:08:17,129 | INFO | Detected language 'en' with probability 0.86
+2026-08-06 18:08:17,275 | INFO | USER: close notepad
+2026-08-06 18:08:17,275 | INFO | COMMAND: close notepad
+2026-08-06 18:08:17,342 | INFO | RESULT: {'type': 'plugin', 'data': {'action': 'app_not_running', 'item': 'notepad'}}
+2026-08-06 18:09:07,140 | INFO | Processing audio with duration 00:05.120
+2026-08-06 18:09:07,151 | INFO | VAD filter removed 00:04.656 of audio
+2026-08-06 18:09:07,508 | INFO | Detected language 'en' with probability 0.75
+2026-08-06 18:09:07,653 | INFO | USER: thanks for watching
+2026-08-06 18:09:07,653 | INFO | COMMAND: thanks for watching
+2026-08-06 18:09:07,653 | INFO | RESULT: {'type': 'plugin', 'data': {'action': 'general', 'message': 'Welcome boss.'}}
+2026-08-06 18:09:22,299 | INFO | Processing audio with duration 00:05.120
+2026-08-06 18:09:22,309 | INFO | VAD filter removed 00:05.120 of audio
+2026-08-06 18:09:22,695 | INFO | Detected language 'en' with probability 0.44
+2026-08-06 18:10:18,569 | INFO | Processing audio with duration 00:05.120
+2026-08-06 18:10:18,583 | INFO | VAD filter removed 00:05.120 of audio
+2026-08-06 18:10:18,886 | INFO | Detected language 'en' with probability 0.44
+2026-08-06 18:10:39,254 | INFO | Processing audio with duration 00:05.760
+2026-08-06 18:10:39,269 | INFO | VAD filter removed 00:03.536 of audio
+2026-08-06 18:10:39,672 | INFO | Detected language 'en' with probability 0.84
+2026-08-06 18:10:40,332 | INFO | USER: no creativity
+2026-08-06 18:10:40,332 | INFO | COMMAND: no creativity
+2026-08-06 18:10:57,565 | INFO | RESULT: {'type': 'plugin', 'data': {'action': 'ai', 'message': "Boss, got it! No creativity? Just need to get things done? Tell me what you need, I'm here."}}
+2026-08-06 18:11:19,019 | INFO | Processing audio with duration 00:07.680
+2026-08-06 18:11:19,031 | INFO | VAD filter removed 00:04.528 of audio
+2026-08-06 18:11:19,446 | INFO | Detected language 'en' with probability 0.96
+2026-08-06 18:11:20,222 | INFO | USER: nexus close stagivity
+2026-08-06 18:11:20,222 | INFO | COMMAND: close stagivity
+2026-08-06 18:11:20,228 | INFO | RESULT: None
+2026-08-06 18:11:47,936 | INFO | Processing audio with duration 00:07.680
+2026-08-06 18:11:47,948 | INFO | VAD filter removed 00:04.496 of audio
+2026-08-06 18:11:48,266 | INFO | Detected language 'en' with probability 0.92
+2026-08-06 18:11:48,431 | INFO | USER: nexus close chat repeating
+2026-08-06 18:11:48,432 | INFO | COMMAND: close chat repeating
+2026-08-06 18:11:48,436 | INFO | RESULT: None
+2026-08-06 18:12:00,488 | INFO | Processing audio with duration 00:05.760
+2026-08-06 18:12:00,497 | INFO | VAD filter removed 00:04.432 of audio
+2026-08-06 18:12:00,847 | INFO | Detected language 'en' with probability 0.84
+2026-08-06 18:12:00,997 | INFO | USER: close github
+2026-08-06 18:12:00,997 | INFO | COMMAND: close github
+2026-08-06 18:12:01,083 | INFO | RESULT: {'type': 'plugin', 'data': {'action': 'app_not_running', 'item': 'github'}}
+2026-08-06 18:12:18,325 | INFO | Processing audio with duration 00:06.080
+2026-08-06 18:12:18,339 | INFO | VAD filter removed 00:04.560 of audio
+2026-08-06 18:12:18,634 | INFO | Detected language 'en' with probability 0.65
+2026-08-06 18:12:19,315 | INFO | USER: go stats repeating
+2026-08-06 18:12:19,315 | INFO | COMMAND: go stats repeating
+2026-08-06 18:12:19,379 | INFO | RESULT: {'type': 'plugin', 'data': {'action': 'app_not_running', 'item': 'stat'}}
+2026-08-06 18:12:39,289 | INFO | Processing audio with duration 00:05.440
+2026-08-06 18:12:39,298 | INFO | VAD filter removed 00:04.432 of audio
+2026-08-06 18:12:39,638 | INFO | Detected language 'en' with probability 0.93
+2026-08-06 18:12:39,768 | INFO | USER: exit
+2026-08-06 19:27:33,094 | INFO | Processing audio with duration 00:06.400
+2026-08-06 19:27:33,215 | INFO | VAD filter removed 00:04.464 of audio
+2026-08-06 19:27:34,274 | INFO | Detected language 'en' with probability 0.91
+2026-08-06 19:27:34,459 | INFO | USER: hey nexus open chrome
+2026-08-06 19:27:34,460 | INFO | COMMAND: open chrome
+2026-08-06 19:27:34,467 | INFO | RESULT: {'type': 'plugin', 'data': {'action': 'app_opened', 'item': 'chrome'}}
+2026-08-06 19:28:00,091 | INFO | Processing audio with duration 00:05.120
+2026-08-06 19:28:00,098 | INFO | VAD filter removed 00:03.056 of audio
+2026-08-06 19:28:00,432 | INFO | Detected language 'en' with probability 0.59
+2026-08-06 19:28:00,583 | INFO | USER: thanks for watching
+2026-08-06 19:28:00,583 | INFO | COMMAND: thanks for watching
+2026-08-06 19:28:00,584 | INFO | RESULT: {'type': 'plugin', 'data': {'action': 'general', 'message': 'Welcome boss.'}}
+2026-08-06 19:29:32,548 | INFO | Processing audio with duration 00:05.120
+2026-08-06 19:29:32,560 | INFO | VAD filter removed 00:05.120 of audio
+2026-08-06 19:29:32,806 | INFO | Detected language 'en' with probability 0.44
+2026-08-06 19:29:45,519 | INFO | Processing audio with duration 00:05.120
+2026-08-06 19:29:45,528 | INFO | VAD filter removed 00:04.432 of audio
+2026-08-06 19:29:45,813 | INFO | Detected language 'en' with probability 0.63
+2026-08-06 19:29:45,952 | INFO | USER: this is it
+2026-08-06 19:29:45,952 | INFO | COMMAND: this is it
+2026-08-06 19:29:45,954 | INFO | RESULT: {'type': 'plugin', 'data': {'action': 'general', 'message': 'Haan boss, bolo.'}}
+2026-08-06 19:30:35,525 | INFO | Processing audio with duration 00:08.960
+2026-08-06 19:30:35,540 | INFO | VAD filter removed 00:06.816 of audio
+2026-08-06 19:30:35,799 | INFO | Detected language 'en' with probability 0.71
+2026-08-06 19:30:35,947 | INFO | USER: ok
+2026-08-06 19:30:35,947 | INFO | COMMAND: ok
+2026-08-06 19:30:40,002 | INFO | RESULT: {'type': 'plugin', 'data': {'action': 'error', 'message': 'Sorry boss, AI response nahi aa paya.'}}
+2026-08-06 19:31:37,181 | INFO | Processing audio with duration 00:05.120
+2026-08-06 19:31:37,189 | INFO | VAD filter removed 00:04.592 of audio
+2026-08-06 19:31:37,576 | INFO | Detected language 'en' with probability 0.74
+2026-08-06 19:31:37,729 | INFO | USER: thanks for watching
+2026-08-06 19:31:37,729 | INFO | COMMAND: thanks for watching
+2026-08-06 19:31:37,730 | INFO | RESULT: {'type': 'plugin', 'data': {'action': 'general', 'message': 'Welcome boss.'}}
+2026-08-06 19:33:38,383 | INFO | Processing audio with duration 00:08.000
+2026-08-06 19:33:38,399 | INFO | VAD filter removed 00:07.040 of audio
+2026-08-06 19:33:38,730 | INFO | Detected language 'en' with probability 0.59
+2026-08-06 19:33:38,874 | INFO | USER: thanks for watching
+2026-08-06 19:33:38,874 | INFO | COMMAND: thanks for watching
+2026-08-06 19:33:38,875 | INFO | RESULT: {'type': 'plugin', 'data': {'action': 'general', 'message': 'Welcome boss.'}}
+2026-08-06 19:34:38,823 | INFO | Processing audio with duration 00:05.120
+2026-08-06 19:34:38,833 | INFO | VAD filter removed 00:05.120 of audio
+2026-08-06 19:34:39,118 | INFO | Detected language 'en' with probability 0.44
+2026-08-06 19:34:51,144 | INFO | Processing audio with duration 00:05.120
+2026-08-06 19:34:51,152 | INFO | VAD filter removed 00:05.120 of audio
+2026-08-06 19:34:51,499 | INFO | Detected language 'en' with probability 0.44
+2026-08-06 19:35:12,179 | INFO | Processing audio with duration 00:05.120
+2026-08-06 19:35:12,192 | INFO | VAD filter removed 00:05.120 of audio
+2026-08-06 19:35:12,492 | INFO | Detected language 'en' with probability 0.44
+2026-08-06 19:36:27,548 | INFO | Processing audio with duration 00:09.920
+2026-08-06 19:36:27,570 | INFO | VAD filter removed 00:09.296 of audio
+2026-08-06 19:36:27,876 | INFO | Detected language 'en' with probability 0.73
+2026-08-06 19:36:28,017 | INFO | USER: thank you
+2026-08-06 19:36:28,017 | INFO | COMMAND: thank you
+2026-08-06 19:36:28,018 | INFO | RESULT: {'type': 'plugin', 'data': {'action': 'general', 'message': 'Welcome boss.'}}
+2026-08-06 19:36:53,748 | INFO | Processing audio with duration 00:05.120
+2026-08-06 19:36:53,759 | INFO | VAD filter removed 00:04.368 of audio
+2026-08-06 19:36:54,056 | INFO | Detected language 'en' with probability 0.68
+2026-08-06 19:36:54,201 | INFO | USER: thanks for watching
+2026-08-06 19:36:54,201 | INFO | COMMAND: thanks for watching
+2026-08-06 19:36:54,202 | INFO | RESULT: {'type': 'plugin', 'data': {'action': 'general', 'message': 'Welcome boss.'}}
+2026-08-06 19:37:24,979 | INFO | Processing audio with duration 00:05.120
+2026-08-06 19:37:24,986 | INFO | VAD filter removed 00:04.592 of audio
+2026-08-06 19:37:25,262 | INFO | Detected language 'en' with probability 0.51
+2026-08-06 19:37:25,405 | INFO | USER: thanks for watching
+2026-08-06 19:37:25,405 | INFO | COMMAND: thanks for watching
+2026-08-06 19:37:25,406 | INFO | RESULT: {'type': 'plugin', 'data': {'action': 'general', 'message': 'Welcome boss.'}}
+2026-08-06 19:38:11,972 | INFO | Processing audio with duration 00:05.120
+2026-08-06 19:38:11,983 | INFO | VAD filter removed 00:04.336 of audio
+2026-08-06 19:38:12,234 | INFO | Detected language 'en' with probability 0.34
+2026-08-06 19:38:12,396 | INFO | USER: no thats not true
+2026-08-06 19:38:12,396 | INFO | COMMAND: no thats not true
+2026-08-06 19:38:16,448 | INFO | RESULT: {'type': 'plugin', 'data': {'action': 'error', 'message': 'Sorry boss, AI response nahi aa paya.'}}
+2026-08-06 19:39:15,353 | INFO | Processing audio with duration 00:51.520
+2026-08-06 19:39:15,427 | INFO | VAD filter removed 00:31.312 of audio
+2026-08-06 19:39:15,803 | INFO | Detected language 'hi' with probability 0.60
+2026-08-06 19:39:25,197 | INFO | USER: these days my song is available in the sun here with the use of raders everything got been changed from red to tea
+2026-08-06 19:39:25,197 | INFO | COMMAND: these days my song is available in the sun here with the use of raders everything got been changed from red to tea
+2026-08-06 19:39:25,198 | INFO | RESULT: {'type': 'plugin', 'data': {'action': 'general', 'message': 'Haan boss, bolo.'}}
+2026-08-06 19:39:47,807 | INFO | Processing audio with duration 00:12.160
+2026-08-06 19:39:47,829 | INFO | VAD filter removed 00:07.296 of audio
+2026-08-06 19:39:48,212 | INFO | Detected language 'jw' with probability 0.26
+2026-08-06 19:39:48,468 | INFO | USER: nexus ai assistant wake words nexus ai assistant wake words
+2026-08-06 19:39:48,468 | INFO | COMMAND: ai assistant wake words  ai assistant wake words
+2026-08-06 19:39:48,473 | INFO | RESULT: None
+2026-08-06 19:39:58,586 | INFO | Processing audio with duration 00:07.040
+2026-08-06 19:39:58,595 | INFO | VAD filter removed 00:04.496 of audio
+2026-08-06 19:39:59,009 | INFO | Detected language 'zh' with probability 0.75
+2026-08-06 19:40:03,667 | INFO | USER: nexus ai assistant
+2026-08-06 19:40:03,667 | INFO | COMMAND: ai assistant
+2026-08-06 19:40:03,671 | INFO | RESULT: None
+2026-08-06 19:40:43,252 | INFO | Processing audio with duration 00:05.120
+2026-08-06 19:40:43,260 | INFO | VAD filter removed 00:02.832 of audio
+2026-08-06 19:40:43,587 | INFO | Detected language 'en' with probability 0.73
+2026-08-06 19:40:43,717 | INFO | USER: thank you
+2026-08-06 19:40:43,717 | INFO | COMMAND: thank you
+2026-08-06 19:40:43,718 | INFO | RESULT: {'type': 'plugin', 'data': {'action': 'general', 'message': 'Welcome boss.'}}
+2026-08-06 19:41:54,015 | INFO | Processing audio with duration 00:09.280
+2026-08-06 19:41:54,028 | INFO | VAD filter removed 00:07.600 of audio
+2026-08-06 19:41:54,369 | INFO | Detected language 'en' with probability 0.53
+2026-08-06 19:41:54,523 | INFO | USER: thanks for watching
+2026-08-06 19:41:54,523 | INFO | COMMAND: thanks for watching
+2026-08-06 19:41:54,524 | INFO | RESULT: {'type': 'plugin', 'data': {'action': 'general', 'message': 'Welcome boss.'}}
+2026-08-06 19:42:23,186 | INFO | Processing audio with duration 00:07.360
+2026-08-06 19:42:23,203 | INFO | VAD filter removed 00:07.360 of audio
+2026-08-06 19:42:23,558 | INFO | Detected language 'en' with probability 0.44
+2026-08-06 19:43:03,743 | INFO | Processing audio with duration 00:18.560
+2026-08-06 19:43:03,779 | INFO | VAD filter removed 00:09.120 of audio
+2026-08-06 19:43:04,140 | INFO | Detected language 'hi' with probability 0.48
+2026-08-06 19:43:04,302 | INFO | USER: nexus ai assistant
+2026-08-06 19:43:04,302 | INFO | COMMAND: ai assistant
+2026-08-06 19:43:04,306 | INFO | RESULT: None
+2026-08-06 19:44:14,576 | INFO | Processing audio with duration 00:05.120
+2026-08-06 19:44:14,589 | INFO | VAD filter removed 00:05.120 of audio
+2026-08-06 19:44:14,927 | INFO | Detected language 'en' with probability 0.44
+2026-08-06 19:44:31,756 | INFO | Processing audio with duration 00:08.960
+2026-08-06 19:44:31,772 | INFO | VAD filter removed 00:08.960 of audio
+2026-08-06 19:44:32,116 | INFO | Detected language 'en' with probability 0.44
+2026-08-06 19:44:39,644 | INFO | Processing audio with duration 00:05.120
+2026-08-06 19:44:39,650 | INFO | VAD filter removed 00:05.120 of audio
+2026-08-06 19:44:39,917 | INFO | Detected language 'en' with probability 0.44
+2026-08-06 19:45:17,536 | INFO | Processing audio with duration 00:05.120
+2026-08-06 19:45:17,547 | INFO | VAD filter removed 00:04.592 of audio
+2026-08-06 19:45:17,897 | INFO | Detected language 'en' with probability 0.69
+2026-08-06 19:45:18,036 | INFO | USER: thanks for watching
+2026-08-06 19:45:18,036 | INFO | COMMAND: thanks for watching
+2026-08-06 19:45:18,037 | INFO | RESULT: {'type': 'plugin', 'data': {'action': 'general', 'message': 'Welcome boss.'}}
+2026-08-06 19:45:54,756 | INFO | Processing audio with duration 00:05.120
+2026-08-06 19:45:54,765 | INFO | VAD filter removed 00:02.960 of audio
+2026-08-06 19:45:55,090 | INFO | Detected language 'en' with probability 0.66
+2026-08-06 19:45:55,244 | INFO | USER: thanks for watching
+2026-08-06 19:45:55,245 | INFO | COMMAND: thanks for watching
+2026-08-06 19:45:55,245 | INFO | RESULT: {'type': 'plugin', 'data': {'action': 'general', 'message': 'Welcome boss.'}}
+2026-08-06 19:47:16,376 | INFO | Processing audio with duration 00:05.120
+2026-08-06 19:47:16,389 | INFO | VAD filter removed 00:04.592 of audio
+2026-08-06 19:47:16,675 | INFO | Detected language 'en' with probability 0.67
+2026-08-06 19:47:16,821 | INFO | USER: thanks for watching
+2026-08-06 19:47:16,822 | INFO | COMMAND: thanks for watching
+2026-08-06 19:47:16,822 | INFO | RESULT: {'type': 'plugin', 'data': {'action': 'general', 'message': 'Welcome boss.'}}
+2026-08-06 19:47:47,366 | INFO | Processing audio with duration 00:05.120
+2026-08-06 19:47:47,380 | INFO | VAD filter removed 00:05.120 of audio
+2026-08-06 19:47:47,663 | INFO | Detected language 'en' with probability 0.44
+2026-08-06 19:48:00,640 | INFO | Processing audio with duration 00:05.120
+2026-08-06 19:48:00,653 | INFO | VAD filter removed 00:02.624 of audio
+2026-08-06 19:48:01,044 | INFO | Detected language 'en' with probability 0.50
+2026-08-06 19:48:01,186 | INFO | USER: thanks for watching
+2026-08-06 19:48:01,186 | INFO | COMMAND: thanks for watching
+2026-08-06 19:48:01,187 | INFO | RESULT: {'type': 'plugin', 'data': {'action': 'general', 'message': 'Welcome boss.'}}
+2026-08-06 19:48:11,806 | INFO | Processing audio with duration 00:05.120
+2026-08-06 19:48:11,818 | INFO | VAD filter removed 00:04.560 of audio
+2026-08-06 19:48:12,233 | INFO | Detected language 'en' with probability 0.68
+2026-08-06 19:48:12,391 | INFO | USER: thanks for watching
+2026-08-06 19:48:12,391 | INFO | COMMAND: thanks for watching
+2026-08-06 19:48:12,391 | INFO | RESULT: {'type': 'plugin', 'data': {'action': 'general', 'message': 'Welcome boss.'}}
+2026-08-06 19:48:22,377 | INFO | Processing audio with duration 00:05.120
+2026-08-06 19:48:22,387 | INFO | VAD filter removed 00:04.304 of audio
+2026-08-06 19:48:22,632 | INFO | Detected language 'en' with probability 0.82
+2026-08-06 19:48:22,757 | INFO | USER: exit

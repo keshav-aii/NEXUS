@@ -1,53 +1,34 @@
 import webbrowser
 
+from core.data_loader import load_data
 
 
-WEBSITES = {
-
-    "github":
-    "https://github.com",
-
-    "youtube":
-    "https://youtube.com",
-
-    "google":
-    "https://google.com",
-
-    "linkedin":
-    "https://linkedin.com",
-
-    "chatgpt":
-    "https://chat.openai.com",
-
-    "gmail":
-    "https://gmail.com"
-
-}
+WEBSITES = load_data("websites.json")
 
 
+def open_website(target):
 
-def open_website(name):
+    target = target.lower().strip()
 
-    name = name.lower().strip()
-
-
-    url = WEBSITES.get(name)
-
+    url = WEBSITES.get(target)
 
     if not url:
 
         return None
 
+    try:
 
+        webbrowser.open(url)
 
-    webbrowser.open(url)
+        return {
+            "success": True,
+            "type": "website",
+            "url": url
+        }
 
+    except Exception:
 
-    return {
-
-        "success": True,
-
-        "message":
-        f"Opening {name}."
-
-    }
+        return {
+            "success": False,
+            "type": "website"
+        }

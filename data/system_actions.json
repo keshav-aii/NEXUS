@@ -1,0 +1,45 @@
+{
+    "lock": {
+        "keywords": [
+            "lock",
+            "lock pc",
+            "secure computer",
+            "lock system"
+        ],
+        "executor": "lock"
+    },
+
+
+    "shutdown": {
+        "keywords": [
+            "shutdown",
+            "shut down",
+            "power off",
+            "turn off pc",
+            "switch off"
+        ],
+        "executor": "shutdown"
+    },
+
+
+    "restart": {
+        "keywords": [
+            "restart",
+            "reboot",
+            "reload pc",
+            "restart system"
+        ],
+        "executor": "restart"
+    },
+
+
+    "sleep": {
+        "keywords": [
+            "sleep",
+            "standby",
+            "go to sleep",
+            "sleep mode"
+        ],
+        "executor": "sleep"
+    }
+}

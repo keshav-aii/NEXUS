@@ -2,19 +2,9 @@ from rapidfuzz import fuzz
 
 from core.entity_registry import load_entities
 
-
 ENTITY_REGISTRY = load_entities()
 
-
-print(
-    "ENTITY REGISTRY:",
-    ENTITY_REGISTRY
-)
-
-
-
 IGNORE_WORDS = {
-
     "a",
     "an",
     "the",
@@ -23,45 +13,55 @@ IGNORE_WORDS = {
     "to",
     "on",
     "of"
-
 }
 
-
-
 CONTEXT_WORDS = {
-
     "it",
     "this",
     "that"
+}
 
+ENTITY_SKIP_INTENTS = {
+    "ai",
+    "general",
+    "memory",
+    "system",
+    "coding"
 }
 
 
+def normalize(text):
 
+    text = text.lower()
+
+    replacements = {
+
+        "chat gpt": "chatgpt",
+
+        "vs code": "vscode",
+
+        "visual studio code": "vscode",
+
+        "google chrome": "chrome"
+
+    }
+
+    for old, new in replacements.items():
+
+        text = text.replace(old, new)
+
+    return text
 
 
 def extract_entities(command):
 
-
-    text = command.normalized.lower()
-
-
-    AI_SKIP_INTENTS = [
-
-        "ai",
-        "general"
-
-    ]
-
-
-    if command.intent in AI_SKIP_INTENTS:
+    if command.intent in ENTITY_SKIP_INTENTS:
 
         command.entities = {}
 
         return command
 
-
-    # remove punctuation
+    text = normalize(command.normalized)
 
     text = (
         text
@@ -71,178 +71,136 @@ def extract_entities(command):
         .replace("!", "")
     )
 
+    words = [
 
+        w
+
+        for w in text.split()
+
+        if w not in CONTEXT_WORDS
+
+    ]
 
     entities = {}
 
-
-
-    # ======================
-    # COLLECT ALL ENTITIES
-    # ======================
-
-
     all_entities = []
 
+    for entity in ENTITY_REGISTRY.values():
 
-
-    for name, entity in ENTITY_REGISTRY.items():
-
-
-        resolver = entity.get(
-            "resolver"
-        )
-
-
+        resolver = entity.get("resolver")
 
         if resolver:
-
 
             try:
 
                 values = resolver()
 
-
-                all_entities.extend(
-                    values
-                )
-
+                all_entities.extend(values)
 
             except Exception as e:
 
-                print(
-                    "ENTITY RESOLVER ERROR:",
-                    e
-                )
-
-
+                print("ENTITY ERROR:", e)
 
         else:
 
+            patterns = entity.get("patterns", {})
 
-            patterns = entity.get(
-                "patterns",
-                {}
-            )
+            for values in patterns.values():
 
+                all_entities.extend(values)
 
-            for key, values in patterns.items():
+    # ----------------------------
+    # CLEAN
+    # ----------------------------
 
+    cleaned = []
 
-                all_entities.extend(
-                    values
-                )
+    seen = set()
 
+    for item in all_entities:
 
+        item = normalize(item.strip().lower())
 
+        if item in IGNORE_WORDS:
 
-    # ======================
-    # WORD CLEANING
-    # ======================
+            continue
 
+        if item in seen:
 
-    words = text.split()
+            continue
 
+        seen.add(item)
 
+        cleaned.append(item)
 
-    words = [
+    # ----------------------------
+    # LONGEST FIRST
+    # ----------------------------
 
-        word
+    cleaned.sort(
 
-        for word in words
+        key=len,
 
-        if word not in CONTEXT_WORDS
+        reverse=True
 
-    ]
+    )
 
+    # ----------------------------
+    # EXACT PHRASE MATCH
+    # ----------------------------
 
+    for value in cleaned:
 
+        if value in text:
 
+            entities["target"] = value
 
-    # ======================
-    # FIND BEST MATCH
-    # ======================
+            command.entities = entities
 
+            return command
+
+    # ----------------------------
+    # EXACT WORD MATCH
+    # ----------------------------
+
+    for value in cleaned:
+
+        if value in words:
+
+            entities["target"] = value
+
+            command.entities = entities
+
+            return command
+
+    # ----------------------------
+    # FUZZY MATCH
+    # ----------------------------
 
     best_score = 0
 
     best_value = None
 
+    for value in cleaned:
 
+        score = fuzz.token_set_ratio(
 
+            text,
 
+            value
 
-    for value in all_entities:
+        )
 
+        if score > best_score:
 
-        value = value.lower().strip()
-
-
-
-        if value in IGNORE_WORDS:
-
-            continue
-
-
-
-
-
-        # exact match
-
-        if value in words:
-
+            best_score = score
 
             best_value = value
 
-            best_score = 100
-
-            break
-
-
-
-
-
-
-        # fuzzy match
-
-
-        for word in words:
-
-
-            score = fuzz.partial_ratio(
-                word,
-                value
-            )
-
-
-
-            if score > best_score:
-
-
-                best_score = score
-
-                best_value = value
-
-
-
-
-
-
-
-    # ======================
-    # SAVE ENTITY
-    # ======================
-
-
-    if best_score >= 75:
-
+    if best_score >= 90:
 
         entities["target"] = best_value
 
-
-
     command.entities = entities
-
-
 
     return command

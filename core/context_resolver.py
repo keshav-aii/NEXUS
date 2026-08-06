@@ -40,7 +40,28 @@ def resolve_context(command):
 
 
 
-    # check if command actually has an action
+    # ==========================
+    # APP COMMANDS
+    # DO NOT APPLY CONTEXT
+    # ==========================
+
+    if command.intent in [
+
+        "open",
+        "close"
+
+    ]:
+
+        return command
+
+
+
+
+
+    # ==========================
+    # CHECK ACTION
+    # ==========================
+
 
     has_action = False
 
@@ -48,16 +69,21 @@ def resolve_context(command):
     for action in CONTEXT_ACTIONS:
 
         if re.search(
+
             rf"\b{action}\b",
+
             text
+
         ):
 
             has_action = True
+
             break
 
 
 
-    # no action = no context resolving
+
+    # no action = no context
 
     if not has_action:
 
@@ -67,13 +93,22 @@ def resolve_context(command):
 
 
 
+    # ==========================
+    # RESOLVE PRONOUNS
+    # ==========================
+
+
     for word in CONTEXT_WORDS:
 
 
         if re.search(
+
             rf"\b{word}\b",
+
             text
+
         ):
+
 
 
             target = get_last_target()
@@ -97,11 +132,18 @@ def resolve_context(command):
 
 
                 print(
+
                     "CONTEXT RESOLVED:",
+
                     word,
+
                     "=>",
+
                     target
+
                 )
+
+
 
 
 

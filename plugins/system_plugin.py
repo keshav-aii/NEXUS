@@ -1,6 +1,12 @@
-import os
-
 from core.command import Command
+from core.data_loader import load_data
+from automation.system_executor import execute
+
+
+
+SYSTEM_ACTIONS = load_data(
+    "system_actions.json"
+)
 
 
 
@@ -14,6 +20,17 @@ PLUGIN_INFO = {
 
         "system"
 
+    ],
+
+    "keywords": [
+
+        "lock",
+        "shutdown",
+        "restart",
+        "sleep",
+        "reboot",
+        "standby"
+
     ]
 
 }
@@ -22,95 +39,100 @@ PLUGIN_INFO = {
 
 
 
-def handle(command: Command):
+def find_action(text):
 
 
-    text = command.normalized.lower().strip()
-
-
+    text = text.lower()
 
 
 
-    # ==========================
-    # LOCK
-    # ==========================
+    for action, data in SYSTEM_ACTIONS.items():
 
 
-    if "lock" in text:
-
-
-        os.system(
-            "rundll32.exe user32.dll,LockWorkStation"
+        keywords = data.get(
+            "keywords",
+            []
         )
 
 
-        return {
-
-            "action":
-
-            "system_locked"
-
-        }
+        for word in keywords:
 
 
+            if word in text:
 
-
-
-
-
-
-    # ==========================
-    # SHUTDOWN
-    # ==========================
-
-
-    if "shutdown" in text:
-
-
-        os.system(
-            "shutdown /s /t 5"
-        )
-
-
-        return {
-
-            "action":
-
-            "system_shutdown"
-
-        }
-
-
-
-
-
-
-
-
-    # ==========================
-    # RESTART
-    # ==========================
-
-
-    if "restart" in text:
-
-
-        os.system(
-            "shutdown /r /t 5"
-        )
-
-
-        return {
-
-            "action":
-
-            "system_restart"
-
-        }
-
-
-
+                return data.get(
+                    "executor"
+                )
 
 
 
     return None
+
+
+
+
+
+
+
+def handle(command: Command):
+
+
+    if command.intent != "system":
+
+        return None
+
+
+
+    text = command.normalized.lower()
+
+
+
+    action = find_action(
+        text
+    )
+
+
+
+    print(
+        "SYSTEM ACTION:",
+        action
+    )
+
+
+
+    if not action:
+
+
+        return {
+
+            "action": "error"
+
+        }
+
+
+
+
+    result = execute(
+        action
+    )
+
+
+
+    if result:
+
+
+        return {
+
+            "action":
+            "system_" + action
+
+        }
+
+
+
+    return {
+
+        "action":
+        "error"
+
+    }

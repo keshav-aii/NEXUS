@@ -1,4 +1,4 @@
-from core.personality import respond
+from core.response_provider import respond
 from memory.storage import get_user_name
 from core.response_engine import generate_response
 from config.wakewords import WAKE_WORDS

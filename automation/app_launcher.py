@@ -2,7 +2,14 @@ import subprocess
 
 from automation import app_database
 from automation.process_manager import close_process
+from automation.window_manager import (
+    is_window_open,
+    focus_window
+)
 
+# ==========================================================
+# APP ALIASES
+# ==========================================================
 
 ALIASES = {
 
@@ -19,9 +26,16 @@ ALIASES = {
 
     "git": "git",
 
+    "vscode": "code",
+    "vs code": "code",
+    "visual studio code": "code",
+
 }
 
 
+# ==========================================================
+# MICROSOFT STORE APPS
+# ==========================================================
 
 STORE_APPS = {
 
@@ -31,6 +45,9 @@ STORE_APPS = {
 }
 
 
+# ==========================================================
+# NORMALIZE NAME
+# ==========================================================
 
 def normalize_name(name):
 
@@ -48,70 +65,86 @@ def normalize_name(name):
     )
 
 
-
-
+# ==========================================================
+# FIND APPLICATION
+# ==========================================================
 
 def find_application(name):
 
-
     name = normalize_name(name)
 
-
     if not app_database.APP_DATABASE:
-
         app_database.load_apps()
 
-
-
-    # Exact match
+    # -------------------------
+    # Exact Match
+    # -------------------------
 
     for app, path in app_database.APP_DATABASE.items():
 
-        clean = app.lower().replace(".exe", "")
-
+        clean = (
+            app.lower()
+            .replace(".exe", "")
+            .strip()
+        )
 
         if clean == name:
-
             return path
 
+    # -------------------------
+    # Alias Match
+    # -------------------------
 
+    alias = ALIASES.get(name)
 
+    if alias:
 
-    # Partial match
+        for app, path in app_database.APP_DATABASE.items():
+
+            clean = (
+                app.lower()
+                .replace(".exe", "")
+                .strip()
+            )
+
+            if clean == alias:
+                return path
+
+    # -------------------------
+    # Partial Match
+    # -------------------------
 
     for app, path in app_database.APP_DATABASE.items():
 
-        clean = app.lower().replace(".exe", "")
+        clean = (
+            app.lower()
+            .replace(".exe", "")
+            .strip()
+        )
 
-
-        if name in clean:
-
+        if (
+            name in clean
+            or clean in name
+        ):
             return path
-
-
 
     return None
 
 
-
-
+# ==========================================================
+# LAUNCH APP
+# ==========================================================
 
 def launch_path(path, name):
 
     try:
-
 
         print(
             "LAUNCHING:",
             path
         )
 
-
-
-        # Windows Store App
-
         if name in STORE_APPS:
-
 
             subprocess.Popen(
                 [
@@ -120,64 +153,71 @@ def launch_path(path, name):
                 ]
             )
 
-
             return True
 
-
-
-
-
-        # Normal exe
-
-
-        subprocess.Popen(
-            path
-        )
-
+        subprocess.Popen([path])
 
         return True
 
-
-
-
-
     except Exception as e:
-
 
         print(
             "LAUNCH ERROR:",
             e
         )
 
-
         return False
 
 
-
-
+# ==========================================================
+# OPEN APPLICATION
+# ==========================================================
 
 def open_application(name):
 
-
     clean_name = normalize_name(name)
 
+    # -----------------------------------------
+    # Already Running?
+    # -----------------------------------------
 
+    if is_window_open(clean_name):
 
-    path = find_application(
-        clean_name
-    )
+        print(
+            "APP ALREADY RUNNING:",
+            clean_name
+        )
 
+        focus_window(clean_name)
 
+        return {
+
+            "success": True,
+
+            "type": "app",
+
+            "action": "app_focused",
+
+            "message":
+            f"{clean_name} is already running.",
+
+            "item":
+            clean_name
+
+        }
+
+    # -----------------------------------------
+    # Find Application
+    # -----------------------------------------
+
+    path = find_application(clean_name)
 
     print(
         "FOUND PATH:",
         path
     )
 
-
-
     if not path:
-
 
         return {
 
@@ -193,20 +233,16 @@ def open_application(name):
 
         }
 
-
-
-
+    # -----------------------------------------
+    # Launch
+    # -----------------------------------------
 
     success = launch_path(
         path,
         clean_name
     )
 
-
-
-
     if success:
-
 
         return {
 
@@ -222,12 +258,7 @@ def open_application(name):
 
         }
 
-
-
-
-
     return {
-
 
         "success": False,
 
@@ -240,16 +271,54 @@ def open_application(name):
         clean_name
 
     }
+    
+    
 
-
-
+# ==========================================================
+# CLOSE APPLICATION
+# ==========================================================
 
 def close_application(name):
 
-
     clean_name = normalize_name(name)
 
+    result = close_process(clean_name)
 
-    return close_process(
-        clean_name
-    )
+    if result.get("success"):
+
+        return {
+
+            "success": True,
+
+            "process": clean_name,
+
+            "forced": result.get(
+                "forced",
+                False
+            )
+
+        }
+
+    if result.get("message"):
+
+        if "not running" in result["message"].lower():
+
+            return {
+
+                "success": False,
+
+                "reason": "not_running",
+
+                "process": clean_name
+
+            }
+
+    return {
+
+        "success": False,
+
+        "reason": "close_failed",
+
+        "process": clean_name
+
+    }

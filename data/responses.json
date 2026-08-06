@@ -1,0 +1,178 @@
+{
+    "wake": [
+        "Haan {name}, main sun rahi hoon.",
+        "Ji boss, main sun rahi hoon.",
+        "Haan {name}, bolo kya karna hai.",
+        "Ready hoon boss, batao."
+    ],
+
+    "system_lock": [
+        "Okay boss, PC lock kar rahi hoon.",
+        "Done boss, system lock kar diya hai."
+    ],
+
+    "system_shutdown": [
+        "Okay boss, PC shutdown kar rahi hoon.",
+        "Done boss, system band kar diya hai."
+    ],
+
+    "system_restart": [
+        "Okay boss, system restart kar rahi hoon.",
+        "Done boss, PC restart kar diya hai."
+    ],
+
+    "system_sleep": [
+        "Okay boss, sleep mode activate kar rahi hoon.",
+        "Done boss, system sleep me ja raha hai."
+    ],
+
+    "attention": [
+        "Ji boss?",
+        "Haan bolo Keshav.",
+        "Ji boss, batao.",
+        "Main sun rahi hoon."
+    ],
+
+    "open": [
+        "Okay boss, {item} open kar rahi hoon.",
+        "Done boss, {item} launch kar diya hai."
+    ],
+
+    "browser_opened": [
+        "Okay boss, {item} browser me open kar rahi hoon.",
+        "Done boss, {item} website khol di hai.",
+        "Opening {item} in your browser boss."
+    ],
+
+    "app_focused": [
+    "Boss, {item} already open tha. Main usse saamne le aayi hoon.",
+    "{item} pehle se running tha boss.",
+    "{item} already open hai boss.",
+    "Main {item} par switch kar rahi hoon boss."
+    ],
+
+    "close": [
+        "Done boss, {item} close kar diya hai.",
+        "Okay boss, {item} band kar diya hai."
+    ],
+
+    "app_not_running": [
+        "Boss, {item} abhi open nahi hai.",
+        "{item} already band hai boss.",
+        "Boss, {item} chal hi nahi raha tha."
+    ],
+
+
+    "file_created": [
+        "Done boss, {item} bana di hai.",
+        "Ho gaya boss, {item} create kar di hai."
+    ],
+
+    "folder_created": [
+        "Done boss, {item} folder bana diya hai.",
+        "Ho gaya boss, {item} create kar diya hai."
+    ],
+
+    "folder_deleted": [
+        "Done boss, {item} folder delete kar diya hai.",
+        "Ho gaya boss, {item} remove kar diya hai."
+    ],
+
+    "delete_confirm": [
+        "Kya aap sure ho boss? Kya main {item} delete kar du?",
+        "Confirm karo boss, kya {item} remove karni hai?"
+    ],
+
+    "delete_success": [
+        "Done boss, {item} delete kar di hai.",
+        "Ho gaya boss, {item} remove kar diya hai."
+    ],
+
+    "file_not_found": [
+        "Sorry boss, {item} nahi mili.",
+        "Boss, mujhe {item} nahi mil rahi hai."
+    ],
+
+    "missing_name": [
+        "Boss, file ya folder ka naam batao.",
+        "Kis file ko handle karna hai boss? Naam specify karo."
+    ],
+
+    "remember": [
+        "Theek hai {name}, main yaad rakhungi.",
+        "Memory update ho gayi hai boss."
+    ],
+
+    "memory_saved": [
+        "Theek hai boss, main ye yaad rakhungi.",
+        "Memory update ho gayi hai boss."
+    ],
+
+    "name_recall": [
+        "Aapka naam {item} hai boss.",
+        "Mujhe yaad hai boss, aapka naam {item} hai."
+    ],
+
+    "memory_empty": [
+        "Abhi mujhe kuch yaad nahi hai boss.",
+        "Meri memory me abhi koi information save nahi hai."
+    ],
+
+    "memory_list": [
+        "Boss, mujhe ye cheezein yaad hain."
+    ],
+
+    "memory_forgotten": [
+        "Theek hai boss, {item} bhool gayi.",
+        "Okay boss, {item} remove kar di hai."
+    ],
+
+    "memory_not_found": [
+        "Sorry boss, mujhe ye memory nahi mili.",
+        "Mujhe ye information yaad nahi hai boss."
+    ],
+
+    "confirm": [
+        "Okay boss, main kar rahi hoon.",
+        "Sure boss, proceed kar rahi hoon."
+    ],
+
+    "cancel": [
+        "Theek hai, maine cancel kar diya.",
+        "Okay boss, command cancel kar di hai."
+    ],
+
+    "sleep": [
+        "Main ab sleep mode me ja rahi hoon. Bulana ho toh Nexus bol dena.",
+        "Okay Keshav, main standby mode me ja rahi hoon."
+    ],
+
+    "coding_ready": [
+        "Okay boss, coding workspace ready hai.",
+        "Done boss, VS Code aur coding environment ready hai."
+    ],
+
+    "ollama_running": [
+        "Ollama bhi ready hai boss."
+    ],
+
+    "ollama_not_running": [
+        "Boss, coding ready hai lekin Ollama abhi run nahi ho raha."
+    ],
+
+    "error": [
+        "Sorry boss, ye kaam complete nahi ho paya.",
+        "Sorry boss, kuch problem aa gayi."
+    ],
+
+    "unknown": [
+        "Sorry boss, mujhe ye command samajh nahi aayi.",
+        "Ek baar phir bolo Keshav."
+    ],
+
+    "general": [
+        "Main badhiya hoon boss, aap batao.",
+        "Haan boss, bolo.",
+        "Ready hoon Keshav."
+    ]
+}

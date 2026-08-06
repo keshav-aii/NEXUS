@@ -22,7 +22,10 @@ PLUGIN_INFO = {
         "how are you",
         "how r u",
         "who are you",
-        "what is your name",
+        "whats my name",
+        "what's my name",
+       
+       
         "thank you",
         "thanks",
         "good morning",

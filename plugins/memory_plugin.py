@@ -1,10 +1,11 @@
 from core.command import Command
 
-from memory.storage import (
+
+from core.permanent_memory import (
     remember,
     recall,
-    get_all_memory,
-    save_memory,
+    forget,
+    load_memory
 )
 
 
@@ -21,15 +22,21 @@ PLUGIN_INFO = {
 
     ],
 
-    "keywords": [
+   
+
+        "keywords": [
 
         "remember",
         "forget",
         "recall",
         "what do you remember",
-        "what is my"
+        "what is my name",
+        "whats my name",
+        "what's my name",
+        "my name"
 
     ]
+    
 
 }
 
@@ -71,7 +78,6 @@ def handle(command: Command):
     ):
 
 
-
         name = text.split(
             "name is",
             1
@@ -80,19 +86,20 @@ def handle(command: Command):
 
 
         remember(
+
             "my name",
+
             name
+
         )
 
 
 
         return {
 
-
             "action":
 
             "memory_saved",
-
 
 
             "item":
@@ -105,25 +112,27 @@ def handle(command: Command):
 
 
 
-
-
     # =========================
     # GENERAL REMEMBER
+    #
     # Example:
     # remember my editor is vscode
+    #
     # =========================
 
 
     if "remember" in text:
 
 
-
         data = text.replace(
-            "remember",
-            "",
-            1
-        ).strip()
 
+            "remember",
+
+            "",
+
+            1
+
+        ).strip()
 
 
 
@@ -132,15 +141,21 @@ def handle(command: Command):
 
 
             key, value = data.split(
+
                 " is ",
+
                 1
+
             )
 
 
 
             remember(
+
                 key.strip(),
+
                 value.strip()
+
             )
 
 
@@ -153,14 +168,11 @@ def handle(command: Command):
                 "memory_saved",
 
 
-
                 "item":
 
                 key.strip()
 
             }
-
-
 
 
 
@@ -172,21 +184,26 @@ def handle(command: Command):
 
 
     if (
+
         "what is my name" in text
-        or "what's my name" in text
+
         or "whats my name" in text
+
+        or "what's my name" in text
+
     ):
 
 
 
         name = recall(
+
             "my name"
+
         )
 
 
 
         if name:
-
 
 
             return {
@@ -195,7 +212,6 @@ def handle(command: Command):
                 "action":
 
                 "name_recall",
-
 
 
                 "item":
@@ -219,27 +235,28 @@ def handle(command: Command):
 
 
 
-
-
     # =========================
     # SHOW ALL MEMORY
     # =========================
 
 
     if (
+
         "what do you remember" in text
+
         or "show memory" in text
+
         or "show my memories" in text
+
     ):
 
 
 
-        memories = get_all_memory()
+        memories = load_memory()
 
 
 
         if not memories:
-
 
 
             return {
@@ -254,8 +271,6 @@ def handle(command: Command):
 
 
 
-
-
         return {
 
 
@@ -264,14 +279,11 @@ def handle(command: Command):
             "memory_list",
 
 
-
             "data":
 
             memories
 
         }
-
-
 
 
 
@@ -287,29 +299,18 @@ def handle(command: Command):
 
 
         key = text.replace(
+
             "forget",
-            ""
+
+            "",
+
+            1
+
         ).strip()
 
 
 
-        memories = get_all_memory()
-
-
-
-
-        if key in memories:
-
-
-
-            del memories[key]
-
-
-
-            save_memory(
-                memories
-            )
-
+        if forget(key):
 
 
             return {
@@ -320,15 +321,11 @@ def handle(command: Command):
                 "memory_forgotten",
 
 
-
                 "item":
 
                 key
 
             }
-
-
-
 
 
 
@@ -340,8 +337,6 @@ def handle(command: Command):
             "memory_not_found"
 
         }
-
-
 
 
 

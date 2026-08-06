@@ -1,32 +1,44 @@
-from core.personality import respond
+from core.response_provider import respond
 
 
 ACTION_MAP = {
 
-    "app_opened": "open",
+    "app_opened":
+    "open",
 
-    "app_closed": "close",
+    "browser_opened":
+    "browser_opened",
 
-    "file_created": "file_created",
+    "app_closed":
+    "close",
 
-    "folder_created": "folder_created",
+    "app_not_running":
+    "app_not_running",
 
-    "delete_success": "delete_success",
+    "app_close_failed":
+    "error",
 
-    "error": "error"
+    "file_created":
+    "file_created",
+
+    "folder_created":
+    "folder_created",
+
+    "delete_success":
+    "delete_success",
+
+    "error":
+    "error"
 
 }
 
 
-
 def get_message(action, item="", data=None):
-
 
     action = ACTION_MAP.get(
         action,
         action
     )
-
 
     return respond(
         action,
